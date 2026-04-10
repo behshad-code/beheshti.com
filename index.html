@@ -192,9 +192,14 @@
     <div class="section-wrap">
       <div class="section-header">
         <span class="section-title">Travel</span>
-        <span class="section-count">5 stories</span>
+        <span class="section-count">7 stories</span>
       </div>
       <div class="tab-grid">
+        <div class="card card--featured" onclick="openArticle('ferragosto-amalfi')">
+          <div class="card-img"><img src="images/travel-amalfi-positano-dusk.jpg" alt="Positano at dusk, Ferragosto night — boats in the bay, town lit from below"></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Travel · Amalfi Coast</span><h2 class="card-title">Ferragosto on the Amalfi Coast</h2></div>
+        </div>
         <div class="card" onclick="openArticle('positano-aerial')">
           <div class="card-img"><img src="images/travel-amalfi-positano-aerial.jpg" alt="Positano aerial" loading="lazy" /></div>
           <div class="card-overlay"></div>
@@ -400,6 +405,151 @@
 ══════════════════════════════════════════════════════════ -->
 <script>
 const ARTICLES = {
+
+  'ferragosto-amalfi': {
+    category: 'Travel · Amalfi Coast',
+    title: 'Ferragosto on the Amalfi Coast',
+    lede: 'Four days in Positano, Amalfi, and Ravello — arriving on Italy\'s most crowded night of the year, and finding something quieter on the other side of it.',
+    date: 'August 2025',
+    readTime: '12 min read',
+    hero: 'images/travel-amalfi-positano-dusk.jpg',
+    photos: [
+      { src: 'images/travel-amalfi-fireworks-bay.jpg', caption: 'The whole town watched from wherever it could stand.' },
+      { src: 'images/travel-amalfi-mojito-toast.jpg', caption: 'Dinner stretched longer than expected.' },
+      { src: 'images/travel-amalfi-terrazza-infinito.jpg', caption: 'We didn\'t plan to stay.' },
+    ],
+    body: `
+      <p>We pulled in around five-thirty. The water was already full of boats. Not anchored — waiting. Everything around the bay had the feeling of a crowd holding its breath before something, and we didn\'t yet know what that something was.</p>
+
+      <p>The hotel was halfway up the hill, exactly where the town folds over itself. You could see the church dome from the terrace. Below it, Spiaggia Grande was packed solid, the dark-grey pebbles invisible under bodies and inflatables. It was loud and slightly absurd and completely Italian, and we stood on the terrace watching it for a long time before going inside.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-positano-hillside.jpg" alt="Positano hillside at golden hour">
+        <p class="caption">First evening light on the hillside.</p>
+      </div>
+
+      <p>August 15 is Ferragosto — the Feast of the Assumption, Italy\'s summer peak. In Positano, that means the entire bay turns into a floating party, and at midnight, fireworks launched from the water light up the whole vertical face of the town.</p>
+
+      <h2>La Sponda, Le Sirenuse</h2>
+
+      <p>We had booked La Sponda weeks before leaving. The restaurant is on a terrace cantilevered out from the Le Sirenuse hotel, lit by candles in every direction. The langoustines came first — raw, on ice, arranged with no drama beyond the fact of themselves. They tasted like cold water and salt.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-langoustines.jpg" alt="Raw langoustines on ice — La Sponda">
+        <p class="caption">The seafood arrived clean and precise.</p>
+      </div>
+
+      <p>We ordered the Taurasi next, a 2014 Vigna Cinque Querce from Salvatore Molettieri. Iron and dried fruit and something further back — the kind of wine that slows a meal down, which is what a meal like that one needs.</p>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-taurasi-wine.jpg" alt="Taurasi wine — bottle and glass">
+        <img src="images/travel-amalfi-coupe-cocktails.jpg" alt="Two golden coupe cocktails">
+      </div>
+
+      <h2>Midnight — Ferragosto</h2>
+
+      <p>We were back on the hotel terrace by eleven-thirty. Then just after midnight — a single launch from the water, a pause, and the sky opened. What surprised us was the sound. Over water, with the cliff face of Positano behind you amplifying everything, each burst comes a half-second after the flash and lands in your chest.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-fireworks-bay.jpg" alt="Ferragosto fireworks over Positano bay">
+        <p class="caption">The whole town watched from wherever it could stand.</p>
+      </div>
+
+      <h2>August 16 — Spiaggia Grande</h2>
+
+      <p>The morning after Ferragosto is the morning when you find out how many people were actually in Positano. The beach was at capacity by nine. We had front-row sunbeds at L\'Incanto — you could face the water and let the crowd recede behind you.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-spiaggia-grande.jpg" alt="Spiaggia Grande packed — Ferragosto weekend">
+        <p class="caption">We hadn\'t expected quite this many people.</p>
+      </div>
+
+      <blockquote>Ferragosto weekend is the busiest stretch of the Italian summer. The lesson for next time: arrive a week earlier, or a week later. The coast is still the coast.</blockquote>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-espresso-view.jpg" alt="Espresso held up against Positano bay">
+        <img src="images/travel-amalfi-calamari.jpg" alt="Calamari fritti e zucchine">
+      </div>
+
+      <h2>The Drive to Amalfi</h2>
+
+      <p>We left at half past eight. We stopped in Praiano, where we did not expect to stop at all. Built into the cliff beside the road is a presepe — a permanent miniature recreation of Praiano itself, hundreds of tiny painted buildings stacked against the rock face, with figures and fishing boats. A sign explains it. We stood there longer than we meant to.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-praiano-presepe.jpg" alt="Presepe di Praiano — miniature village built into cliff">
+        <p class="caption">We didn\'t plan to stay.</p>
+      </div>
+
+      <p>Amalfi town was beautiful and genuinely difficult on a Sunday in August. The cathedral earns everything written about it. We climbed the steps, bought coffee and a sfogliatella at Pasticceria Pansa, watched the crowd arrange itself.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-cathedral-steps.jpg" alt="Amalfi Cathedral steps — August crowds">
+        <p class="caption">The cathedral was worth it. The piazza required patience.</p>
+      </div>
+
+      <h2>Ravello — Elevation Changes Everything</h2>
+
+      <p>The road up to Ravello takes twenty minutes and adds what feels like a different season. We arrived around three and went directly to Villa Rufolo. What the guidebooks call the belvedere is a small stone terrace with a concert stage built at its edge — a platform that appears to float above the sea.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-ravello-terrace.jpg" alt="Ravello terrace — red flowers, umbrella pine, coastline below">
+        <p class="caption">The elevation changes the color of everything.</p>
+      </div>
+
+      <p>We walked into the grounds of Villa Cimbrone. The path in is through a grape arbor, terracotta urns on either side, dappled light. Quiet enough that you can hear your footsteps. The Terrazza dell\'Infinito appeared without warning. You walk through a gate and the cliff simply drops away.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-terrazza-infinito.jpg" alt="Terrazza dell\'Infinito — marble busts, coastline beyond">
+      </div>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-marble-bust.jpg" alt="Marble bust on Infinity Terrace">
+        <img src="images/travel-amalfi-cimbrone-statue.jpg" alt="Classical statue, Villa Cimbrone">
+      </div>
+
+      <h2>A Moment We Didn\'t Plan</h2>
+
+      <p>Before dinner we sat on the terrace at Palazzo Avino and ordered mojitos. Four of them. The view looks directly down toward the coast bending toward Salerno. We hadn\'t planned this stop. The sun was still up and the view was in front of us and the mojitos arrived before we had made any decision about them. We stayed for the sunset.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-mojito-toast.jpg" alt="Four mojitos raised — family toast, Ravello coast below">
+        <p class="caption">Dinner stretched longer than expected.</p>
+      </div>
+
+      <h2>Rossellinis — Palazzo Avino</h2>
+
+      <p>The seafood display at Rossellinis is the first thing you see. A marble counter, backlit, with oysters and whole lobsters and langoustines on crushed ice, lemons tucked between them. The message is: this is what we\'re working with tonight.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-rossellinis-display.jpg" alt="Rossellinis seafood display — backlit marble counter">
+      </div>
+
+      <p>We drank Vigna Grotta Piana, a white from Ravello itself — Costa d\'Amalfi DOC, made by Ettore Sammarco from vines grown on the slope below us. Mineral and cool, with something almost saline in it. It made the seafood taste more like where it came from.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-grotta-piana-wine.jpg" alt="Vigna Grotta Piana, Ravello — bottle and glass">
+        <p class="caption">Made from the slope below us.</p>
+      </div>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-pasta-zucchini.jpg" alt="Angel hair pasta with zucchini">
+        <img src="images/travel-amalfi-seafood-plate.jpg" alt="Mixed grilled seafood on ceramic plate">
+      </div>
+
+      <blockquote>Next time we would stay in Ravello for the night. The town after ten is a different place entirely.</blockquote>
+
+      <h2>August 18 — Leaving</h2>
+
+      <p>The last morning was quiet. Church bells. Coffee on the terrace before the sun got above the ridge. We checked out at eleven, went into Santa Maria Assunta for a few minutes — cool marble, the Byzantine Madonna above the altar, the smell of stone and candles. The coast road south was still empty. We didn\'t look back.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-positano-morning.jpg" alt="Positano cliffside church dome — morning light">
+        <p class="caption">Before the boats arrive.</p>
+      </div>
+
+      <p>The things that stayed with us were smaller than we expected: the miniature village in Praiano that no one had mentioned. The particular color of the light in Ravello at four in the afternoon. The sound of fireworks over water at midnight. Four mojitos and no plan for the sunset.</p>
+      `,
+  },
 
   'positano-aerial': {
     category: 'Travel · Amalfi Coast',

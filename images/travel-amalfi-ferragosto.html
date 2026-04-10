@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferragosto on the Amalfi Coast — The Beheshti Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── Design System ─────────────────────────────────────────── */
+  :root {
+    --bg:           #111009;
+    --surface:      #0c0b09;
+    --card:         #1a1916;
+    --gold:         #c9a96e;
+    --gold-dim:     rgba(201,169,110,0.15);
+    --gold-border:  rgba(201,169,110,0.12);
+    --text-primary: #f0ebe3;
+    --text-secondary: #8a8278;
+    --text-dim:     #56524a;
+    --serif:        'Fraunces', Georgia, serif;
+    --sans:         'Instrument Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Nav ────────────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--gold-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .nav-logo em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .nav-back {
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 150ms ease-out;
+  }
+
+  .nav-back:hover { opacity: 0.7; }
+
+  .nav-back::before {
+    content: '←';
+    font-size: 10px;
+  }
+
+  /* ─── Article Layout ─────────────────────────────────────────── */
+  .article-wrapper {
+    padding-top: 60px;
+    animation: fadeSlideUp 250ms ease-out both;
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── Hero ───────────────────────────────────────────────────── */
+  .article-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .article-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
+
+  .article-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(17,16,9,0) 40%,
+      rgba(17,16,9,0.85) 100%
+    );
+  }
+
+  /* ─── Article Header ─────────────────────────────────────────── */
+  .article-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 52px 32px 0;
+    text-align: center;
+  }
+
+  .article-category {
+    font-family: var(--sans);
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .article-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .article-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .article-subtitle {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .article-meta {
+    font-family: var(--sans);
+    font-size: 7.5px;
+    font-weight: 300;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .article-meta-dot {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    display: inline-block;
+  }
+
+  .article-rule {
+    max-width: 720px;
+    margin: 32px auto 0;
+    padding: 0 32px;
+  }
+
+  .article-rule hr {
+    border: none;
+    border-top: 1px solid var(--gold-border);
+  }
+
+  /* ─── Article Body ───────────────────────────────────────────── */
+  .article-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+
+  .article-body p {
+    margin-bottom: 1.6em;
+  }
+
+  .article-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Section labels */
+  .section-label {
+    font-family: var(--sans);
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 18px;
+    margin-top: 56px;
+  }
+
+  .section-label:first-child {
+    margin-top: 0;
+  }
+
+  /* Pull quote */
+  .pull-quote {
+    border-left: 1px solid var(--gold);
+    padding: 4px 0 4px 24px;
+    margin: 40px 0;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Personal layer boxes */
+  .personal-note {
+    border-top: 1px solid var(--gold-border);
+    border-bottom: 1px solid var(--gold-border);
+    padding: 20px 0;
+    margin: 40px 0;
+  }
+
+  .personal-note-label {
+    font-family: var(--sans);
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .personal-note p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 0 !important;
+  }
+
+  /* ─── Inline Images ──────────────────────────────────────────── */
+  .img-full {
+    width: 100%;
+    display: block;
+    margin: 48px 0;
+  }
+
+  .img-full img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* For portrait-ratio inline images, constrain width */
+  .img-portrait {
+    max-width: 520px;
+    margin: 48px auto;
+    display: block;
+  }
+
+  .img-portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Two-up grid */
+  .img-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 48px 0;
+  }
+
+  .img-pair img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Three-up grid */
+  .img-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 48px 0;
+  }
+
+  .img-trio img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Caption */
+  figcaption, .caption {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-dim);
+    text-align: center;
+    padding-top: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Feature image — breaks out slightly wider than body */
+  .img-feature {
+    margin: 48px -40px;
+    display: block;
+  }
+
+  .img-feature img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 760px) {
+    .img-feature { margin: 40px 0; }
+    .img-pair { grid-template-columns: 1fr; }
+    .img-trio { grid-template-columns: 1fr 1fr; }
+    nav { padding: 0 20px; }
+    .article-header { padding: 40px 20px 0; }
+    .article-body { padding: 40px 20px 64px; }
+    .article-rule { padding: 0 20px; }
+  }
+
+  /* ─── Footer signature ───────────────────────────────────────── */
+  .article-footer {
+    text-align: center;
+    padding: 48px 32px 64px;
+    border-top: 1px solid var(--gold-border);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .brand-signature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--sans);
+    font-size: 8px;
+    font-weight: 300;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+  }
+
+  .brand-signature-line {
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold-border);
+    display: block;
+  }
+
+  .brand-signature span {
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* ─── Homepage card preview (for bento integration docs) ─────── */
+  .integration-note {
+    display: none; /* hidden in article view — reference only */
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo">The Beheshti <em>Journal</em></a>
+  <a href="index.html#travel" class="nav-back">Travel</a>
+</nav>
+
+<!-- ─── ARTICLE WRAPPER ───────────────────────────────────────────── -->
+<div class="article-wrapper">
+
+  <!-- HERO -->
+  <div class="article-hero">
+    <img
+      src="images/travel-amalfi-positano-dusk.jpg"
+      alt="Positano at dusk, Ferragosto — boats in the bay, the town lit from below"
+      loading="eager"
+    >
+    <div class="article-hero-overlay"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="article-header">
+    <span class="article-category">Travel · Amalfi Coast</span>
+    <h1 class="article-title">Ferragosto on the<br><em>Amalfi Coast</em></h1>
+    <p class="article-subtitle">Four days in Positano, Amalfi, and Ravello — arriving on Italy's most crowded night of the year, and finding something quieter on the other side of it.</p>
+    <div class="article-meta">
+      <span>August 15–18, 2025</span>
+      <span class="article-meta-dot"></span>
+      <span>Positano · Amalfi · Ravello</span>
+      <span class="article-meta-dot"></span>
+      <span>12 min read</span>
+    </div>
+  </header>
+
+  <div class="article-rule"><hr></div>
+
+  <!-- BODY -->
+  <div class="article-body">
+
+    <!-- ─── SECTION 1: OPENING MOMENT ─────────────────────────── -->
+    <span class="section-label">August 15 — Arrival</span>
+
+    <p>We pulled in around five-thirty. The water was already full of boats. Not anchored — waiting. Everything around the bay had the feeling of a crowd holding its breath before something, and we didn't yet know what that something was.</p>
+
+    <p>The hotel was halfway up the hill, exactly where the town folds over itself. You could see the church dome from the terrace. Below it, Spiaggia Grande was packed solid, the dark-grey pebbles invisible under bodies and inflatables. A boat with speakers drifted offshore, trailing something between pop music and static. It was loud and slightly absurd and completely Italian, and we stood on the terrace watching it for a long time before going inside.</p>
+
+    <figure class="img-full">
+      <img src="images/travel-amalfi-positano-hillside.jpg" alt="Positano hillside, golden hour — pastel buildings cascading to the sea">
+      <figcaption>First evening light on the hillside.</figcaption>
+    </figure>
+
+    <p>August 15 is Ferragosto — the Feast of the Assumption, the summer's peak, the one night when Italy collectively stops. In Positano, that means the entire bay turns into a floating party, and at midnight, fireworks launched from the water light up the whole vertical face of the town. We had read about it. We had not quite imagined it.</p>
+
+    <!-- ─── SECTION 2: DINNER — NIGHT 1 ───────────────────────── -->
+    <span class="section-label">La Sponda, Le Sirenuse</span>
+
+    <p>We had booked La Sponda weeks before leaving, which was the right decision. The restaurant is on a terrace cantilevered out from the Le Sirenuse hotel, lit by candles in every direction — you stop counting after a while. The view down to the bay is unobstructed. By the time our table was set, the boats below had multiplied again.</p>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-langoustines.jpg" alt="Raw langoustines on ice, herb garnish — La Sponda, Positano">
+      <figcaption>The seafood arrived clean and precise.</figcaption>
+    </figure>
+
+    <p>The langoustines came first — raw, on ice, arranged with no drama beyond the fact of themselves. They tasted like cold water and salt. We ordered the Taurasi next, a 2014 Vigna Cinque Querce from Salvatore Molettieri, which was a strange choice with seafood but the right one. It was iron and dried fruit and something further back — the kind of wine that slows a meal down, which is what a meal like that one needs.</p>
+
+    <figure class="img-pair">
+      <img src="images/travel-amalfi-taurasi-wine.jpg" alt="Taurasi Vigna Cinque Querce 2014 — bottle and glass, candlelit terrace">
+      <img src="images/travel-amalfi-coupe-cocktails.jpg" alt="Two golden coupe cocktails, white tablecloth, warm light">
+    </figure>
+    <p class="caption">The wine slowed everything down just enough.</p>
+
+    <!-- ─── SECTION 3: FIREWORKS ───────────────────────────────── -->
+    <span class="section-label">Midnight — Ferragosto</span>
+
+    <p>We were back on the hotel terrace by eleven-thirty. The bay was completely still now, the boats arranged in a loose semicircle below, waiting. Then just after midnight — a single launch from the water, a pause, and the sky opened.</p>
+
+    <figure class="img-feature">
+      <img src="images/travel-amalfi-fireworks-bay.jpg" alt="Ferragosto fireworks over Positano bay — white bursts, boats lit in blue below">
+      <figcaption>The whole town watched from wherever it could stand.</figcaption>
+    </figure>
+
+    <p>What surprised us was the sound. In photographs, fireworks are silent. In person, over water, with the cliff face of Positano behind you amplifying everything, each burst comes a half-second after the flash and lands in your chest. The boats sounded their horns. Someone below us on the hillside clapped. It went on for nearly twenty minutes.</p>
+
+    <!-- ─── SECTION 4: BEACH DAY ───────────────────────────────── -->
+    <span class="section-label">August 16 — Spiaggia Grande</span>
+
+    <p>The morning after Ferragosto is the morning when you find out how many people were actually in Positano. The beach was at capacity by nine. We had front-row sunbeds at L'Incanto, which made everything slightly easier — you could face the water and let the crowd recede behind you.</p>
+
+    <figure class="img-full">
+      <img src="images/travel-amalfi-spiaggia-grande.jpg" alt="Spiaggia Grande packed with people — Positano cliffs behind, Ferragosto weekend">
+      <figcaption>We hadn't expected quite this many people.</figcaption>
+    </figure>
+
+    <div class="personal-note">
+      <span class="personal-note-label">What we didn't expect</span>
+      <p>Ferragosto weekend is the busiest stretch of the Italian summer. We knew this in the abstract. We did not know it in the specific — which is to say: every restaurant, every lane, every beach chair is spoken for by noon. The lesson for next time is to arrive a week earlier, or a week later. The coast is still the coast.</p>
+    </div>
+
+    <p>The afternoon slowed into something easier. Lunch at L'Incanto's terrace — calamari fritti, crisp and light, the zucchini cut thin — then back up to the room during the hottest part of the day. By five, the day-trippers had largely cleared and the town felt like itself again.</p>
+
+    <figure class="img-pair">
+      <img src="images/travel-amalfi-espresso-view.jpg" alt="Espresso cup held up against Positano bay — Hotel California terrace">
+      <img src="images/travel-amalfi-calamari.jpg" alt="Calamari fritti e zucchine with lemon wedges — L'Incanto beach restaurant">
+    </figure>
+    <p class="caption">The morning was slow. Lunch was slower.</p>
+
+    <!-- ─── SECTION 5: AMALFI ROAD TRIP ───────────────────────── -->
+    <span class="section-label">August 17 — The Drive to Amalfi</span>
+
+    <p>We left at half past eight. The SS163 in the morning is a different road than it is at noon — the light still low, the switchbacks not yet backed up with tour buses. We stopped twice before reaching Amalfi: once at a viewpoint above Praiano to look back at Positano, and once in Praiano itself, where we did not expect to stop at all.</p>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-praiano-presepe.jpg" alt="Presepe di Praiano — handmade miniature village built into the cliff face">
+      <figcaption>We didn't plan to stay.</figcaption>
+    </figure>
+
+    <p>Built into the cliff beside the road is a presepe — a nativity scene — constructed by a man named Castellano Michele over what must have been years. Not a Christmas display: a permanent, miniature recreation of Praiano itself, hundreds of tiny painted buildings stacked against the rock face, with figures and fishing boats and a working funicular. A sign explains it. We stood there longer than we meant to.</p>
+
+    <p>Amalfi town was the trade-off. Beautiful, genuinely — the cathedral earns everything written about it — but August 17 on a Sunday, with every ferry from Naples and Salerno adding to the piazza, it was difficult to find much quiet. We climbed the cathedral steps, bought coffee and a sfogliatella at Pasticceria Pansa, watched the crowd arrange itself around the fountain at the bottom of the square.</p>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-cathedral-steps.jpg" alt="Amalfi Cathedral steps — hundreds of people sitting, Sunday August crowds">
+      <figcaption>The cathedral was worth it. The piazza required patience.</figcaption>
+    </figure>
+
+    <figure class="img-pair">
+      <img src="images/travel-amalfi-limoncello-wall.jpg" alt="Wall of limoncello bottles — Amalfi shop, every size imaginable">
+      <img src="images/travel-amalfi-gelato-shop.jpg" alt="Il Pianeta del Gelato — homemade ice cream dal 1959, Amalfi street crowd">
+    </figure>
+    <p class="caption">The lemons are everywhere. This is not a complaint.</p>
+
+    <!-- ─── SECTION 6: RAVELLO ─────────────────────────────────── -->
+    <span class="section-label">Ravello — Elevation Changes Everything</span>
+
+    <p>The road up to Ravello takes twenty minutes and adds what feels like a different season. At three hundred and sixty-five metres, the air is cooler, the light different, the crowds thinner by half. We arrived around three o'clock and went directly to Villa Rufolo.</p>
+
+    <figure class="img-full">
+      <img src="images/travel-amalfi-ravello-terrace.jpg" alt="Ravello terrace — red mandevilla flowers, lone umbrella pine, coastline far below">
+      <figcaption>The elevation changes the color of everything.</figcaption>
+    </figure>
+
+    <p>What the guidebooks call the belvedere at Villa Rufolo is a small stone terrace with a concert stage built at its edge — a platform that appears to float above the sea. Richard Wagner came here in 1880 and wrote that it had given him the idea for the garden in Parsifal. You can see why. The flowers, the sky, the specific blue of the Tyrrhenian from that height — it's the kind of view that makes you understand the word sublime in its original sense, not as praise but as a category of experience.</p>
+
+    <figure class="img-full">
+      <img src="images/travel-amalfi-villa-rufolo.jpg" alt="Villa Rufolo stone tower — umbrella pines, Ravello rooftops, mountains behind">
+    </figure>
+
+    <p>We walked through town — past the ceramics shops, past a wall plaque of the seven deadly sins in terracotta that we stopped to photograph — and into the grounds of Villa Cimbrone. The path in is through a grape arbor, terracotta urns on either side, dappled light. Quiet enough that you can hear your footsteps.</p>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-cimbrone-entry.jpg" alt="Villa Cimbrone entrance — grape arbor, terracotta urns, path leading to gardens">
+      <figcaption>The gardens open slowly.</figcaption>
+    </figure>
+
+    <div class="pull-quote">
+      "The terrace appeared without warning. You walk through a gate and the cliff simply drops away."
+    </div>
+
+    <p>The Terrazza dell'Infinito is the reason people make the walk. A row of marble busts on a stone balustrade, and beyond them, nothing — the coastline curving away in both directions, the sea an impossible shade of blue, the horizon hazy with distance. Someone had come here before D.H. Lawrence, before Greta Garbo, before the guidebooks — and decided that this was where a terrace should be. They were right.</p>
+
+    <figure class="img-feature">
+      <img src="images/travel-amalfi-terrazza-infinito.jpg" alt="Terrazza dell'Infinito — marble busts in a row, Amalfi Coast coastline beyond">
+    </figure>
+
+    <figure class="img-pair">
+      <img src="images/travel-amalfi-marble-bust.jpg" alt="Single marble bust on Infinity Terrace — coastline and blue sea behind">
+      <img src="images/travel-amalfi-cimbrone-statue.jpg" alt="Classical female statue in arched alcove, Villa Cimbrone gardens">
+    </figure>
+    <p class="caption">The afternoon light at that altitude is different from anything below.</p>
+
+    <!-- ─── SECTION 7: FAMILY MOMENT ──────────────────────────── -->
+    <span class="section-label">A Moment We Didn't Plan</span>
+
+    <p>Before dinner we sat on the terrace at Palazzo Avino — the pink hotel that sits at Ravello's highest point — and ordered mojitos. Four of them, it turned out. The view from there looks directly down toward Minori and the coast bending toward Salerno. Below us, 365 metres below us, boats moved across the water like punctuation.</p>
+
+    <figure class="img-full">
+      <img src="images/travel-amalfi-mojito-toast.jpg" alt="Four mojito glasses raised — family toast, Ravello coastline 365 metres below">
+      <figcaption>Dinner stretched longer than expected.</figcaption>
+    </figure>
+
+    <p>We hadn't planned this stop. We were heading to Rossellinis, which was twenty minutes away in terms of distance and considerably longer in terms of everything else. But the sun was still up and the view was in front of us and the mojitos arrived before we had made any decision about them. We stayed for the sunset.</p>
+
+    <!-- ─── SECTION 8: DINNER ROSSELLINIS ─────────────────────── -->
+    <span class="section-label">Rossellinis — Palazzo Avino</span>
+
+    <p>The seafood display at Rossellinis is the first thing you see when you're brought to your table. A marble counter, backlit, with oysters and whole lobsters and langoustines arranged on crushed ice, lemons tucked between them, sea moss at the edges. It's theatrical in the way that certain kitchens are — not showing off, exactly, but not hiding anything either. The message is: this is what we're working with tonight.</p>
+
+    <figure class="img-full">
+      <img src="images/travel-amalfi-rossellinis-display.jpg" alt="Rossellinis seafood display — backlit marble counter, lobster, langoustines, oysters on ice, shell mosaic wall">
+    </figure>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-rossellinis-counter.jpg" alt="Rossellinis kitchen counter — seafood arranged on ice, chef working behind, mosaic detail">
+      <figcaption>Before the meal begins, there is this.</figcaption>
+    </figure>
+
+    <p>We started with the amuse-bouche — four courses of them, each one arriving on its own white plate, each one a different register of the same idea: precision with local ingredients, nothing wasted. Then the tuna tartare on a crispy base, sesame, a round of jalapeño, nasturtium leaf. Then burrata and tomato, which sounds simple and was, except that the tomatoes were at a point of ripeness where simple is actually difficult to achieve.</p>
+
+    <figure class="img-pair">
+      <img src="images/travel-amalfi-amuse-bouche.jpg" alt="Four amuse-bouche on individual white plates — fine dining table setting, Rossellinis">
+      <img src="images/travel-amalfi-burrata-bruschetta.jpg" alt="Burrata and tomato bruschetta on mosaic tile — Rossellinis, Ravello">
+    </figure>
+
+    <figure class="img-pair">
+      <img src="images/travel-amalfi-pasta-zucchini.jpg" alt="Angel hair pasta with zucchini and seafood — white bowl, Rossellinis">
+      <img src="images/travel-amalfi-seafood-plate.jpg" alt="Mixed grilled seafood on hand-painted ceramic — sea bream, squid, prawn, Rossellinis">
+    </figure>
+    <p class="caption">The kitchen worked with what the coast offers in August.</p>
+
+    <p>We drank Vigna Grotta Piana, a white from Ravello itself — Costa d'Amalfi DOC, made by Ettore Sammarco from vines grown somewhere on the slope below us. It was mineral and cool, with something almost saline in it, which is what happens when grapes grow at altitude above the sea. It made the seafood taste more like where it came from.</p>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-grotta-piana-wine.jpg" alt="Vigna Grotta Piana, Ravello Costa d'Amalfi — bottle and glass, garden terrace">
+      <figcaption>Made from the slope below us.</figcaption>
+    </figure>
+
+    <div class="personal-note">
+      <span class="personal-note-label">What we would do differently</span>
+      <p>We drove back to Positano after dinner, which took over an hour on the coastal road in the dark. It was beautiful — the moon over the water, the cliffs lit below. But next time we would stay in Ravello for the night and walk back into town when it was empty. The town after ten is a different place entirely.</p>
+    </div>
+
+    <!-- ─── SECTION 9: FAREWELL MORNING ──────────────────────── -->
+    <span class="section-label">August 18 — Leaving</span>
+
+    <p>The last morning was quiet in the way that last mornings always are when you've been somewhere for a few days and it has started to feel ordinary. Church bells. The smell of something baking from somewhere below. Coffee on the terrace before the sun got above the ridge.</p>
+
+    <figure class="img-portrait">
+      <img src="images/travel-amalfi-positano-morning.jpg" alt="Positano cliffside, majolica church dome — morning light, before the crowds">
+      <figcaption>Before the boats arrive.</figcaption>
+    </figure>
+
+    <p>We checked out at eleven. Walking down, we passed the church — Santa Maria Assunta — and went inside for a few minutes. Cool marble, the Byzantine Madonna above the altar, the smell of stone and candles. A few days earlier that same icon had been carried through the town in procession, through the same streets we had walked. It's the kind of continuity that a place earns over centuries and carries without explaining itself.</p>
+
+    <p>The coast road south was still empty. We didn't look back.</p>
+
+    <!-- ─── CLOSING REFLECTION ─────────────────────────────────── -->
+    <span class="section-label">What We Learned Quickly</span>
+
+    <p>Positano in Ferragosto is not Positano at its quietest, and Amalfi on a Sunday in August is genuinely difficult. We knew this and went anyway, because the fireworks are once a year and the coast is worth it at any level of crowd. The trick, we think, is to treat the crowded moments — the cathedral steps, the packed beach, the slow road — as part of the experience rather than obstacles to it. The Terrazza dell'Infinito is still the Terrazza dell'Infinito whether you share it with fifty people or five. The wine tastes the same. The view doesn't change.</p>
+
+    <p>The things that stayed with us were smaller than we expected: the miniature village in Praiano, which no one had mentioned to us. The particular color of the light in Ravello at four in the afternoon. The sound of fireworks over water at midnight. Four mojitos and no plan for the sunset.</p>
+
+  </div>
+
+  <!-- FOOTER SIGNATURE -->
+  <footer class="article-footer">
+    <div class="brand-signature">
+      <span class="brand-signature-line"></span>
+      <span>beheshti.com · est. 2026</span>
+      <span class="brand-signature-line"></span>
+    </div>
+  </footer>
+
+</div><!-- /article-wrapper -->
+
+<!--
+  ════════════════════════════════════════════════════════════════
+  HOMEPAGE INTEGRATION REFERENCE
+  ════════════════════════════════════════════════════════════════
+  
+  BENTO GRID CARD DATA — paste into index.html article registry:
+  
+  {
+    id: "amalfi-ferragosto-2025",
+    category: "Travel",
+    slug: "travel-amalfi-ferragosto",
+    headline: "Ferragosto on the Amalfi Coast",
+    subhead: "Four days in Positano, Amalfi, and Ravello — arriving on Italy's most crowded night of the year.",
+    date: "August 2025",
+    readTime: "12 min",
+    images: {
+      featured:   "images/travel-amalfi-positano-dusk.jpg",        // 1600×900  — HERO card (left, full height)
+      supporting1: "images/travel-amalfi-fireworks-bay.jpg",       // portrait  — top-right supporting card
+      supporting2: "images/travel-amalfi-marble-bust.jpg",         // landscape — bottom supporting card
+      tertiary1:  "images/travel-amalfi-lobster-pasta.jpg",        // landscape — small card
+      tertiary2:  "images/travel-amalfi-mojito-toast.jpg",         // landscape — small card
+    },
+    articleFile: "travel-amalfi-ferragosto.html"
+  }
+  
+  NAV TAB: Travel (tab index 0)
+  ════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>
