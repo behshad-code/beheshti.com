@@ -3,269 +3,850 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Beheshti Journal — Stories, Flavors & Life</title>
+  <title>Beheshti Journal — Luxury Travel, Food &amp; Culture</title>
+  <meta name="description" content="A luxury editorial journal covering travel, food and wine, culture, and the well-lived life." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">The Beheshti <em>Journal</em></a>
-    <ul class="nav-links">
-      <li><a href="travel.html">Travel</a></li>
-      <li><a href="food.html">Food & Recipes</a></li>
-      <li><a href="city-guides.html">City Guides</a></li>
-      <li><a href="books-films.html">Books & Films</a></li>
-      <li><a href="tech-tips.html">Tech Tips</a></li>
-      <li><a href="seasonal.html">Seasonal</a></li>
-    </ul>
-  </div>
-</nav>
+<!-- ══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════ -->
+<header id="site-header">
+  <div class="header-inner">
+    <div class="site-wordmark" onclick="showHome()">
+      Beheshti <span>Journal</span>
+    </div>
 
-<!-- HOME HERO -->
-<section class="home-hero pt-nav">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="container hero-content">
-    <div class="hero-overline">A family journal · Est. 2026</div>
-    <h1 class="hero-headline">
-      Stories,<br>
-      flavors<br>
-      <em>& life.</em>
-    </h1>
-    <div class="hero-sub">
-      <p class="hero-desc">Travels near and far, recipes from the kitchen, books we love, cities we call home — and everything in between. Welcome to our corner of the internet.</p>
-      <div class="hero-scroll">
-        <div class="scroll-line"></div>
-        Scroll
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <button class="nav-tab active" data-tab="home"        onclick="showTab('home')">Home</button>
+      <button class="nav-tab"        data-tab="travel"      onclick="showTab('travel')">Travel</button>
+      <button class="nav-tab"        data-tab="city-guides" onclick="showTab('city-guides')">City Guides</button>
+      <button class="nav-tab"        data-tab="food"        onclick="showTab('food')">Food &amp; Wine</button>
+      <button class="nav-tab"        data-tab="culture"     onclick="showTab('culture')">Culture</button>
+      <button class="nav-tab"        data-tab="digital"     onclick="showTab('digital')">Digital Life</button>
+      <button class="nav-tab"        data-tab="wellbeing"   onclick="showTab('wellbeing')">Wellbeing</button>
+    </nav>
+
+    <div class="header-right">
+      <span class="tagline">The well-lived life</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     APP SHELL
+══════════════════════════════════════════════════════════ -->
+<main id="app">
+
+  <!-- ── ARTICLE VIEW (shared, overlays tabs) ─────────────── -->
+  <div id="article-view"></div>
+
+  <!-- ── HOME TAB ─────────────────────────────────────────── -->
+  <div id="tab-home" class="view active">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-bg" id="hero-bg"
+           style="background-image:url('images/travel-amalfi-positano-aerial.jpg')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Featured · Amalfi Coast</p>
+        <h1 class="hero-title">Where the Cliffs Meet the Sea</h1>
+        <p class="hero-sub">Positano at golden hour, Ravello's hilltop gardens, and the quiet alchemy of lemon groves tumbling into cerulean water.</p>
+        <button class="btn-read" onclick="openArticle('positano-aerial')">Read the story</button>
+      </div>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">Latest Stories</span>
+        <span class="section-count">11 articles</span>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- Row 1: hero + tall -->
+        <div class="card card--hero" onclick="openArticle('positano-dusk')">
+          <div class="card-img"><img src="images/travel-amalfi-positano-dusk.jpg" alt="Positano at dusk" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Travel · Amalfi Coast</span>
+            <h2 class="card-title">Positano After Dark: the Village That Refuses to Sleep</h2>
+            <p class="card-meta">8 min read</p>
+          </div>
+        </div>
+
+        <div class="card card--tall" onclick="openArticle('seafood-platter')">
+          <div class="card-img"><img src="images/food-amalfi-seafood-platter.jpg" alt="Amalfi seafood platter" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Food &amp; Wine · Amalfi</span>
+            <h2 class="card-title">The Catch of the Day: Amalfi's Legendary Seafood Tradition</h2>
+            <p class="card-meta">6 min read</p>
+          </div>
+        </div>
+
+        <!-- Row 2: wide + std + std -->
+        <div class="card card--wide" onclick="openArticle('ravello-cocktails')">
+          <div class="card-img"><img src="images/food-amalfi-ravello-cocktails.jpg" alt="Cocktails in Ravello" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Food &amp; Wine · Ravello</span>
+            <h2 class="card-title">Spritz at Sunset: Ravello's Art of the Aperitivo</h2>
+            <p class="card-meta">5 min read</p>
+          </div>
+        </div>
+
+        <div class="card card--std" onclick="openArticle('church-dusk')">
+          <div class="card-img"><img src="images/travel-amalfi-church-dusk.jpg" alt="Amalfi church at dusk" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Travel · Amalfi</span>
+            <h2 class="card-title">Duomo di Sant'Andrea: Amalfi's Soul at Twilight</h2>
+            <p class="card-meta">4 min read</p>
+          </div>
+        </div>
+
+        <div class="card card--std" onclick="openArticle('capri-vespa')">
+          <div class="card-img"><img src="images/travel-capri-dg-vespa.jpg" alt="Vespa on Capri" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Travel · Capri</span>
+            <h2 class="card-title">La Dolce Vita on Two Wheels: A Vespa Morning on Capri</h2>
+            <p class="card-meta">6 min read</p>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="card card--std" onclick="openArticle('capri-gelato')">
+          <div class="card-img"><img src="images/travel-capri-gelato.jpg" alt="Gelato on Capri" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Food &amp; Wine · Capri</span>
+            <h2 class="card-title">The Perfect Scoop: Capri's Finest Gelaterie, Ranked</h2>
+            <p class="card-meta">5 min read</p>
+          </div>
+        </div>
+
+        <div class="card card--std" onclick="openArticle('capri-marina')">
+          <div class="card-img"><img src="images/travel-capri-marina.jpg" alt="Capri marina" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Travel · Capri</span>
+            <h2 class="card-title">Arriving by Sea: Capri's Marina Grande at First Light</h2>
+            <p class="card-meta">4 min read</p>
+          </div>
+        </div>
+
+        <div class="card card--std" onclick="openArticle('lobster-pasta')">
+          <div class="card-img"><img src="images/food-amalfi-lobster-pasta.jpg" alt="Lobster pasta Amalfi" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Food &amp; Wine · Amalfi</span>
+            <h2 class="card-title">Spaghetti all'Astice: The Dish That Defines the Coast</h2>
+            <p class="card-meta">7 min read</p>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="card card--wide" onclick="openArticle('beach-night')">
+          <div class="card-img"><img src="images/travel-amalfi-beach-night.jpg" alt="Amalfi beach at night" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Travel · Amalfi Coast</span>
+            <h2 class="card-title">After Midnight on the Amalfi Shore: When the Tourists Leave</h2>
+            <p class="card-meta">6 min read</p>
+          </div>
+        </div>
+
+        <div class="card card--wide" onclick="openArticle('calamari')">
+          <div class="card-img"><img src="images/food-amalfi-calamari.jpg" alt="Calamari fritti" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Food &amp; Wine · Amalfi</span>
+            <h2 class="card-title">Calamari Fritti e Limone: Italy's Most Perfect Bar Snack</h2>
+            <p class="card-meta">4 min read</p>
+          </div>
+        </div>
+
+        <!-- Full-width feature -->
+        <div class="card card--full" onclick="openArticle('positano-aerial')">
+          <div class="card-img"><img src="images/travel-amalfi-positano-aerial.jpg" alt="Positano aerial" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body">
+            <span class="card-cat">Travel · Amalfi Coast</span>
+            <h2 class="card-title">The View from Above: Why Positano Looks Best Before Breakfast</h2>
+            <p class="card-meta">10 min read · Amalfi Coast feature</p>
+          </div>
+        </div>
+
+      </div><!-- /.bento-grid -->
+    </div><!-- /.section-wrap -->
+  </div><!-- #tab-home -->
+
+
+  <!-- ── TRAVEL TAB ─────────────────────────────────────────── -->
+  <div id="tab-travel" class="view">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">Travel</span>
+        <span class="section-count">5 stories</span>
+      </div>
+      <div class="tab-grid">
+        <div class="card" onclick="openArticle('positano-aerial')">
+          <div class="card-img"><img src="images/travel-amalfi-positano-aerial.jpg" alt="Positano aerial" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi Coast</span><h2 class="card-title">The View from Above: Why Positano Looks Best Before Breakfast</h2></div>
+        </div>
+        <div class="card" onclick="openArticle('positano-dusk')">
+          <div class="card-img"><img src="images/travel-amalfi-positano-dusk.jpg" alt="Positano at dusk" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi Coast</span><h2 class="card-title">Positano After Dark</h2></div>
+        </div>
+        <div class="card" onclick="openArticle('church-dusk')">
+          <div class="card-img"><img src="images/travel-amalfi-church-dusk.jpg" alt="Amalfi church" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi</span><h2 class="card-title">Duomo di Sant'Andrea at Twilight</h2></div>
+        </div>
+        <div class="card" onclick="openArticle('capri-vespa')">
+          <div class="card-img"><img src="images/travel-capri-dg-vespa.jpg" alt="Vespa Capri" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Capri</span><h2 class="card-title">La Dolce Vita on Two Wheels</h2></div>
+        </div>
+        <div class="card" onclick="openArticle('capri-marina')">
+          <div class="card-img"><img src="images/travel-capri-marina.jpg" alt="Capri marina" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Capri</span><h2 class="card-title">Arriving by Sea: Marina Grande at First Light</h2></div>
+        </div>
+        <div class="card" onclick="openArticle('beach-night')">
+          <div class="card-img"><img src="images/travel-amalfi-beach-night.jpg" alt="Amalfi beach night" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi Coast</span><h2 class="card-title">After Midnight on the Amalfi Shore</h2></div>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- CATEGORIES -->
-<section class="section" style="padding-top:4rem;padding-bottom:4rem;">
-  <div class="container">
-    <div class="section-header anim">
-      <div>
-        <div class="section-label">Explore</div>
-        <h2 class="section-title">What we write <em>about</em></h2>
+  <!-- ── CITY GUIDES TAB ────────────────────────────────────── -->
+  <div id="tab-city-guides" class="view">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">City Guides</span>
+        <span class="section-count">Coming soon</span>
+      </div>
+      <div class="tab-grid">
+        <div class="card card--text" onclick="openArticle('positano-aerial')">
+          <div class="card-img"><img src="images/travel-amalfi-positano-aerial.jpg" alt="" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi Coast</span><h2 class="card-title">The Complete Positano Guide</h2><p class="card-meta">Where to stay, eat, and what to skip</p></div>
+        </div>
+        <div class="card" onclick="openArticle('capri-marina')">
+          <div class="card-img"><img src="images/travel-capri-marina.jpg" alt="" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Capri</span><h2 class="card-title">Capri: Beyond the Blue Grotto</h2><p class="card-meta">The insider's 48-hour itinerary</p></div>
+        </div>
+        <div class="card card--text" style="background:var(--bg-card);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Naples · Rome · Ravello</h2>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="cat-grid anim anim-1">
-      <a href="travel.html" class="cat-item">
-        <div class="cat-emoji">✈️</div>
-        <div class="cat-name">Travel</div>
-        <div class="cat-count">Explore →</div>
-      </a>
-      <a href="food.html" class="cat-item">
-        <div class="cat-emoji">🍽️</div>
-        <div class="cat-name">Food & Recipes</div>
-        <div class="cat-count">Explore →</div>
-      </a>
-      <a href="city-guides.html" class="cat-item">
-        <div class="cat-emoji">🗺️</div>
-        <div class="cat-name">City Guides</div>
-        <div class="cat-count">Explore →</div>
-      </a>
-      <a href="books-films.html" class="cat-item">
-        <div class="cat-emoji">📚</div>
-        <div class="cat-name">Books & Films</div>
-        <div class="cat-count">Explore →</div>
-      </a>
-      <a href="tech-tips.html" class="cat-item">
-        <div class="cat-emoji">💡</div>
-        <div class="cat-name">Tech Tips</div>
-        <div class="cat-count">Explore →</div>
-      </a>
-      <a href="seasonal.html" class="cat-item">
-        <div class="cat-emoji">🌸</div>
-        <div class="cat-name">Seasonal</div>
-        <div class="cat-count">Explore →</div>
-      </a>
-    </div>
   </div>
-</section>
 
-<!-- FEATURED TRAVEL -->
-<section class="section" style="padding-top:4rem;">
-  <div class="container">
-    <div class="section-header anim">
-      <div>
-        <div class="section-label">Travel</div>
-        <h2 class="section-title">Latest from <em>the road</em></h2>
+  <!-- ── FOOD & WINE TAB ────────────────────────────────────── -->
+  <div id="tab-food" class="view">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">Food &amp; Wine</span>
+        <span class="section-count">5 stories</span>
       </div>
-      <a href="travel.html" class="view-all">All travel posts →</a>
-    </div>
-    <div class="grid-featured anim anim-1">
-      <a href="travel.html" class="card card-featured">
-        <div class="card-thumb travel" style="font-size:7rem;">🌊</div>
-        <div class="card-body">
-          <div class="card-tag">Featured · Marbella, Spain</div>
-          <div class="card-title">Two Weeks on the Costa del Sol — What We Loved, What Surprised Us</div>
-          <div class="card-excerpt">From the old town's whitewashed lanes to the best chiringuito on the beach, an honest account of our time in Marbella. The good, the crowded, and the places we'd return to tomorrow.</div>
-          <div class="card-meta">Summer 2025 · 8 min read</div>
+      <div class="tab-grid">
+        <div class="card" onclick="openArticle('seafood-platter')">
+          <div class="card-img"><img src="images/food-amalfi-seafood-platter.jpg" alt="Seafood platter" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi</span><h2 class="card-title">The Catch of the Day: Amalfi's Legendary Seafood Tradition</h2></div>
         </div>
-      </a>
-      <a href="travel.html" class="card">
-        <div class="card-thumb travel card-thumb-sm" style="font-size:3rem;">🌉</div>
-        <div class="card-body">
-          <div class="card-tag">San Francisco</div>
-          <div class="card-title">A Weekend in SF — From Someone Who Actually Lives Here</div>
-          <div class="card-excerpt">Skip the tourist checklist. Here's how locals actually spend a great weekend in the city.</div>
-          <div class="card-meta">Spring 2025 · 5 min read</div>
+        <div class="card" onclick="openArticle('ravello-cocktails')">
+          <div class="card-img"><img src="images/food-amalfi-ravello-cocktails.jpg" alt="Ravello cocktails" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Ravello</span><h2 class="card-title">Spritz at Sunset: Ravello's Art of the Aperitivo</h2></div>
         </div>
-      </a>
-      <a href="travel.html" class="card">
-        <div class="card-thumb travel card-thumb-sm" style="font-size:3rem;">🕌</div>
-        <div class="card-body">
-          <div class="card-tag">Granada, Spain</div>
-          <div class="card-title">The Alhambra — Book Months in Advance. Seriously.</div>
-          <div class="card-excerpt">One of the world's great architectural wonders, and everything you need to know before you go.</div>
-          <div class="card-meta">Summer 2024 · 4 min read</div>
+        <div class="card" onclick="openArticle('lobster-pasta')">
+          <div class="card-img"><img src="images/food-amalfi-lobster-pasta.jpg" alt="Lobster pasta" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi</span><h2 class="card-title">Spaghetti all'Astice: The Dish That Defines the Coast</h2></div>
         </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- EDITORIAL STRIP — FROM THE KITCHEN -->
-<div class="editorial-strip" style="margin-top:6rem;">
-  <div class="container">
-    <div class="section-header anim" style="margin-bottom:3rem;">
-      <div>
-        <div class="section-label">Food & Recipes</div>
-        <h2 class="section-title">From <em>the kitchen</em></h2>
-      </div>
-      <a href="food.html" class="view-all">All recipes →</a>
-    </div>
-    <div class="strip-inner anim anim-1">
-      <a href="food.html" class="strip-item">
-        <div class="strip-tag">Persian Classic</div>
-        <div class="strip-title">Ghormeh Sabzi — The Recipe That Tastes Like Home</div>
-        <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.6;">Our family's version of Iran's most beloved herb stew. Three hours of simmering, a lifetime of memory.</div>
-        <div class="strip-meta">45 min prep · Serves 6</div>
-      </a>
-      <div class="strip-divider"></div>
-      <a href="food.html" class="strip-item">
-        <div class="strip-tag">Restaurant Find · Marbella</div>
-        <div class="strip-title">The Best Paella We've Had Outside Valencia</div>
-        <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.6;">A tiny restaurant in Marbella's old town that we almost walked past. Freshest seafood, proper sofrito.</div>
-        <div class="strip-meta">Marbella, Spain · €€</div>
-      </a>
-      <div class="strip-divider"></div>
-      <a href="food.html" class="strip-item">
-        <div class="strip-tag">Persian Classic</div>
-        <div class="strip-title">Tahdig — The Golden Rice Crust Everyone Fights Over</div>
-        <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.5rem;line-height:1.6;">The crispy bottom of the rice pot. The most coveted part of any Persian meal. How to nail it every time.</div>
-        <div class="strip-meta">30 min · Serves 4</div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- RECENT MIX -->
-<section class="section">
-  <div class="container">
-    <div class="section-header anim">
-      <div>
-        <div class="section-label">Recently</div>
-        <h2 class="section-title">Across the <em>journal</em></h2>
+        <div class="card" onclick="openArticle('capri-gelato')">
+          <div class="card-img"><img src="images/travel-capri-gelato.jpg" alt="Capri gelato" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Capri</span><h2 class="card-title">The Perfect Scoop: Capri's Finest Gelaterie, Ranked</h2></div>
+        </div>
+        <div class="card" onclick="openArticle('calamari')">
+          <div class="card-img"><img src="images/food-amalfi-calamari.jpg" alt="Calamari fritti" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi</span><h2 class="card-title">Calamari Fritti e Limone</h2></div>
+        </div>
       </div>
     </div>
-    <div class="grid-auto anim anim-1">
-      <a href="city-guides.html" class="card">
-        <div class="card-thumb city">🌁</div>
-        <div class="card-body">
-          <div class="card-tag">City Guide · San Francisco</div>
-          <div class="card-title">The Best Coffee Shops in SF for Getting Work Done</div>
-          <div class="card-excerpt">Good WiFi, good vibes, no weird stares if you stay for 3 hours.</div>
-          <div class="card-meta">Updated 2026</div>
+  </div>
+
+  <!-- ── CULTURE TAB ────────────────────────────────────────── -->
+  <div id="tab-culture" class="view">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">Culture</span>
+        <span class="section-count">Coming soon</span>
+      </div>
+      <div class="tab-grid">
+        <div class="card" onclick="openArticle('church-dusk')">
+          <div class="card-img"><img src="images/travel-amalfi-church-dusk.jpg" alt="Amalfi Duomo" loading="lazy" /></div>
+          <div class="card-overlay"></div>
+          <div class="card-body"><span class="card-cat">Amalfi</span><h2 class="card-title">The Duomo's Eight Centuries of Stories</h2></div>
         </div>
-      </a>
-      <a href="books-films.html" class="card">
-        <div class="card-thumb books">🎬</div>
-        <div class="card-body">
-          <div class="card-tag">Films · Iranian Cinema</div>
-          <div class="card-title">Five Iranian Films Everyone Should Watch</div>
-          <div class="card-excerpt">Kiarostami, Farhadi, and the quiet brilliance of Iranian cinema. A beginner's guide from a proud fan.</div>
-          <div class="card-meta">Essential list</div>
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Music · Art · Architecture</h2>
+          </div>
         </div>
-      </a>
-      <a href="tech-tips.html" class="card">
-        <div class="card-thumb tech">🏠</div>
-        <div class="card-body">
-          <div class="card-tag">Tech Tips · Smart Home</div>
-          <div class="card-title">Smart Home for Beginners — Where to Start Without Wasting Money</div>
-          <div class="card-excerpt">After years of tinkering, here's the honest guide I wish someone had given me.</div>
-          <div class="card-meta">Updated 2026</div>
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Literature &amp; Film</h2>
+          </div>
         </div>
-      </a>
-      <a href="seasonal.html" class="card">
-        <div class="card-thumb seasonal">🌺</div>
-        <div class="card-body">
-          <div class="card-tag">Seasonal · Nowruz</div>
-          <div class="card-title">Nowruz — The Traditions We Keep, Year After Year</div>
-          <div class="card-excerpt">What Persian New Year means to our family and how we celebrate it in California.</div>
-          <div class="card-meta">March · Annual</div>
-        </div>
-      </a>
-      <a href="food.html" class="card">
-        <div class="card-thumb food">🫖</div>
-        <div class="card-body">
-          <div class="card-tag">Persian Classic</div>
-          <div class="card-title">Persian Tea — How to Make It Properly</div>
-          <div class="card-excerpt">Strong, amber, served with a sugar cube held between the teeth. There's a whole ritual to it.</div>
-          <div class="card-meta">10 min · Essential</div>
-        </div>
-      </a>
-      <a href="travel.html" class="card">
-        <div class="card-thumb travel">🏔️</div>
-        <div class="card-body">
-          <div class="card-tag">Road Trip · California</div>
-          <div class="card-title">Highway 1 in Two Days — What's Worth the Drive</div>
-          <div class="card-excerpt">Stunning views, overpriced stops, and a few hidden gems. Honestly reviewed.</div>
-          <div class="card-meta">Fall 2024 · 6 min</div>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
+  <!-- ── DIGITAL LIFE TAB ───────────────────────────────────── -->
+  <div id="tab-digital" class="view">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">Digital Life</span>
+        <span class="section-count">Coming soon</span>
+      </div>
+      <div class="tab-grid">
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Technology &amp; the Well-Lived Life</h2>
+          </div>
+        </div>
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Tools We Actually Use</h2>
+          </div>
+        </div>
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">AI, Travel &amp; Photography</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WELLBEING TAB ──────────────────────────────────────── -->
+  <div id="tab-wellbeing" class="view">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="section-title">Wellbeing</span>
+        <span class="section-count">Coming soon</span>
+      </div>
+      <div class="tab-grid">
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Slow Travel &amp; Mindful Mornings</h2>
+          </div>
+        </div>
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">The Mediterranean Diet in Practice</h2>
+          </div>
+        </div>
+        <div class="card card--text" style="background:var(--bg-card); border:1px solid var(--border);">
+          <div class="card-body" style="justify-content:center; align-items:center; text-align:center; height:100%; position:relative;">
+            <span class="card-cat">Upcoming</span>
+            <h2 class="card-title" style="font-size:18px; color:var(--muted);">Rest as a Practice</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main><!-- /#app -->
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo">The Beheshti <em>Journal</em></div>
-        <p class="footer-desc">A family journal of travels, food, culture, and life. Sharing stories worth telling from our corner of the world.</p>
-      </div>
-      <div>
-        <div class="footer-heading">Categories</div>
-        <ul class="footer-links">
-          <li><a href="travel.html">Travel</a></li>
-          <li><a href="food.html">Food & Recipes</a></li>
-          <li><a href="city-guides.html">City Guides</a></li>
-          <li><a href="books-films.html">Books & Films</a></li>
-          <li><a href="tech-tips.html">Tech Tips</a></li>
-          <li><a href="seasonal.html">Seasonal</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-heading">Connect</div>
-        <ul class="footer-links">
-          <li><a href="https://behshad.com">behshad.com</a></li>
-          <li><a href="https://linkedin.com/in/behshad">LinkedIn</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 The Beheshti Journal · beheshti.com</span>
-      <span>Made with care in Silicon Valley</span>
-    </div>
+  <div class="footer-inner">
+    <p class="footer-word">Beheshti Journal</p>
+    <p class="footer-sub">The well-lived life — Travel · Food &amp; Wine · Culture · Wellbeing</p>
   </div>
 </footer>
 
+<!-- ══════════════════════════════════════════════════════════
+     ARTICLE DATA
+══════════════════════════════════════════════════════════ -->
+<script>
+const ARTICLES = {
+
+  'positano-aerial': {
+    category: 'Travel · Amalfi Coast',
+    title: 'The View from Above: Why Positano Looks Best Before Breakfast',
+    lede: 'Before the hydrofoils arrive and the terrace restaurants fill, Positano belongs entirely to itself — a vertical village clinging to the cliffs in impossible, photogenic defiance of gravity.',
+    date: 'September 2025',
+    readTime: '10 min read',
+    hero: 'images/travel-amalfi-positano-aerial.jpg',
+    photos: [
+      { src: 'images/travel-amalfi-positano-dusk.jpg', caption: 'Positano as the sun drops behind Monte Sant\'Angelo.' },
+      { src: 'images/travel-amalfi-church-dusk.jpg', caption: 'The duomo\'s majolica dome, a landmark visible from sea.' }
+    ],
+    body: `
+      <p>There is a particular quality of light on the Amalfi Coast that photographers and travel writers have been trying — and largely failing — to capture since the Grand Tour made this stretch of Campanian coastline fashionable in the 18th century. It arrives around 6:30am in late summer: a warm, amber-rose light that pours through the gap in the hills above Positano and illuminates the stacked tiers of ochre, terracotta, and chalk-white buildings in a way that makes the whole village look newly painted.</p>
+
+      <h2>The Geometry of the Village</h2>
+      <p>From above — whether from the SS163 coastal road or the terrace of a well-chosen hotel — Positano resolves into an almost abstract composition. The buildings clamber over one another like spectators at a parade: bougainvillea trails between balconies, lemon trees jut improbably from the hillside, and somewhere below, the beach at Spiaggia Grande is still empty, the blue and white sunbeds folded and stacked against the fishing boats.</p>
+
+      <p>Positano is a village of about 4,000 permanent residents that receives roughly two million visitors a year. And yet, arriving early or late, staying more than a night or two, moving beyond the main drag of Via dei Mulini — it yields something different. The village's famous verticality means that most tourists only penetrate as deep as the beach level. Climb the hundreds of steps that serve as streets in the upper village, and you enter a quieter, more domestic Positano: cats on warm stone, the smell of espresso, a grandmother hanging washing on a line strung between two lemon trees.</p>
+
+      <blockquote>"Positano bites deep," John Steinbeck wrote in Harper's Bazaar in 1953. "It is a dream place that isn't quite real when you are there and becomes beckoningly real after you have gone."</blockquote>
+
+      <h2>Getting the Aerial View</h2>
+      <p>The classic view — the one reproduced on millions of postcards and Instagram posts — is taken from the road above the village, typically from a layby near the turn-off for Montepertuso. The light is best in early morning or during the golden hour before sunset. A longer hike, the Sentiero degli Dei (Path of the Gods), offers even more dramatic perspectives from the ridge above town, though the full trail requires proper footwear and an early start to avoid the crowds and the heat.</p>
+
+      <p>For those who prefer their altitude served with a Negroni, the terrace bar at Le Sirenuse hotel occupies a perch partway up the village that delivers much of the same drama with considerably more comfort. The hotel has been hosting writers, artists, and a certain strain of discerning traveller since 1951, and its terrace remains one of the finest places in Europe to watch the light change over the sea.</p>
+
+      <h3>Where to Stay</h3>
+      <p>Le Sirenuse sits at the top of the village's accommodation hierarchy — and its price list. For something more intimate, the small pensioni and rental apartments scattered through the upper village offer a more authentic experience, along with the daily cardio workout of navigating Positano's staircases. Most can be reached only on foot; part of the village's particular character is its immunity to cars.</p>
+
+      <p>The best advice, resolutely unglamorous, is simply this: stay at least three nights, set your alarm for 6am, and walk up instead of down. Everything else will follow.</p>
+    `
+  },
+
+  'positano-dusk': {
+    category: 'Travel · Amalfi Coast',
+    title: 'Positano After Dark: the Village That Refuses to Sleep',
+    lede: 'As the last ferry departs and the day-trippers dissolve into the evening, Positano reinvents itself — louder, warmer, and considerably more interesting.',
+    date: 'September 2025',
+    readTime: '8 min read',
+    hero: 'images/travel-amalfi-positano-dusk.jpg',
+    photos: [
+      { src: 'images/travel-amalfi-beach-night.jpg', caption: 'The Amalfi shore after the crowds have gone.' }
+    ],
+    body: `
+      <p>The transformation happens quickly. By 6pm the hydrofoils and ferries from Naples and Capri have made their last runs, carrying with them the majority of Positano's day visitors. The beach bars begin converting from sun-bleached casual to something approximating elegance: tablecloths appear, candles are lit, and the resident cats adopt their evening stations with the authority of maîtres d'.</p>
+
+      <h2>The Evening Ritual</h2>
+      <p>Positano's evening begins, as most things in southern Italy do, with the passeggiata. The main lane of Via dei Mulini and the steps down to the waterfront fill with a slow, sociable promenade — a mixture of hotel guests from the terrace properties above, local families, and the small contingent of visitors who have had the foresight to book a night rather than merely a day trip.</p>
+
+      <p>The aperitivo hour here is taken seriously. The Champagne Bar at the Music on the Rocks club — improbably carved into the rock face beside the beach — fills early. La Zagara, the terrace café-restaurant halfway up the village, serves its legendary limoncellos to a crowd that spills happily onto the street. These are not places where you linger over a single drink; they are way-stations in a longer evening's itinerary.</p>
+
+      <h2>Dinner on the Cliffside</h2>
+      <p>The village's restaurant scene has matured considerably over the past decade. Ristorante Buca di Bacco, with its sea-level terrace virtually lapped by the Mediterranean, remains the grande dame — the room where Steinbeck, Ingrid Bergman, and Franco Zeffirelli once ate. For contemporary Campanian cooking at its most refined, Da Vincenzo in the upper village delivers extraordinary pasta and seafood without the tourist-trap pricing that plagues some of its beachfront competitors.</p>
+
+      <blockquote>The dish to order, always, is the scialatielli ai frutti di mare — the local thick, hand-cut pasta with a tide of mussels, clams, shrimp, and whatever the morning's fishing boats delivered.</blockquote>
+
+      <p>After dinner, Positano does not exactly rage — it is not that kind of place. But it glitters. The string lights strung between the buildings come into their own as darkness falls; the little boutiques stay open until ten or eleven; and from the beach, the illuminated village stacked up the hillside presents one of those views that cause even the most photograph-weary traveller to reach for their camera one more time.</p>
+
+      <h3>Practical Notes</h3>
+      <p>Book dinner early — walk-ins are increasingly difficult at the better restaurants in high season. The beach bars require neither reservation nor apology, and the water at night, if you're inclined to a late swim, is warm enough until October and entirely untroubled by company.</p>
+    `
+  },
+
+  'seafood-platter': {
+    category: 'Food & Wine · Amalfi Coast',
+    title: 'The Catch of the Day: Amalfi\'s Legendary Seafood Tradition',
+    lede: 'On a coast where the fishing boats still go out before dawn and the restaurants negotiate with the fishermen before they negotiate with their kitchens, the seafood is not a menu choice — it is a philosophy.',
+    date: 'September 2025',
+    readTime: '6 min read',
+    hero: 'images/food-amalfi-seafood-platter.jpg',
+    photos: [
+      { src: 'images/food-amalfi-lobster-pasta.jpg', caption: 'Spaghetti all\'astice — the essential Amalfi dish.' },
+      { src: 'images/food-amalfi-calamari.jpg', caption: 'Calamari fritti with lemon: the perfect beginning.' }
+    ],
+    body: `
+      <p>The Mediterranean diet — that much-invoked, much-misunderstood prescription for longevity — is best understood not as a set of nutritional guidelines but as a way of being in relation to the sea and the land. On the Amalfi Coast, it is lived rather than aspired to. The fishing boats at Atrani depart before 4am; by 7am the catch is being sorted on the quay; by noon it is on a plate.</p>
+
+      <h2>Reading the Fritto Misto</h2>
+      <p>The fritto misto di mare — a mountain of lightly battered, freshly fried mixed seafood — is the truest test of a coastal Italian restaurant's integrity. In its finest form, it contains whatever the sea provided that morning: rings of calamari, small prawns, anchovies, perhaps some tiny octopus, a few mussels opened by the heat. The batter is minimal, more suggestion than coating; the oil must be at precisely the right temperature; the result must be eaten immediately.</p>
+
+      <p>A mediocre fritto misto — oily, heavy, assembled from frozen product — reveals a kitchen that has abandoned its principles. A perfect one, eaten on a terrace above the sea, with a glass of local Falanghina sweating in the heat, constitutes a minor argument for the existence of a benevolent universe.</p>
+
+      <h2>The Essential Dishes</h2>
+      <p>Beyond the fritto, the Amalfi Coast's seafood canon is relatively compact and entirely worth mastering. Spaghetti alle vongole — pasta with clams, white wine, parsley, olive oil, and a ferocity of garlic — is the daily bread of this coast, made here with an intensity that its inland imitations cannot approach. The local clams, harvested from the clean waters of the Tyrrhenian, have a salinity and sweetness that the dish depends upon.</p>
+
+      <p>Pezzogna (red sea bream) baked in a crust of salt and herbs is the grand occasion dish — a whole fish, sealed and cooked, cracked open at the table in a theatrical release of steam and fragrance. Restaurants of any ambition offer it, though it requires ordering in advance. The result justifies the planning.</p>
+
+      <blockquote>The best seafood restaurants on the Amalfi Coast share a common quality: they change their menus according to what arrived that morning, and they are unapologetic about it.</blockquote>
+
+      <h3>Where to Eat</h3>
+      <p>Il Pirata in Praiano remains something of an open secret — a simply furnished room above the coastal road where the seafood is exceptional and the prices have not yet been adjusted for the international market. In Amalfi town itself, La Caravella, which holds a Michelin star and a history stretching back to 1959, interprets the local tradition with more technical ambition. Both approaches are valid; both, on their own terms, are magnificent.</p>
+
+      <div class="info-box">
+        <h4>Practical Notes</h4>
+        <ul>
+          <li>Look for restaurants that post a handwritten "menu del giorno" — it signals a kitchen cooking to the catch</li>
+          <li>Ask the waiter what came in that morning before ordering</li>
+          <li>White wine: Furore Bianco (Marisa Cuomo), Costa d'Amalfi Bianco DOC</li>
+          <li>Avoid restaurants with photographs on the menu near the tourist hotspots</li>
+          <li>The best informal seafood: the alimentari and bars in Atrani, a five-minute walk from Amalfi</li>
+        </ul>
+      </div>
+    `
+  },
+
+  'ravello-cocktails': {
+    category: 'Food & Wine · Ravello',
+    title: 'Spritz at Sunset: Ravello\'s Art of the Aperitivo',
+    lede: 'Six hundred metres above the sea, in a village that Wagner, Greta Garbo, and Gore Vidal all chose as a retreat from the world, the aperitivo hour achieves something close to perfection.',
+    date: 'September 2025',
+    readTime: '5 min read',
+    hero: 'images/food-amalfi-ravello-cocktails.jpg',
+    photos: [],
+    body: `
+      <p>Ravello sits above the Amalfi Coast like a parenthetical thought — easily overlooked, impossible to forget once visited. While Positano sells itself loudly and Amalfi plays to its historical celebrity, Ravello simply exists at altitude, surrounded by terraced gardens and medieval architecture, exuding a refinement that has attracted a particular kind of visitor for centuries.</p>
+
+      <h2>The Garden Bars</h2>
+      <p>The aperitivo culture here differs from the waterfront bars below in the same way that Ravello itself differs from the coast: it is quieter, more considered, more inclined toward long conversations and the contemplation of views. The defining experience is a drink on the terrace of the Belmond Hotel Caruso, a converted 11th-century palazzo where the infinity pool appears to pour directly into the bay far below, and where the bar produces a limoncello spritz of such delicacy that it has become a kind of local institution.</p>
+
+      <p>Villa Cimbrone, whose gardens Greta Garbo made famous by retreating here with conductor Leopold Stokowski in 1938, now operates partly as a hotel. The Belvedere of Infinity — a terrace at the garden's edge with an unobstructed drop to the Tyrrhenian — is the finest single view on the Amalfi Coast. A glass of something cold, consumed here at 6pm with the light going golden, constitutes a moment that the word "experience" barely contains.</p>
+
+      <blockquote>"I have never seen the world as I saw it from the heights of Ravello." — André Gide</blockquote>
+
+      <h2>What to Drink</h2>
+      <p>The local limoncello — made from the sfusato amalfitano lemon, a protected variety grown only on this coast, with a fragrance and acidity that the supermarket version cannot approach — is the obvious choice. Served over ice, with or without prosecco, it captures something of the place itself: intensely aromatic, slightly sharp, warm with the heat that produced it.</p>
+
+      <p>For those inclined toward something more complex, the coast's wine producers have raised their game considerably in recent years. The Furore Bianco from Marisa Cuomo, made from local Fenile and Ginestra grapes on impossibly steep terraced vineyards, is the wine of the region — dry, mineral, with a salinity that mirrors the sea below.</p>
+
+      <h3>Ravello After Dark</h3>
+      <p>The Ravello Music Festival, held annually through the summer in the Villa Rufolo's garden (with the sea as backdrop and the stars as ceiling), represents one of Europe's most beautiful concert settings. Tickets sell out months in advance. If you cannot attend, the sound of the orchestra drifting through the village streets on a summer evening is its own reward.</p>
+    `
+  },
+
+  'church-dusk': {
+    category: 'Travel · Amalfi',
+    title: 'Duomo di Sant\'Andrea: Amalfi\'s Soul at Twilight',
+    lede: 'The cathedral that has watched over this ancient maritime republic for nine centuries is most itself as the light fails and the day-trippers retreat, leaving the piazza to those who have nowhere else to be.',
+    date: 'September 2025',
+    readTime: '4 min read',
+    hero: 'images/travel-amalfi-church-dusk.jpg',
+    photos: [],
+    body: `
+      <p>Amalfi was, before it was a tourist destination, a maritime republic — a naval power of sufficient influence that it once rivalled Genoa, Venice, and Pisa. The Duomo di Sant'Andrea, begun in the 9th century and substantially expanded through the 11th and 12th, is the architectural expression of that vanished confidence: its Arab-Norman facade, its striped marble, its bronze doors cast in Constantinople, speak of a city that traded with the known world and brought the known world home.</p>
+
+      <h2>The Facade at Dusk</h2>
+      <p>The cathedral faces west, and in the late afternoon the Piazza del Duomo becomes one of the more extraordinary pieces of theatre on the Italian coast. The polychrome facade — layers of black-and-white striped marble, Byzantine mosaics, blind arcades in the Moorish style — catches the setting light and transforms it. The gold of the mosaic changes from static to luminous; the shadows deepen between the columns; the whole composition becomes a lesson in the aesthetic ambitions of medieval Mediterranean culture.</p>
+
+      <p>The 62 steps leading up to the cathedral entrance are occupied, through most of the day, by seated tourists, gelato vendors, and the constant human flow of a busy coastal town. At dusk, as the shadows claim the piazza, the steps empty and something changes. The locals re-emerge: old men on the benches, children on bicycles, couples walking slowly in the manner of people who have no reason to hurry. The cathedral watches over it all with the patience of nine centuries.</p>
+
+      <blockquote>The bronze doors, made in Constantinople around 1066, are among the oldest in Italy still in their original position. Run your hand along them and you touch the Amalfi Republic at the height of its power.</blockquote>
+
+      <h2>Inside the Cathedral</h2>
+      <p>The interior, heavily restored in the baroque period, is less remarkable than the facade — though the Chiostro del Paradiso, a 13th-century cloister in the Arab-Norman style with interlaced arches and a garden of palm trees and ancient sarcophagi, is one of the most beautiful enclosed spaces on the coast. The crypt below the main altar contains the relics of Sant'Andrea, brought from Constantinople in 1206 and still the object of the town's principal festival each June.</p>
+
+      <p>Admission to the cathedral is free in the evening hours. The cloister charges a modest entrance fee and closes before sunset — arrive by 5:30pm to see it in its best light.</p>
+    `
+  },
+
+  'capri-vespa': {
+    category: 'Travel · Capri',
+    title: 'La Dolce Vita on Two Wheels: A Vespa Morning on Capri',
+    lede: 'The island has been declaring itself paradisiacal since the Emperor Tiberius built his twelve villas here. A morning on a rented scooter confirms that some reputations are entirely earned.',
+    date: 'August 2025',
+    readTime: '6 min read',
+    hero: 'images/travel-capri-dg-vespa.jpg',
+    photos: [
+      { src: 'images/travel-capri-gelato.jpg', caption: 'The essential mid-morning Capri decision.' }
+    ],
+    body: `
+      <p>Capri operates at two speeds. There is the speed of the piazzetta — the tiny, absurdly glamorous central square where the famous and the famously wealthy gather to be seen at café tables the size of dinner plates, where a cappuccino costs what a small country's GDP might once have been, and where the performance of leisure is conducted at an almost geological pace. And then there is the speed of everything else: the hairpin roads cut into the white limestone cliffs, the delivery trucks negotiating impossible corners, the scooters threading between them with the casual certainty of people who have been doing this all their lives.</p>
+
+      <h2>The Scooter Option</h2>
+      <p>Renting a scooter or small motorcycle on Capri is one of those decisions that feels slightly reckless in planning and entirely natural in execution. The island's road network is essentially a single main road circling the high ground between Capri town and Anacapri, with a series of lanes descending to the various coves and lookout points below. Traffic is rarely fast; the scenery demands that you stop frequently.</p>
+
+      <p>The route to Anacapri along the Via Krupp — the vertiginous zigzag path cut into the cliff face by the German industrialist Friedrich Alfred Krupp in 1900 — is now walkable only, and only when it is open (rockfall closes it periodically). But the road above it, offering the same views over the Faraglioni sea stacks and the Marina Piccola far below, is accessible by scooter and provides a reminder that this island's relationship with the dramatic gesture has deep historical roots.</p>
+
+      <blockquote>The Faraglioni — three limestone sea stacks rising from the water off the eastern tip of the island — are Capri's most reproduced image and, in person, their most compelling one. They are best seen from the water, but the view from the road above is considerable.</blockquote>
+
+      <h2>The Anacapri Detour</h2>
+      <p>Anacapri, the island's second town, sits higher and feels quieter than Capri town — less curated, more lived-in, with a market and a bus stop and the Villa San Michele, the extraordinary home built by Swedish doctor Axel Munthe in the early 20th century, now open as a museum and occupying a position at the cliff's edge that challenges belief. The gardens, scented with wisteria and jasmine and overlooking the Gulf of Naples, contain one of the island's finest views at a price that even non-oligarchs can manage.</p>
+
+      <h3>Practical Notes</h3>
+      <p>Scooter rental from Marina Grande is straightforward; bring a driving licence (motorcycle licence required for larger engines) and a credit card. Helmets are provided and mandatory. The island's roads can be busy midday in July and August; a 7:30am start gives you the roads largely to yourself and the light at its most theatrical. Return the scooter by noon and reward yourself with gelato at one of the Anacapri bars before the crowds arrive.</p>
+    `
+  },
+
+  'capri-gelato': {
+    category: 'Food & Wine · Capri',
+    title: 'The Perfect Scoop: Capri\'s Finest Gelaterie, Ranked',
+    lede: 'On an island where luxury is the local currency, it is entirely in keeping that even the gelato is exceptional. Here is where to find it.',
+    date: 'August 2025',
+    readTime: '5 min read',
+    hero: 'images/travel-capri-gelato.jpg',
+    photos: [],
+    body: `
+      <p>The great Italian gelaterie are not distinguished by the number of flavours they offer but by their devotion to a few: the depth of their pistacchio, the intensity of their nocciola, the clarity of their lemon. On an island where the sfusato amalfitano — the long, intensely fragrant lemon indigenous to this stretch of coast — grows in gardens and terraces all around you, a lemon gelato becomes almost an act of terroir.</p>
+
+      <h2>The Hierarchy</h2>
+      <p>Gelateria Buonocore, on Via Vittorio Emanuele in Capri town, has been operating since 1953 and remains the reference point. The lemon sorbet is made with fresh juice, no stabilisers, and a sugar content calibrated to complement rather than overwhelm the citrus. It is served in a brioche — the Neapolitan custom, and the correct one — or in a cone if you insist. The pistachio, made with Bronte nuts from Sicily, is the colour of old money: not the lurid green of food colouring but the dignified grey-green of the real thing.</p>
+
+      <p>Gelateria Classica, slightly further along the same street, is the challenger. Its offerings are more experimental — a crema di Capri flavour combines local honey, lemon zest, and ricotta in a composition that should not work and emphatically does — and the proprietor is the kind of artisan who will explain, at length and with genuine enthusiasm, exactly what is in each tub and why.</p>
+
+      <blockquote>The debate between Buonocore and Classica is Capri's most heated ongoing discussion. Our position: visit both, order the lemon at the first and the pistachio at the second, and declare a draw.</blockquote>
+
+      <h2>The Anacapri Alternative</h2>
+      <p>In Anacapri, Il Sorbetto di Capri, a small laboratorio artisanale just off the main square, produces granita rather than gelato — the Sicilian method, coarser and icier, intensely flavoured — that is, in the opinion of those who know, superior to both of its Capri town rivals for the sheer purity of the lemon and almond versions. It is open only in the mornings. Plan accordingly.</p>
+
+      <h3>What to Order</h3>
+      <p>Lemon: always. Nocciola (hazelnut): always. Fragola (strawberry): only in June and July when the local berries are in season. Anything in a pre-packaged tub or labelled in six languages: never.</p>
+    `
+  },
+
+  'capri-marina': {
+    category: 'Travel · Capri',
+    title: 'Arriving by Sea: Capri\'s Marina Grande at First Light',
+    lede: 'The proper approach to Capri has always been by water. The island reveals itself slowly, then all at once.',
+    date: 'August 2025',
+    readTime: '4 min read',
+    hero: 'images/travel-capri-marina.jpg',
+    photos: [],
+    body: `
+      <p>The ferry from Naples takes about 80 minutes. The hydrofoil from Sorrento takes 25. Both arrive at Marina Grande, Capri's main port, a harbour enclosed by the island's two flanking cliffs that provides, on a clear morning, one of the Mediterranean's great arrival experiences.</p>
+
+      <h2>The Approach</h2>
+      <p>From the water, as the ferry rounds the western point of the island, Capri presents itself as a mass of white and pale ochre buildings set against limestone cliffs of a particular grey-white that changes colour with the light — pale blue at dawn, almost blinding at noon, warm amber in the late afternoon. The funicular, a red cable car ascending from the harbour to the town above, crawls up the cliff face with the slowness of something that has been performing this journey since 1907 and sees no reason to accelerate.</p>
+
+      <p>Marina Grande itself is not the prettiest of harbours — it is functional, a working port surrounded by ticket offices and tourist businesses — but it possesses the energy of a place that understands its role as the gate to something extraordinary. The water in the harbour is an improbable shade of blue-green; the boats moored along the quay range from industrial ferries to absurdly expensive yachts; and the smell, on a warm morning, is salt and diesel and the particular sweetness of jasmine from the gardens above.</p>
+
+      <blockquote>Arrive before 9am in summer and the harbour belongs to you and the fishing boats. By 10am the ferries from the mainland have begun arriving in earnest and the funicular queue extends down the street.</blockquote>
+
+      <h2>The Funicular</h2>
+      <p>The funicular ascent takes four minutes and delivers you into the Piazzetta — Capri's famous central square — with a slight, agreeable disorientation: you have moved from the sea to the sky in the time it takes to finish a croissant. The views during the ascent, glimpsed through the funicular car's windows, are a preview of what the island offers: the harbour falling away, the sea expanding, the mainland becoming a smudge on the horizon.</p>
+
+      <p>There is also the option to walk — the Phoenician Steps, 921 steps cut into the cliff and dating originally from Greek colonisation, connect Marina Grande to Anacapri and represent an ascent of approximately 290 vertical metres. Allow 45 minutes, bring water, and arrive early before the heat claims the stairway entirely.</p>
+    `
+  },
+
+  'lobster-pasta': {
+    category: 'Food & Wine · Amalfi',
+    title: 'Spaghetti all\'Astice: The Dish That Defines the Coast',
+    lede: 'A single pasta dish — lobster, tomato, a ferocity of garlic, the freshest spaghetti the kitchen can produce — encapsulates everything that Amalfi Coast cooking aspires to be.',
+    date: 'September 2025',
+    readTime: '7 min read',
+    hero: 'images/food-amalfi-lobster-pasta.jpg',
+    photos: [
+      { src: 'images/food-amalfi-seafood-platter.jpg', caption: 'The broader seafood tradition that the lobster pasta crowns.' }
+    ],
+    body: `
+      <p>There is a photograph — or rather, there are thousands of photographs — of this dish. The spaghetti all'astice of the Amalfi Coast has become one of the internet's most photographed foods: the vivid scarlet of the tomato sauce, the halved lobster with its coral interior, the gleam of olive oil, the scatter of parsley against the white of the bowl. It photographs beautifully. It also tastes extraordinary. These two facts are not always the same fact.</p>
+
+      <h2>The Dish</h2>
+      <p>The preparation is deceptively simple, which means it is actually extremely difficult. A live astice — the European lobster, blue-black before cooking, vivid red after — is halved lengthwise and cooked briefly in a wide pan with olive oil, garlic, white wine, and a small quantity of ripe cherry tomatoes. The pasta is cooked separately to al dente, then finished in the lobster cooking juices, absorbing the oceanic sweetness and the acid brightness of the tomato. The halved lobster is arranged over the top. Fresh parsley. A drizzle of the best olive oil available.</p>
+
+      <p>The variables that determine whether the dish ascends or merely satisfies are: the lobster (it must be alive when it enters the kitchen; the difference between a live and a day-old lobster is not subtle), the tomatoes (the Campania region's san marzano and pachino varieties are used here because they are grown here; their sweetness and acidity are calibrated to the local palate), and the pasta (fresh spaghetti from a kitchen that makes it daily, rather than dried).</p>
+
+      <blockquote>The temptation, for a restaurant catering to tourists who have read about this dish, is to make it photogenic at the expense of making it good. The defence against this is to order it at a restaurant where the locals also eat.</blockquote>
+
+      <h2>Where to Eat It</h2>
+      <p>La Caravella in Amalfi town, the oldest restaurant on the coast with a Michelin star earned honestly over decades, serves a version that represents the tradition at its most technically refined. The pasta is made each morning; the lobster sourced from local fishermen who know what the kitchen requires. It is expensive. It is worth it.</p>
+
+      <p>For a less formal version, Trattoria Il Mulino in Amalfi's back streets offers a version that the town's own residents eat — simpler in presentation, equally good in result, and priced for people who live here rather than visit. Reservations required at both.</p>
+
+      <h3>The Broader Tradition</h3>
+      <p>The spaghetti all'astice sits at the top of a coastal hierarchy of pasta dishes that descends through scialatielli ai frutti di mare (the local thick pasta with mixed seafood), paccheri con polpo e pomodoro (large tubes with octopus and tomato), and finally linguine alle vongole — the simplest and in some ways the truest of them all, the daily dish that the coast's kitchen workers eat when they finish their shifts. All are worth eating. All will ruin you for lesser versions elsewhere.</p>
+    `
+  },
+
+  'beach-night': {
+    category: 'Travel · Amalfi Coast',
+    title: 'After Midnight on the Amalfi Shore: When the Tourists Leave',
+    lede: 'The pebbled beaches of the Amalfi Coast have a secret second life — one that begins after the sun loungers are stacked and the last restaurant has closed.',
+    date: 'September 2025',
+    readTime: '6 min read',
+    hero: 'images/travel-amalfi-beach-night.jpg',
+    photos: [],
+    body: `
+      <p>The Amalfi Coast's beaches are not its beaches. This sounds paradoxical, but the coast's great stone terracing — the lemon groves and villa gardens and residential buildings — descends to the sea by sheer gravity, leaving little room for sandy shores. What beaches exist are small, often pebbly, accessed by stairways or narrow paths, and overwhelmed from June through August by the volume of visitors who have come specifically for them. They are, during the day, among the more crowded places on the Italian coast.</p>
+
+      <h2>The After-Hours Coast</h2>
+      <p>At night, the arithmetic changes entirely. The beach clubs close; the sunbeds are stacked; the vendors depart. What remains is the actual physical fact of the place: limestone cliffs rising from water of an extraordinary translucency, the lights of fishing boats visible on the horizon, the sound of small waves against pebbles — a sound that constitutes, for anyone who has spent time here, a kind of Proustian shorthand for the whole coast.</p>
+
+      <p>Atrani, the smallest incorporated municipality in Italy and one of the coast's least-visited villages despite sitting a five-minute walk from Amalfi, has a small beach that in the hours between 11pm and 5am belongs to the village and to the sea. Local teenagers and young adults gather here in summer — not for any particular purpose, but for the same reasons that people have gathered at water's edge since before cities existed: the sound, the darkness, the relief of cool air after a hot day.</p>
+
+      <blockquote>The Mediterranean at night is not the Mediterranean you photograph. It is something more intimate — darker, warmer, more directly experienced. The cliff lights of the villages above make it theatrical; the sound of the water makes it real.</blockquote>
+
+      <h2>A Late Swim</h2>
+      <p>The water temperature in September along this coast remains above 24°C — warm enough for swimming at midnight without any particular courage required. The rocks along the shore provide the steps down; the water below, clear enough in daylight that you can see the bottom at five metres, has a different quality at night — opaque, responsive to light, alive in a way that daylight renders invisible.</p>
+
+      <p>There is no practical advice to offer here, except this: if you are staying on the Amalfi Coast, leave the restaurant early enough to reach the water before it becomes genuinely late. Walk along the shore. Sit on the pebbles. Listen to the particular sound of this particular sea. The experience costs nothing and provides, arguably, more of what you came for than any restaurant, museum, or view.</p>
+    `
+  },
+
+  'calamari': {
+    category: 'Food & Wine · Amalfi',
+    title: 'Calamari Fritti e Limone: Italy\'s Most Perfect Bar Snack',
+    lede: 'A cone of fresh-fried calamari, squeezed with the local lemon, eaten standing at a bar counter above the sea. Some pleasures do not improve with elaboration.',
+    date: 'September 2025',
+    readTime: '4 min read',
+    hero: 'images/food-amalfi-calamari.jpg',
+    photos: [],
+    body: `
+      <p>The sfusato amalfitano is a lemon of unusual character. Longer than the standard supermarket lemon, with a thick, aromatic pith and a juice of intense acidity and fragrance, it has been cultivated on the terraced cliffs above the Amalfi Coast for centuries. The UNESCO designation of this coast as a World Heritage Site acknowledged, among other things, the extraordinary cultural landscape created by these lemon groves — the dry-stone walls that support them, the trellis structures that protect the fruit from coastal winds, the agricultural knowledge required to maintain them on near-vertical terrain.</p>
+
+      <p>All of which is context for the following: when you squeeze a sfusato amalfitano over a cone of freshly fried calamari, the result is something that the word "food" barely covers. It is an argument. It is a position statement. It says: this is what this coast produces, and it does not require a Michelin star or a tablecloth or a lengthy menu to demonstrate why this place is worth the journey.</p>
+
+      <h2>The Technique</h2>
+      <p>Good calamari fritti requires three things: fresh squid (not frozen; the texture and water content are entirely different), a light dusting of flour or semolina (no eggs, no heavy batter; the coating is almost invisible), and oil at the correct temperature — approximately 180°C, hot enough that the calamari seals immediately and cooks through in 90 seconds without absorbing oil.</p>
+
+      <p>The squid must be fresh enough that it is sweet, not fishy. Cut into rings — the tentacles, also fried, are the cook's reward and are not always offered to customers. Served immediately, in a paper cone or on a piece of waxed paper, with a half-lemon and nothing else. Salt, if you feel it necessary, but sparingly.</p>
+
+      <blockquote>The worst calamari in the world — rubbery, oily, tasting of the freezer — and the best calamari in the world begin with the same animal. The distance between them is entirely a matter of freshness and technique.</blockquote>
+
+      <h2>Where to Find It</h2>
+      <p>The best informal version on the Amalfi Coast is found not at restaurants but at the small friggitorie — fry shops — that operate out of windows in the walls of coastal towns, selling to passers-by. Atrani has one; Minori has one; the port area of Amalfi has several. They open at lunchtime and again in the late afternoon, and they sell out when the product is good.</p>
+
+      <p>Order in Italian — "una porzione di calamari, per favore" — pay the minimal sum requested, take your paper cone, find a wall or a railing with a view of the water, and eat immediately. This is the correct procedure. It does not require further instruction.</p>
+
+      <div class="info-box">
+        <h4>The Lemon Question</h4>
+        <ul>
+          <li>The sfusato amalfitano is a PGI-protected product — the IGP label guarantees origin</li>
+          <li>Available from roadside stalls throughout the coast; buy a bag to take home</li>
+          <li>For limoncello, the local product uses only sfusato zest — the difference from generic limoncello is significant</li>
+          <li>The lemon granita at Minori's seafront bars is the definitive summer drink of the coast</li>
+        </ul>
+      </div>
+    `
+  }
+
+}; // end ARTICLES
+
+/* ══════════════════════════════════════════════════════════
+   NAVIGATION LOGIC
+══════════════════════════════════════════════════════════ */
+let currentTab = 'home';
+
+function showTab(tab) {
+  // Hide all views
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  // Hide article view
+  const av = document.getElementById('article-view');
+  av.classList.remove('active');
+  av.style.display = 'none';
+
+  // Show selected tab
+  const tabEl = document.getElementById('tab-' + tab);
+  if (tabEl) tabEl.classList.add('active');
+
+  // Update nav
+  document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector('[data-tab="' + tab + '"]');
+  if (activeBtn) activeBtn.classList.add('active');
+
+  currentTab = tab;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showHome() {
+  showTab('home');
+}
+
+function openArticle(slug) {
+  const article = ARTICLES[slug];
+  if (!article) return;
+
+  // Build article HTML
+  let photosHtml = '';
+  if (article.photos && article.photos.length === 1) {
+    photosHtml = `
+      <div class="article-photo">
+        <img src="${article.photos[0].src}" alt="" loading="lazy" />
+        <p class="photo-caption">${article.photos[0].caption}</p>
+      </div>
+    `;
+  } else if (article.photos && article.photos.length === 2) {
+    photosHtml = `
+      <div class="article-photo-grid">
+        <div class="article-photo">
+          <img src="${article.photos[0].src}" alt="" loading="lazy" />
+          <p class="photo-caption">${article.photos[0].caption}</p>
+        </div>
+        <div class="article-photo">
+          <img src="${article.photos[1].src}" alt="" loading="lazy" />
+          <p class="photo-caption">${article.photos[1].caption}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  // Inject inline photo grid after first h2 in body
+  let bodyWithPhotos = article.body;
+  if (photosHtml) {
+    const h2Match = bodyWithPhotos.indexOf('</h2>');
+    if (h2Match !== -1) {
+      bodyWithPhotos = bodyWithPhotos.slice(0, h2Match + 5) + photosHtml + bodyWithPhotos.slice(h2Match + 5);
+    }
+  }
+
+  const av = document.getElementById('article-view');
+  av.innerHTML = `
+    <div class="article-hero">
+      <img src="${article.hero}" alt="${article.title}" />
+      <div class="article-hero-overlay"></div>
+    </div>
+    <div class="article-container">
+      <button class="article-back" onclick="closeArticle()">Back</button>
+      <p class="article-eyebrow">${article.category}</p>
+      <h1 class="article-title">${article.title}</h1>
+      <p class="article-lede">${article.lede}</p>
+      <div class="article-meta">
+        <span>${article.date}</span>
+        <span>${article.readTime}</span>
+      </div>
+      <div class="article-body">${bodyWithPhotos}</div>
+    </div>
+  `;
+
+  // Hide all tab views
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  // Update nav to reflect current tab (keep it highlighted)
+  document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.querySelector('[data-tab="' + currentTab + '"]');
+  if (activeBtn) activeBtn.classList.add('active');
+
+  av.style.display = 'block';
+  av.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeArticle() {
+  const av = document.getElementById('article-view');
+  av.classList.remove('active');
+  av.style.display = 'none';
+  // Restore current tab
+  const tabEl = document.getElementById('tab-' + currentTab);
+  if (tabEl) tabEl.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const av = document.getElementById('article-view');
+    if (av.classList.contains('active')) closeArticle();
+  }
+});
+</script>
 </body>
 </html>
