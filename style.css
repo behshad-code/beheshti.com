@@ -12,14 +12,15 @@
 :root {
   --bg:         #0a0a0a;
   --bg-card:    #111111;
-  --bg-hover:   #161616;
+  --bg-hover:   #1a1a1a;
   --border:     #1f1f1f;
   --border-mid: #2a2a2a;
   --gold:       #c9a84c;
   --gold-light: #e4c97a;
+  --gold-dim:   rgba(201,168,76,0.12);
   --cream:      #f5f0e8;
   --white:      #ffffff;
-  --muted:      #888888;
+  --muted:      #999999;
   --muted2:     #5a5a5a;
 
   --font-display: 'Fraunces', Georgia, serif;
@@ -27,7 +28,7 @@
 
   --nav-h: 68px;
   --radius: 4px;
-  --transition: 0.25s ease;
+  --transition: 0.2s ease-out;
 }
 
 html { scroll-behavior: smooth; }
@@ -95,22 +96,39 @@ nav.main-nav {
 .nav-tab {
   font-family: var(--font-body);
   font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(255,255,255,0.7);
   padding: 8px 14px;
   border-radius: var(--radius);
   cursor: pointer;
   transition: color var(--transition), background var(--transition);
   border: none;
   background: transparent;
+  position: relative;
 }
-.nav-tab:hover { color: var(--cream); background: var(--bg-hover); }
+.nav-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.nav-tab:hover {
+  color: var(--white);
+  background: var(--bg-hover);
+}
+.nav-tab:hover::after { opacity: 0.4; }
 .nav-tab.active {
   color: var(--gold);
-  background: rgba(201,168,76,0.08);
+  background: var(--gold-dim);
 }
+.nav-tab.active::after { opacity: 1; }
 
 .header-right {
   display: flex;
@@ -121,10 +139,10 @@ nav.main-nav {
 .tagline {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 300;
-  color: var(--muted2);
-  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
   white-space: nowrap;
 }
 
@@ -299,10 +317,12 @@ nav.main-nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.55);
+  object-position: center;
+  filter: brightness(0.6);
   transition: filter 0.4s ease;
+  display: block;
 }
-.card:hover .card-img img { filter: brightness(0.65); }
+.card:hover .card-img img { filter: brightness(0.72); }
 
 .card-overlay {
   position: absolute;
@@ -401,7 +421,9 @@ nav.main-nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
+  object-position: center 40%;
+  filter: brightness(0.65);
+  display: block;
 }
 
 .article-hero-overlay {
@@ -437,6 +459,100 @@ nav.main-nav {
 }
 .article-back:hover { color: var(--gold); }
 .article-back::before { content: '←'; }
+
+/* Gold divider under section headlines */
+.article-body h2 {
+  position: relative;
+  padding-bottom: 14px;
+  margin-top: 52px;
+  margin-bottom: 24px;
+}
+.article-body h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease-out;
+}
+.article-body h2:hover::after {
+  width: 80px;
+}
+
+/* Personal insight block */
+.insight-block {
+  border-left: 2px solid var(--gold);
+  padding: 16px 20px;
+  margin: 40px 0;
+  background: rgba(201,168,76,0.04);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.insight-label {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 8px;
+}
+.insight-block p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Article inline images */
+.article-img-full {
+  margin: 40px 0;
+}
+.article-img-full img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: var(--radius);
+}
+.article-img-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 40px 0;
+}
+.article-img-pair img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: var(--radius);
+}
+.caption {
+  font-size: 11px;
+  color: var(--muted2);
+  text-align: center;
+  padding-top: 8px;
+  letter-spacing: 0.04em;
+  font-style: italic;
+}
+
+/* Category page descriptions */
+.section-desc {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+  font-style: italic;
+}
 
 .article-eyebrow {
   font-size: 11px;
