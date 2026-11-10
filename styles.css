@@ -361,3 +361,23 @@ a:hover .framed-image img,a:hover .photo-frame img,button:hover .framed-image im
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 
 .original-article{max-width:1000px;padding:75px 0 120px}.original-meta{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-bottom:40px}.original-deck{font:italic 300 clamp(28px,4vw,44px)/1.25 var(--serif);margin-bottom:50px}.original-article-body{max-width:770px;margin:auto;font:400 17px/1.85 var(--sans)}.original-article-body p{margin-bottom:1.5em}.original-article-body h2{font:400 clamp(30px,4vw,48px)/1.1 var(--serif);margin:55px 0 20px}.original-article-body blockquote,.original-article-body .pull-quote{font:italic 300 30px/1.35 var(--serif);border-left:2px solid var(--bronze);padding-left:26px;margin:42px 0}.original-article-body figure{margin:45px 0}.original-article-body img{max-width:100%;height:auto;display:block}.original-article-body .img-portrait{max-width:520px;margin-left:auto;margin-right:auto}.original-article-body .img-pair,.original-article-body .img-trio,.original-article-body .article-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.original-article-body figcaption,.original-article-body .caption{font-size:12px;color:#777;text-align:center;padding:10px}.original-article-body .section-label,.original-article-body .personal-note-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--bronze);margin:50px 0 15px}.original-article-body .info-box,.original-article-body .personal-note{background:#ebe7dc;padding:25px;margin:35px 0}.original-article-body ul{padding-left:24px}@media(max-width:900px){.original-article{padding-left:7vw;padding-right:7vw}}@media(max-width:650px){.original-article-body{font-size:15px}.original-article-body .img-pair,.original-article-body .img-trio,.original-article-body .article-photo-grid{grid-template-columns:1fr}}
+
+/* About: signature Beheshti emblem */
+.about-hero{padding:105px 0 115px}
+.about-hero-inner{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:clamp(34px,4.6vw,84px)}
+.about-hero-copy{min-width:0}
+.about-hero .display{font-size:clamp(62px,6.05vw,108px);line-height:.89;max-width:780px;margin:29px 0 0}
+.about-emblem-wrap{width:100%;max-width:454px;justify-self:end;margin:0}
+.about-emblem{width:100%;height:auto;display:block}
+@media(max-width:900px){
+ .about-hero{padding:80px 0 90px}
+ .about-hero-inner{grid-template-columns:1fr;gap:45px}
+ .about-hero .display{font-size:clamp(64px,8.4vw,95px)}
+ .about-emblem-wrap{max-width:405px;width:min(100%,54vw);justify-self:center}
+}
+@media(max-width:650px){
+ .about-hero{padding:62px 0 78px}
+ .about-hero-inner{gap:34px}
+ .about-hero .display{font-size:clamp(50px,10.6vw,70px);margin-top:25px;line-height:.92}
+ .about-emblem-wrap{width:min(82vw,350px)}
+}
