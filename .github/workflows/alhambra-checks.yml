@@ -1,0 +1,30 @@
+name: Alhambra feature checks
+on:
+  pull_request:
+    paths:
+      - 'alhambra-*.js'
+      - 'alhambra-*.css'
+      - 'app.js'
+      - 'index.html'
+      - 'images/alhambra/**'
+      - 'tests/check-alhambra.mjs'
+      - '.github/workflows/alhambra-checks.yml'
+  workflow_dispatch:
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax checks
+        run: |
+          node --check app.js
+          node --check content.js
+          node --check alhambra-photos.js
+          node --check alhambra-feature.js
+      - name: Editorial and image integrity tests
+        run: node tests/check-alhambra.mjs
