@@ -1,0 +1,526 @@
+/* Structured demonstration content. This file is deliberately separate from rendering.
+   Journal story titles and photo paths were checked against the public production site
+   and read-only GitHub repository on 2026-11-10. Unwritten text is never presented as
+   an authentic family story. */
+window.BEHESHTI_CONTENT = {
+  version: 'November 2026',
+  stories: [
+    {id:'alhambra', title:'The Poetry of Water and Stone', kicker:'Architecture · Granada', category:'Culture & Design', country:'Spain', type:'Architecture & history', summary:'Within the Court of the Lions, a quiet system of water, light, poetry and geometry reveals the imagination of Nasrid Granada.', image:'assets/alhambra-hero.webp', duration:'10 min', status:'prototype'},
+    {id:'ferragosto', title:'Ferragosto on the Amalfi Coast', kicker:'Journeys · Amalfi Coast', category:'Journeys',country:'Italy', type:'Journal feature', summary:'An Italian summer tradition, and the distinct atmosphere of the coast in August.', image:'/images/travel-amalfi-positano-dusk.jpg', fallback:'assets/ferragosto.webp', duration:'8 min', status:'existing', original:'/images/travel-amalfi-ferragosto.html'},
+    {id:'positano-dusk',title:'Positano After Dark: the Village That Refuses to Sleep',kicker:'Journeys · Amalfi Coast', category:'Journeys',country:'Italy',type:'Journal story',summary:'Positano in the evening, when the coast takes on an entirely different rhythm.',image:'/images/travel-amalfi-positano-dusk.jpg',fallback:'assets/positano-concept.webp',duration:'8 min',status:'existing'},
+    {id:'positano-aerial',title:'The View from Above: Why Positano Looks Best Before Breakfast',kicker:'Journeys · Amalfi Coast',category:'Journeys',country:'Italy',type:'Journal feature',summary:'A different perspective on the Amalfi Coast, viewed from above.',image:'/images/travel-amalfi-positano-aerial.jpg',fallback:'assets/positano-sea.webp',duration:'10 min',status:'existing'},
+    {id:'seafood-platter',title:"The Catch of the Day: Amalfi's Legendary Seafood Tradition",kicker:'Food & Wine · Amalfi',category:'Food & Wine',country:'Italy',type:'Journal story',summary:'A coastal culinary tradition through the food of Amalfi.',image:'/images/food-amalfi-seafood-platter.jpg',fallback:'assets/seafood.webp',duration:'6 min',status:'existing'},
+    {id:'ravello-cocktails',title:"Spritz at Sunset: Ravello's Art of the Aperitivo",kicker:'Food & Wine · Ravello',category:'Food & Wine',country:'Italy',type:'Journal story',summary:'An exploration of aperitivo culture in Ravello.',image:'/images/food-amalfi-ravello-cocktails.jpg',fallback:'assets/vineyard.webp',duration:'5 min',status:'existing'},
+    {id:'church-dusk',title:"Duomo di Sant’Andrea: Amalfi’s Soul at Twilight",kicker:'Culture & Design · Amalfi',category:'Culture & Design',country:'Italy',type:'Journal story',summary:'The architecture and atmosphere of Amalfi’s historic cathedral.',image:'/images/travel-amalfi-church-dusk.jpg',fallback:'assets/florence.webp',duration:'4 min',status:'existing'},
+    {id:'capri-vespa',title:'La Dolce Vita on Two Wheels: A Vespa Morning on Capri',kicker:'Journeys · Capri',category:'Journeys',country:'Italy',type:'Journal story',summary:'Capri seen through a distinctly Italian everyday ritual.',image:'/images/travel-capri-dg-vespa.jpg',fallback:'assets/amalfi-coast.webp',duration:'6 min',status:'existing'},
+    {id:'capri-gelato',title:"The Perfect Scoop: Capri’s Finest Gelaterie, Ranked",kicker:'Food & Wine · Capri',category:'Food & Wine',country:'Italy',type:'Journal story',summary:'A gelato-focused guide to Capri.',image:'/images/travel-capri-gelato.jpg',fallback:'assets/italian-pasta.webp',duration:'5 min',status:'existing'},
+    {id:'capri-marina',title:'Arriving by Sea: Capri’s Marina Grande at First Light',kicker:'Journeys · Capri',category:'Journeys',country:'Italy',type:'Journal story',summary:'A first impression of the island from the water.',image:'/images/travel-capri-marina.jpg',fallback:'assets/amalfi-coast.webp',duration:'4 min',status:'existing'},
+    {id:'lobster-pasta',title:"Spaghetti all’Astice: The Dish That Defines the Coast",kicker:'Food & Wine · Amalfi',category:'Food & Wine',country:'Italy',type:'Journal story',summary:'A seafood pasta dish with a strong sense of place.',image:'/images/food-amalfi-lobster-pasta.jpg',fallback:'assets/italian-pasta.webp',duration:'7 min',status:'existing'},
+    {id:'beach-night',title:'After Midnight on the Amalfi Shore: When the Tourists Leave',kicker:'Journeys · Amalfi Coast',category:'Journeys',country:'Italy',type:'Journal story',summary:'A look at the quieter atmosphere along the coast at night.',image:'/images/travel-amalfi-beach-night.jpg',fallback:'assets/positano-concept.webp',duration:'6 min',status:'existing'},
+    {id:'calamari',title:'Calamari Fritti e Limone: Italy’s Most Perfect Bar Snack',kicker:'Food & Wine · Amalfi',category:'Food & Wine',country:'Italy',type:'Journal story',summary:'A simple coastal dish and a familiar Italian ritual.',image:'/images/food-amalfi-calamari.jpg',fallback:'assets/seafood.webp',duration:'4 min',status:'existing'}
+  ],
+  destinations: [
+    {id:'granada',place:'Granada',region:'Andalusia · Spain',country:'Spain',count:'Granada, Spain',image:'assets/alhambra-hero.webp',featured:'alhambra'},
+    {id:'amalfi',place:'Amalfi Coast',region:'Campania · Italy',country:'Italy',count:'Published collection',image:'/images/travel-amalfi-positano-aerial.jpg',fallback:'assets/positano-concept.webp',featured:'ferragosto'},
+    {id:'capri',place:'Capri',region:'Campania · Italy',country:'Italy',count:'Published collection',image:'/images/travel-capri-marina.jpg',fallback:'assets/amalfi-coast.webp',featured:'capri-marina'},
+    {id:'ravello',place:'Ravello',region:'Campania · Italy',country:'Italy',count:'Published collection',image:'/images/travel-amalfi-ravello-terrace.jpg',fallback:'assets/vineyard.webp',featured:'ravello-cocktails'}
+  ],
+  gallery: [
+    {src:'assets/alhambra-hero.webp',caption:'The Court of the Lions, conceptual reconstruction · generated visual, not archival photography'},
+    {src:'assets/alhambra-fountain.webp',caption:'The central basin and one of the water channels · crop from concept visual'},
+    {src:'assets/alhambra-detail.webp',caption:'The carved architecture framing the court · crop from concept visual'},
+    {src:'assets/alhambra-hero.webp',caption:'Light and symmetry across the courtyard · second framing of the concept visual'}
+  ],
+  alhambraSources:[
+    {title:'Patronato de la Alhambra: Court of the Lions',url:'https://www.alhambra-patronato.es/edificios-lugares/patio-de-los-leones'},
+    {title:'Patronato de la Alhambra: restoration of the fountain',url:'https://www.alhambra-patronato.es/proyectos/restauracion-de-la-fuente-de-los-leones'},
+    {title:'Patronato de la Alhambra: the fountain spouts',url:'https://www.alhambra-patronato.es/en/disfrutar/the-spouts-of-the-fountain-of-the-lions'},
+    {title:'UNESCO World Heritage Centre: Alhambra, Generalife and Albayzín',url:'https://whc.unesco.org/en/list/314'}
+  ]
+};
+
+window.BH_ORIGINAL_ARTICLES = {
+
+  'ferragosto-amalfi': {
+    category: 'Travel · Amalfi Coast',
+    title: 'Ferragosto on the Amalfi Coast',
+    lede: 'Four days in Positano, Amalfi, and Ravello — arriving on Italy\'s most crowded night of the year, and finding something quieter on the other side of it.',
+    date: 'August 2025',
+    readTime: '12 min read',
+    hero: 'images/travel-amalfi-positano-dusk.jpg',
+    photos: [
+      { src: 'images/travel-amalfi-fireworks-bay.jpg', caption: 'The whole town watched from wherever it could stand.' },
+      { src: 'images/travel-amalfi-mojito-toast.jpg', caption: 'Dinner stretched longer than expected.' },
+      { src: 'images/travel-amalfi-terrazza-infinito.jpg', caption: 'We didn\'t plan to stay.' },
+    ],
+    body: `
+      <p>We pulled in around five-thirty. The water was already full of boats. Not anchored — waiting. Everything around the bay had the feeling of a crowd holding its breath before something, and we didn\'t yet know what that something was.</p>
+
+      <p>The hotel was halfway up the hill, exactly where the town folds over itself. You could see the church dome from the terrace. Below it, Spiaggia Grande was packed solid, the dark-grey pebbles invisible under bodies and inflatables. It was loud and slightly absurd and completely Italian, and we stood on the terrace watching it for a long time before going inside.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-positano-hillside.jpg" alt="Positano hillside at golden hour">
+        <p class="caption">First evening light on the hillside.</p>
+      </div>
+
+      <p>August 15 is Ferragosto — the Feast of the Assumption, Italy\'s summer peak. In Positano, that means the entire bay turns into a floating party, and at midnight, fireworks launched from the water light up the whole vertical face of the town.</p>
+
+      <h2>La Sponda, Le Sirenuse</h2>
+
+      <p>We had booked La Sponda weeks before leaving. The restaurant is on a terrace cantilevered out from the Le Sirenuse hotel, lit by candles in every direction. The langoustines came first — raw, on ice, arranged with no drama beyond the fact of themselves. They tasted like cold water and salt.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-langoustines.jpg" alt="Raw langoustines on ice — La Sponda">
+        <p class="caption">The seafood arrived clean and precise.</p>
+      </div>
+
+      <p>We ordered the Taurasi next, a 2014 Vigna Cinque Querce from Salvatore Molettieri. Iron and dried fruit and something further back — the kind of wine that slows a meal down, which is what a meal like that one needs.</p>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-taurasi-wine.jpg" alt="Taurasi wine — bottle and glass">
+        <img src="images/travel-amalfi-coupe-cocktails.jpg" alt="Two golden coupe cocktails">
+      </div>
+
+      <h2>Midnight — Ferragosto</h2>
+
+      <p>We were back on the hotel terrace by eleven-thirty. Then just after midnight — a single launch from the water, a pause, and the sky opened. What surprised us was the sound. Over water, with the cliff face of Positano behind you amplifying everything, each burst comes a half-second after the flash and lands in your chest.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-fireworks-bay.jpg" alt="Ferragosto fireworks over Positano bay">
+        <p class="caption">The whole town watched from wherever it could stand.</p>
+      </div>
+
+      <h2>August 16 — Spiaggia Grande</h2>
+
+      <p>The morning after Ferragosto is the morning when you find out how many people were actually in Positano. The beach was at capacity by nine. We had front-row sunbeds at L\'Incanto — you could face the water and let the crowd recede behind you.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-spiaggia-grande.jpg" alt="Spiaggia Grande packed — Ferragosto weekend">
+        <p class="caption">We hadn\'t expected quite this many people.</p>
+      </div>
+
+      <div class="insight-block">
+        <span class="insight-label">What we didn't expect</span>
+        <p>Ferragosto weekend is the busiest stretch of the Italian summer. We knew this in the abstract. The lesson for next time: arrive a week earlier, or a week later. The coast is still the coast.</p>
+      </div>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-espresso-view.jpg" alt="Espresso held up against Positano bay">
+        <img src="images/travel-amalfi-calamari.jpg" alt="Calamari fritti e zucchine">
+      </div>
+
+      <h2>The Drive to Amalfi</h2>
+
+      <p>We left at half past eight. We stopped in Praiano, where we did not expect to stop at all. Built into the cliff beside the road is a presepe — a permanent miniature recreation of Praiano itself, hundreds of tiny painted buildings stacked against the rock face, with figures and fishing boats. A sign explains it. We stood there longer than we meant to.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-praiano-presepe.jpg" alt="Presepe di Praiano — miniature village built into cliff">
+        <p class="caption">We didn\'t plan to stay.</p>
+      </div>
+
+      <p>Amalfi town was beautiful and genuinely difficult on a Sunday in August. The cathedral earns everything written about it. We climbed the steps, bought coffee and a sfogliatella at Pasticceria Pansa, watched the crowd arrange itself.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-cathedral-steps.jpg" alt="Amalfi Cathedral steps — August crowds">
+        <p class="caption">The cathedral was worth it. The piazza required patience.</p>
+      </div>
+
+      <h2>Ravello — Elevation Changes Everything</h2>
+
+      <p>The road up to Ravello takes twenty minutes and adds what feels like a different season. We arrived around three and went directly to Villa Rufolo. What the guidebooks call the belvedere is a small stone terrace with a concert stage built at its edge — a platform that appears to float above the sea.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-ravello-terrace.jpg" alt="Ravello terrace — red flowers, umbrella pine, coastline below">
+        <p class="caption">The elevation changes the color of everything.</p>
+      </div>
+
+      <p>We walked into the grounds of Villa Cimbrone. The path in is through a grape arbor, terracotta urns on either side, dappled light. Quiet enough that you can hear your footsteps. The Terrazza dell\'Infinito appeared without warning. You walk through a gate and the cliff simply drops away.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-terrazza-infinito.jpg" alt="Terrazza dell\'Infinito — marble busts, coastline beyond">
+      </div>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-marble-bust.jpg" alt="Marble bust on Infinity Terrace">
+        <img src="images/travel-amalfi-cimbrone-statue.jpg" alt="Classical statue, Villa Cimbrone">
+      </div>
+
+      <h2>A Moment We Didn\'t Plan</h2>
+
+      <p>Before dinner we sat on the terrace at Palazzo Avino and ordered mojitos. Four of them. The view looks directly down toward the coast bending toward Salerno. We hadn\'t planned this stop. The sun was still up and the view was in front of us and the mojitos arrived before we had made any decision about them. We stayed for the sunset.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-mojito-toast.jpg" alt="Four mojitos raised — family toast, Ravello coast below">
+        <p class="caption">Dinner stretched longer than expected.</p>
+      </div>
+
+      <h2>Rossellinis — Palazzo Avino</h2>
+
+      <p>The seafood display at Rossellinis is the first thing you see. A marble counter, backlit, with oysters and whole lobsters and langoustines on crushed ice, lemons tucked between them. The message is: this is what we\'re working with tonight.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-rossellinis-display.jpg" alt="Rossellinis seafood display — backlit marble counter">
+      </div>
+
+      <p>We drank Vigna Grotta Piana, a white from Ravello itself — Costa d\'Amalfi DOC, made by Ettore Sammarco from vines grown on the slope below us. Mineral and cool, with something almost saline in it. It made the seafood taste more like where it came from.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-grotta-piana-wine.jpg" alt="Vigna Grotta Piana, Ravello — bottle and glass">
+        <p class="caption">Made from the slope below us.</p>
+      </div>
+
+      <div class="article-img-pair">
+        <img src="images/travel-amalfi-pasta-zucchini.jpg" alt="Angel hair pasta with zucchini">
+        <img src="images/travel-amalfi-seafood-plate.jpg" alt="Mixed grilled seafood on ceramic plate">
+      </div>
+
+      <div class="insight-block">
+        <span class="insight-label">What we would do differently</span>
+        <p>We drove back to Positano after dinner — over an hour on the coastal road in the dark. Next time we stay in Ravello. The town after ten is a different place entirely.</p>
+      </div>
+
+      <h2>August 18 — Leaving</h2>
+
+      <p>The last morning was quiet. Church bells. Coffee on the terrace before the sun got above the ridge. We checked out at eleven, went into Santa Maria Assunta for a few minutes — cool marble, the Byzantine Madonna above the altar, the smell of stone and candles. The coast road south was still empty. We didn\'t look back.</p>
+
+      <div class="article-img-full">
+        <img src="images/travel-amalfi-positano-morning.jpg" alt="Positano cliffside church dome — morning light">
+        <p class="caption">Before the boats arrive.</p>
+      </div>
+
+      <p>The things that stayed with us were smaller than we expected: the miniature village in Praiano that no one had mentioned. The particular color of the light in Ravello at four in the afternoon. The sound of fireworks over water at midnight. Four mojitos and no plan for the sunset.</p>
+      `,
+  },
+
+  'positano-aerial': {
+    category: 'Travel · Amalfi Coast',
+    title: 'The View from Above: Why Positano Looks Best Before Breakfast',
+    lede: 'Before the hydrofoils arrive and the terrace restaurants fill, Positano belongs entirely to itself — a vertical village clinging to the cliffs in impossible, photogenic defiance of gravity.',
+    date: 'September 2025',
+    readTime: '10 min read',
+    hero: 'images/travel-amalfi-positano-aerial.jpg',
+    photos: [
+      { src: 'images/travel-amalfi-positano-dusk.jpg', caption: 'Positano as the sun drops behind Monte Sant\'Angelo.' },
+      { src: 'images/travel-amalfi-church-dusk.jpg', caption: 'The duomo\'s majolica dome, a landmark visible from sea.' }
+    ],
+    body: `
+      <p>There is a particular quality of light on the Amalfi Coast that photographers and travel writers have been trying — and largely failing — to capture since the Grand Tour made this stretch of Campanian coastline fashionable in the 18th century. It arrives around 6:30am in late summer: a warm, amber-rose light that pours through the gap in the hills above Positano and illuminates the stacked tiers of ochre, terracotta, and chalk-white buildings in a way that makes the whole village look newly painted.</p>
+
+      <h2>The Geometry of the Village</h2>
+      <p>From above — whether from the SS163 coastal road or the terrace of a well-chosen hotel — Positano resolves into an almost abstract composition. The buildings clamber over one another like spectators at a parade: bougainvillea trails between balconies, lemon trees jut improbably from the hillside, and somewhere below, the beach at Spiaggia Grande is still empty, the blue and white sunbeds folded and stacked against the fishing boats.</p>
+
+      <p>Positano is a village of about 4,000 permanent residents that receives roughly two million visitors a year. And yet, arriving early or late, staying more than a night or two, moving beyond the main drag of Via dei Mulini — it yields something different. The village's famous verticality means that most tourists only penetrate as deep as the beach level. Climb the hundreds of steps that serve as streets in the upper village, and you enter a quieter, more domestic Positano: cats on warm stone, the smell of espresso, a grandmother hanging washing on a line strung between two lemon trees.</p>
+
+      <blockquote>"Positano bites deep," John Steinbeck wrote in Harper's Bazaar in 1953. "It is a dream place that isn't quite real when you are there and becomes beckoningly real after you have gone."</blockquote>
+
+      <h2>Getting the Aerial View</h2>
+      <p>The classic view — the one reproduced on millions of postcards and Instagram posts — is taken from the road above the village, typically from a layby near the turn-off for Montepertuso. The light is best in early morning or during the golden hour before sunset. A longer hike, the Sentiero degli Dei (Path of the Gods), offers even more dramatic perspectives from the ridge above town, though the full trail requires proper footwear and an early start to avoid the crowds and the heat.</p>
+
+      <p>For those who prefer their altitude served with a Negroni, the terrace bar at Le Sirenuse hotel occupies a perch partway up the village that delivers much of the same drama with considerably more comfort. The hotel has been hosting writers, artists, and a certain strain of discerning traveller since 1951, and its terrace remains one of the finest places in Europe to watch the light change over the sea.</p>
+
+      <h3>Where to Stay</h3>
+      <p>Le Sirenuse sits at the top of the village's accommodation hierarchy — and its price list. For something more intimate, the small pensioni and rental apartments scattered through the upper village offer a more authentic experience, along with the daily cardio workout of navigating Positano's staircases. Most can be reached only on foot; part of the village's particular character is its immunity to cars.</p>
+
+      <p>The best advice, resolutely unglamorous, is simply this: stay at least three nights, set your alarm for 6am, and walk up instead of down. Everything else will follow.</p>
+    `
+  },
+
+  'positano-dusk': {
+    category: 'Travel · Amalfi Coast',
+    title: 'Positano After Dark: the Village That Refuses to Sleep',
+    lede: 'As the last ferry departs and the day-trippers dissolve into the evening, Positano reinvents itself — louder, warmer, and considerably more interesting.',
+    date: 'September 2025',
+    readTime: '8 min read',
+    hero: 'images/travel-amalfi-positano-dusk.jpg',
+    photos: [
+      { src: 'images/travel-amalfi-beach-night.jpg', caption: 'The Amalfi shore after the crowds have gone.' }
+    ],
+    body: `
+      <p>The transformation happens quickly. By 6pm the hydrofoils and ferries from Naples and Capri have made their last runs, carrying with them the majority of Positano's day visitors. The beach bars begin converting from sun-bleached casual to something approximating elegance: tablecloths appear, candles are lit, and the resident cats adopt their evening stations with the authority of maîtres d'.</p>
+
+      <h2>The Evening Ritual</h2>
+      <p>Positano's evening begins, as most things in southern Italy do, with the passeggiata. The main lane of Via dei Mulini and the steps down to the waterfront fill with a slow, sociable promenade — a mixture of hotel guests from the terrace properties above, local families, and the small contingent of visitors who have had the foresight to book a night rather than merely a day trip.</p>
+
+      <p>The aperitivo hour here is taken seriously. The Champagne Bar at the Music on the Rocks club — improbably carved into the rock face beside the beach — fills early. La Zagara, the terrace café-restaurant halfway up the village, serves its legendary limoncellos to a crowd that spills happily onto the street. These are not places where you linger over a single drink; they are way-stations in a longer evening's itinerary.</p>
+
+      <h2>Dinner on the Cliffside</h2>
+      <p>The village's restaurant scene has matured considerably over the past decade. Ristorante Buca di Bacco, with its sea-level terrace virtually lapped by the Mediterranean, remains the grande dame — the room where Steinbeck, Ingrid Bergman, and Franco Zeffirelli once ate. For contemporary Campanian cooking at its most refined, Da Vincenzo in the upper village delivers extraordinary pasta and seafood without the tourist-trap pricing that plagues some of its beachfront competitors.</p>
+
+      <blockquote>The dish to order, always, is the scialatielli ai frutti di mare — the local thick, hand-cut pasta with a tide of mussels, clams, shrimp, and whatever the morning's fishing boats delivered.</blockquote>
+
+      <p>After dinner, Positano does not exactly rage — it is not that kind of place. But it glitters. The string lights strung between the buildings come into their own as darkness falls; the little boutiques stay open until ten or eleven; and from the beach, the illuminated village stacked up the hillside presents one of those views that cause even the most photograph-weary traveller to reach for their camera one more time.</p>
+
+      <h3>Practical Notes</h3>
+      <p>Book dinner early — walk-ins are increasingly difficult at the better restaurants in high season. The beach bars require neither reservation nor apology, and the water at night, if you're inclined to a late swim, is warm enough until October and entirely untroubled by company.</p>
+    `
+  },
+
+  'seafood-platter': {
+    category: 'Food & Wine · Amalfi Coast',
+    title: 'The Catch of the Day: Amalfi\'s Legendary Seafood Tradition',
+    lede: 'On a coast where the fishing boats still go out before dawn and the restaurants negotiate with the fishermen before they negotiate with their kitchens, the seafood is not a menu choice — it is a philosophy.',
+    date: 'September 2025',
+    readTime: '6 min read',
+    hero: 'images/food-amalfi-seafood-platter.jpg',
+    photos: [
+      { src: 'images/food-amalfi-lobster-pasta.jpg', caption: 'Spaghetti all\'astice — the essential Amalfi dish.' },
+      { src: 'images/food-amalfi-calamari.jpg', caption: 'Calamari fritti with lemon: the perfect beginning.' }
+    ],
+    body: `
+      <p>The Mediterranean diet — that much-invoked, much-misunderstood prescription for longevity — is best understood not as a set of nutritional guidelines but as a way of being in relation to the sea and the land. On the Amalfi Coast, it is lived rather than aspired to. The fishing boats at Atrani depart before 4am; by 7am the catch is being sorted on the quay; by noon it is on a plate.</p>
+
+      <h2>Reading the Fritto Misto</h2>
+      <p>The fritto misto di mare — a mountain of lightly battered, freshly fried mixed seafood — is the truest test of a coastal Italian restaurant's integrity. In its finest form, it contains whatever the sea provided that morning: rings of calamari, small prawns, anchovies, perhaps some tiny octopus, a few mussels opened by the heat. The batter is minimal, more suggestion than coating; the oil must be at precisely the right temperature; the result must be eaten immediately.</p>
+
+      <p>A mediocre fritto misto — oily, heavy, assembled from frozen product — reveals a kitchen that has abandoned its principles. A perfect one, eaten on a terrace above the sea, with a glass of local Falanghina sweating in the heat, constitutes a minor argument for the existence of a benevolent universe.</p>
+
+      <h2>The Essential Dishes</h2>
+      <p>Beyond the fritto, the Amalfi Coast's seafood canon is relatively compact and entirely worth mastering. Spaghetti alle vongole — pasta with clams, white wine, parsley, olive oil, and a ferocity of garlic — is the daily bread of this coast, made here with an intensity that its inland imitations cannot approach. The local clams, harvested from the clean waters of the Tyrrhenian, have a salinity and sweetness that the dish depends upon.</p>
+
+      <p>Pezzogna (red sea bream) baked in a crust of salt and herbs is the grand occasion dish — a whole fish, sealed and cooked, cracked open at the table in a theatrical release of steam and fragrance. Restaurants of any ambition offer it, though it requires ordering in advance. The result justifies the planning.</p>
+
+      <blockquote>The best seafood restaurants on the Amalfi Coast share a common quality: they change their menus according to what arrived that morning, and they are unapologetic about it.</blockquote>
+
+      <h3>Where to Eat</h3>
+      <p>Il Pirata in Praiano remains something of an open secret — a simply furnished room above the coastal road where the seafood is exceptional and the prices have not yet been adjusted for the international market. In Amalfi town itself, La Caravella, which holds a Michelin star and a history stretching back to 1959, interprets the local tradition with more technical ambition. Both approaches are valid; both, on their own terms, are magnificent.</p>
+
+      <div class="info-box">
+        <h4>Practical Notes</h4>
+        <ul>
+          <li>Look for restaurants that post a handwritten "menu del giorno" — it signals a kitchen cooking to the catch</li>
+          <li>Ask the waiter what came in that morning before ordering</li>
+          <li>White wine: Furore Bianco (Marisa Cuomo), Costa d'Amalfi Bianco DOC</li>
+          <li>Avoid restaurants with photographs on the menu near the tourist hotspots</li>
+          <li>The best informal seafood: the alimentari and bars in Atrani, a five-minute walk from Amalfi</li>
+        </ul>
+      </div>
+    `
+  },
+
+  'ravello-cocktails': {
+    category: 'Food & Wine · Ravello',
+    title: 'Spritz at Sunset: Ravello\'s Art of the Aperitivo',
+    lede: 'Six hundred metres above the sea, in a village that Wagner, Greta Garbo, and Gore Vidal all chose as a retreat from the world, the aperitivo hour achieves something close to perfection.',
+    date: 'September 2025',
+    readTime: '5 min read',
+    hero: 'images/food-amalfi-ravello-cocktails.jpg',
+    photos: [],
+    body: `
+      <p>Ravello sits above the Amalfi Coast like a parenthetical thought — easily overlooked, impossible to forget once visited. While Positano sells itself loudly and Amalfi plays to its historical celebrity, Ravello simply exists at altitude, surrounded by terraced gardens and medieval architecture, exuding a refinement that has attracted a particular kind of visitor for centuries.</p>
+
+      <h2>The Garden Bars</h2>
+      <p>The aperitivo culture here differs from the waterfront bars below in the same way that Ravello itself differs from the coast: it is quieter, more considered, more inclined toward long conversations and the contemplation of views. The defining experience is a drink on the terrace of the Belmond Hotel Caruso, a converted 11th-century palazzo where the infinity pool appears to pour directly into the bay far below, and where the bar produces a limoncello spritz of such delicacy that it has become a kind of local institution.</p>
+
+      <p>Villa Cimbrone, whose gardens Greta Garbo made famous by retreating here with conductor Leopold Stokowski in 1938, now operates partly as a hotel. The Belvedere of Infinity — a terrace at the garden's edge with an unobstructed drop to the Tyrrhenian — is the finest single view on the Amalfi Coast. A glass of something cold, consumed here at 6pm with the light going golden, constitutes a moment that the word "experience" barely contains.</p>
+
+      <blockquote>"I have never seen the world as I saw it from the heights of Ravello." — André Gide</blockquote>
+
+      <h2>What to Drink</h2>
+      <p>The local limoncello — made from the sfusato amalfitano lemon, a protected variety grown only on this coast, with a fragrance and acidity that the supermarket version cannot approach — is the obvious choice. Served over ice, with or without prosecco, it captures something of the place itself: intensely aromatic, slightly sharp, warm with the heat that produced it.</p>
+
+      <p>For those inclined toward something more complex, the coast's wine producers have raised their game considerably in recent years. The Furore Bianco from Marisa Cuomo, made from local Fenile and Ginestra grapes on impossibly steep terraced vineyards, is the wine of the region — dry, mineral, with a salinity that mirrors the sea below.</p>
+
+      <h3>Ravello After Dark</h3>
+      <p>The Ravello Music Festival, held annually through the summer in the Villa Rufolo's garden (with the sea as backdrop and the stars as ceiling), represents one of Europe's most beautiful concert settings. Tickets sell out months in advance. If you cannot attend, the sound of the orchestra drifting through the village streets on a summer evening is its own reward.</p>
+    `
+  },
+
+  'church-dusk': {
+    category: 'Travel · Amalfi',
+    title: 'Duomo di Sant\'Andrea: Amalfi\'s Soul at Twilight',
+    lede: 'The cathedral that has watched over this ancient maritime republic for nine centuries is most itself as the light fails and the day-trippers retreat, leaving the piazza to those who have nowhere else to be.',
+    date: 'September 2025',
+    readTime: '4 min read',
+    hero: 'images/travel-amalfi-church-dusk.jpg',
+    photos: [],
+    body: `
+      <p>Amalfi was, before it was a tourist destination, a maritime republic — a naval power of sufficient influence that it once rivalled Genoa, Venice, and Pisa. The Duomo di Sant'Andrea, begun in the 9th century and substantially expanded through the 11th and 12th, is the architectural expression of that vanished confidence: its Arab-Norman facade, its striped marble, its bronze doors cast in Constantinople, speak of a city that traded with the known world and brought the known world home.</p>
+
+      <h2>The Facade at Dusk</h2>
+      <p>The cathedral faces west, and in the late afternoon the Piazza del Duomo becomes one of the more extraordinary pieces of theatre on the Italian coast. The polychrome facade — layers of black-and-white striped marble, Byzantine mosaics, blind arcades in the Moorish style — catches the setting light and transforms it. The gold of the mosaic changes from static to luminous; the shadows deepen between the columns; the whole composition becomes a lesson in the aesthetic ambitions of medieval Mediterranean culture.</p>
+
+      <p>The 62 steps leading up to the cathedral entrance are occupied, through most of the day, by seated tourists, gelato vendors, and the constant human flow of a busy coastal town. At dusk, as the shadows claim the piazza, the steps empty and something changes. The locals re-emerge: old men on the benches, children on bicycles, couples walking slowly in the manner of people who have no reason to hurry. The cathedral watches over it all with the patience of nine centuries.</p>
+
+      <blockquote>The bronze doors, made in Constantinople around 1066, are among the oldest in Italy still in their original position. Run your hand along them and you touch the Amalfi Republic at the height of its power.</blockquote>
+
+      <h2>Inside the Cathedral</h2>
+      <p>The interior, heavily restored in the baroque period, is less remarkable than the facade — though the Chiostro del Paradiso, a 13th-century cloister in the Arab-Norman style with interlaced arches and a garden of palm trees and ancient sarcophagi, is one of the most beautiful enclosed spaces on the coast. The crypt below the main altar contains the relics of Sant'Andrea, brought from Constantinople in 1206 and still the object of the town's principal festival each June.</p>
+
+      <p>Admission to the cathedral is free in the evening hours. The cloister charges a modest entrance fee and closes before sunset — arrive by 5:30pm to see it in its best light.</p>
+    `
+  },
+
+  'capri-vespa': {
+    category: 'Travel · Capri',
+    title: 'La Dolce Vita on Two Wheels: A Vespa Morning on Capri',
+    lede: 'The island has been declaring itself paradisiacal since the Emperor Tiberius built his twelve villas here. A morning on a rented scooter confirms that some reputations are entirely earned.',
+    date: 'August 2025',
+    readTime: '6 min read',
+    hero: 'images/travel-capri-dg-vespa.jpg',
+    photos: [
+      { src: 'images/travel-capri-gelato.jpg', caption: 'The essential mid-morning Capri decision.' }
+    ],
+    body: `
+      <p>Capri operates at two speeds. There is the speed of the piazzetta — the tiny, absurdly glamorous central square where the famous and the famously wealthy gather to be seen at café tables the size of dinner plates, where a cappuccino costs what a small country's GDP might once have been, and where the performance of leisure is conducted at an almost geological pace. And then there is the speed of everything else: the hairpin roads cut into the white limestone cliffs, the delivery trucks negotiating impossible corners, the scooters threading between them with the casual certainty of people who have been doing this all their lives.</p>
+
+      <h2>The Scooter Option</h2>
+      <p>Renting a scooter or small motorcycle on Capri is one of those decisions that feels slightly reckless in planning and entirely natural in execution. The island's road network is essentially a single main road circling the high ground between Capri town and Anacapri, with a series of lanes descending to the various coves and lookout points below. Traffic is rarely fast; the scenery demands that you stop frequently.</p>
+
+      <p>The route to Anacapri along the Via Krupp — the vertiginous zigzag path cut into the cliff face by the German industrialist Friedrich Alfred Krupp in 1900 — is now walkable only, and only when it is open (rockfall closes it periodically). But the road above it, offering the same views over the Faraglioni sea stacks and the Marina Piccola far below, is accessible by scooter and provides a reminder that this island's relationship with the dramatic gesture has deep historical roots.</p>
+
+      <blockquote>The Faraglioni — three limestone sea stacks rising from the water off the eastern tip of the island — are Capri's most reproduced image and, in person, their most compelling one. They are best seen from the water, but the view from the road above is considerable.</blockquote>
+
+      <h2>The Anacapri Detour</h2>
+      <p>Anacapri, the island's second town, sits higher and feels quieter than Capri town — less curated, more lived-in, with a market and a bus stop and the Villa San Michele, the extraordinary home built by Swedish doctor Axel Munthe in the early 20th century, now open as a museum and occupying a position at the cliff's edge that challenges belief. The gardens, scented with wisteria and jasmine and overlooking the Gulf of Naples, contain one of the island's finest views at a price that even non-oligarchs can manage.</p>
+
+      <h3>Practical Notes</h3>
+      <p>Scooter rental from Marina Grande is straightforward; bring a driving licence (motorcycle licence required for larger engines) and a credit card. Helmets are provided and mandatory. The island's roads can be busy midday in July and August; a 7:30am start gives you the roads largely to yourself and the light at its most theatrical. Return the scooter by noon and reward yourself with gelato at one of the Anacapri bars before the crowds arrive.</p>
+    `
+  },
+
+  'capri-gelato': {
+    category: 'Food & Wine · Capri',
+    title: 'The Perfect Scoop: Capri\'s Finest Gelaterie, Ranked',
+    lede: 'On an island where luxury is the local currency, it is entirely in keeping that even the gelato is exceptional. Here is where to find it.',
+    date: 'August 2025',
+    readTime: '5 min read',
+    hero: 'images/travel-capri-gelato.jpg',
+    photos: [],
+    body: `
+      <p>The great Italian gelaterie are not distinguished by the number of flavours they offer but by their devotion to a few: the depth of their pistacchio, the intensity of their nocciola, the clarity of their lemon. On an island where the sfusato amalfitano — the long, intensely fragrant lemon indigenous to this stretch of coast — grows in gardens and terraces all around you, a lemon gelato becomes almost an act of terroir.</p>
+
+      <h2>The Hierarchy</h2>
+      <p>Gelateria Buonocore, on Via Vittorio Emanuele in Capri town, has been operating since 1953 and remains the reference point. The lemon sorbet is made with fresh juice, no stabilisers, and a sugar content calibrated to complement rather than overwhelm the citrus. It is served in a brioche — the Neapolitan custom, and the correct one — or in a cone if you insist. The pistachio, made with Bronte nuts from Sicily, is the colour of old money: not the lurid green of food colouring but the dignified grey-green of the real thing.</p>
+
+      <p>Gelateria Classica, slightly further along the same street, is the challenger. Its offerings are more experimental — a crema di Capri flavour combines local honey, lemon zest, and ricotta in a composition that should not work and emphatically does — and the proprietor is the kind of artisan who will explain, at length and with genuine enthusiasm, exactly what is in each tub and why.</p>
+
+      <blockquote>The debate between Buonocore and Classica is Capri's most heated ongoing discussion. Our position: visit both, order the lemon at the first and the pistachio at the second, and declare a draw.</blockquote>
+
+      <h2>The Anacapri Alternative</h2>
+      <p>In Anacapri, Il Sorbetto di Capri, a small laboratorio artisanale just off the main square, produces granita rather than gelato — the Sicilian method, coarser and icier, intensely flavoured — that is, in the opinion of those who know, superior to both of its Capri town rivals for the sheer purity of the lemon and almond versions. It is open only in the mornings. Plan accordingly.</p>
+
+      <h3>What to Order</h3>
+      <p>Lemon: always. Nocciola (hazelnut): always. Fragola (strawberry): only in June and July when the local berries are in season. Anything in a pre-packaged tub or labelled in six languages: never.</p>
+    `
+  },
+
+  'capri-marina': {
+    category: 'Travel · Capri',
+    title: 'Arriving by Sea: Capri\'s Marina Grande at First Light',
+    lede: 'The proper approach to Capri has always been by water. The island reveals itself slowly, then all at once.',
+    date: 'August 2025',
+    readTime: '4 min read',
+    hero: 'images/travel-capri-marina.jpg',
+    photos: [],
+    body: `
+      <p>The ferry from Naples takes about 80 minutes. The hydrofoil from Sorrento takes 25. Both arrive at Marina Grande, Capri's main port, a harbour enclosed by the island's two flanking cliffs that provides, on a clear morning, one of the Mediterranean's great arrival experiences.</p>
+
+      <h2>The Approach</h2>
+      <p>From the water, as the ferry rounds the western point of the island, Capri presents itself as a mass of white and pale ochre buildings set against limestone cliffs of a particular grey-white that changes colour with the light — pale blue at dawn, almost blinding at noon, warm amber in the late afternoon. The funicular, a red cable car ascending from the harbour to the town above, crawls up the cliff face with the slowness of something that has been performing this journey since 1907 and sees no reason to accelerate.</p>
+
+      <p>Marina Grande itself is not the prettiest of harbours — it is functional, a working port surrounded by ticket offices and tourist businesses — but it possesses the energy of a place that understands its role as the gate to something extraordinary. The water in the harbour is an improbable shade of blue-green; the boats moored along the quay range from industrial ferries to absurdly expensive yachts; and the smell, on a warm morning, is salt and diesel and the particular sweetness of jasmine from the gardens above.</p>
+
+      <blockquote>Arrive before 9am in summer and the harbour belongs to you and the fishing boats. By 10am the ferries from the mainland have begun arriving in earnest and the funicular queue extends down the street.</blockquote>
+
+      <h2>The Funicular</h2>
+      <p>The funicular ascent takes four minutes and delivers you into the Piazzetta — Capri's famous central square — with a slight, agreeable disorientation: you have moved from the sea to the sky in the time it takes to finish a croissant. The views during the ascent, glimpsed through the funicular car's windows, are a preview of what the island offers: the harbour falling away, the sea expanding, the mainland becoming a smudge on the horizon.</p>
+
+      <p>There is also the option to walk — the Phoenician Steps, 921 steps cut into the cliff and dating originally from Greek colonisation, connect Marina Grande to Anacapri and represent an ascent of approximately 290 vertical metres. Allow 45 minutes, bring water, and arrive early before the heat claims the stairway entirely.</p>
+    `
+  },
+
+  'lobster-pasta': {
+    category: 'Food & Wine · Amalfi',
+    title: 'Spaghetti all\'Astice: The Dish That Defines the Coast',
+    lede: 'A single pasta dish — lobster, tomato, a ferocity of garlic, the freshest spaghetti the kitchen can produce — encapsulates everything that Amalfi Coast cooking aspires to be.',
+    date: 'September 2025',
+    readTime: '7 min read',
+    hero: 'images/food-amalfi-lobster-pasta.jpg',
+    photos: [
+      { src: 'images/food-amalfi-seafood-platter.jpg', caption: 'The broader seafood tradition that the lobster pasta crowns.' }
+    ],
+    body: `
+      <p>There is a photograph — or rather, there are thousands of photographs — of this dish. The spaghetti all'astice of the Amalfi Coast has become one of the internet's most photographed foods: the vivid scarlet of the tomato sauce, the halved lobster with its coral interior, the gleam of olive oil, the scatter of parsley against the white of the bowl. It photographs beautifully. It also tastes extraordinary. These two facts are not always the same fact.</p>
+
+      <h2>The Dish</h2>
+      <p>The preparation is deceptively simple, which means it is actually extremely difficult. A live astice — the European lobster, blue-black before cooking, vivid red after — is halved lengthwise and cooked briefly in a wide pan with olive oil, garlic, white wine, and a small quantity of ripe cherry tomatoes. The pasta is cooked separately to al dente, then finished in the lobster cooking juices, absorbing the oceanic sweetness and the acid brightness of the tomato. The halved lobster is arranged over the top. Fresh parsley. A drizzle of the best olive oil available.</p>
+
+      <p>The variables that determine whether the dish ascends or merely satisfies are: the lobster (it must be alive when it enters the kitchen; the difference between a live and a day-old lobster is not subtle), the tomatoes (the Campania region's san marzano and pachino varieties are used here because they are grown here; their sweetness and acidity are calibrated to the local palate), and the pasta (fresh spaghetti from a kitchen that makes it daily, rather than dried).</p>
+
+      <blockquote>The temptation, for a restaurant catering to tourists who have read about this dish, is to make it photogenic at the expense of making it good. The defence against this is to order it at a restaurant where the locals also eat.</blockquote>
+
+      <h2>Where to Eat It</h2>
+      <p>La Caravella in Amalfi town, the oldest restaurant on the coast with a Michelin star earned honestly over decades, serves a version that represents the tradition at its most technically refined. The pasta is made each morning; the lobster sourced from local fishermen who know what the kitchen requires. It is expensive. It is worth it.</p>
+
+      <p>For a less formal version, Trattoria Il Mulino in Amalfi's back streets offers a version that the town's own residents eat — simpler in presentation, equally good in result, and priced for people who live here rather than visit. Reservations required at both.</p>
+
+      <h3>The Broader Tradition</h3>
+      <p>The spaghetti all'astice sits at the top of a coastal hierarchy of pasta dishes that descends through scialatielli ai frutti di mare (the local thick pasta with mixed seafood), paccheri con polpo e pomodoro (large tubes with octopus and tomato), and finally linguine alle vongole — the simplest and in some ways the truest of them all, the daily dish that the coast's kitchen workers eat when they finish their shifts. All are worth eating. All will ruin you for lesser versions elsewhere.</p>
+    `
+  },
+
+  'beach-night': {
+    category: 'Travel · Amalfi Coast',
+    title: 'After Midnight on the Amalfi Shore: When the Tourists Leave',
+    lede: 'The pebbled beaches of the Amalfi Coast have a secret second life — one that begins after the sun loungers are stacked and the last restaurant has closed.',
+    date: 'September 2025',
+    readTime: '6 min read',
+    hero: 'images/travel-amalfi-beach-night.jpg',
+    photos: [],
+    body: `
+      <p>The Amalfi Coast's beaches are not its beaches. This sounds paradoxical, but the coast's great stone terracing — the lemon groves and villa gardens and residential buildings — descends to the sea by sheer gravity, leaving little room for sandy shores. What beaches exist are small, often pebbly, accessed by stairways or narrow paths, and overwhelmed from June through August by the volume of visitors who have come specifically for them. They are, during the day, among the more crowded places on the Italian coast.</p>
+
+      <h2>The After-Hours Coast</h2>
+      <p>At night, the arithmetic changes entirely. The beach clubs close; the sunbeds are stacked; the vendors depart. What remains is the actual physical fact of the place: limestone cliffs rising from water of an extraordinary translucency, the lights of fishing boats visible on the horizon, the sound of small waves against pebbles — a sound that constitutes, for anyone who has spent time here, a kind of Proustian shorthand for the whole coast.</p>
+
+      <p>Atrani, the smallest incorporated municipality in Italy and one of the coast's least-visited villages despite sitting a five-minute walk from Amalfi, has a small beach that in the hours between 11pm and 5am belongs to the village and to the sea. Local teenagers and young adults gather here in summer — not for any particular purpose, but for the same reasons that people have gathered at water's edge since before cities existed: the sound, the darkness, the relief of cool air after a hot day.</p>
+
+      <blockquote>The Mediterranean at night is not the Mediterranean you photograph. It is something more intimate — darker, warmer, more directly experienced. The cliff lights of the villages above make it theatrical; the sound of the water makes it real.</blockquote>
+
+      <h2>A Late Swim</h2>
+      <p>The water temperature in September along this coast remains above 24°C — warm enough for swimming at midnight without any particular courage required. The rocks along the shore provide the steps down; the water below, clear enough in daylight that you can see the bottom at five metres, has a different quality at night — opaque, responsive to light, alive in a way that daylight renders invisible.</p>
+
+      <p>There is no practical advice to offer here, except this: if you are staying on the Amalfi Coast, leave the restaurant early enough to reach the water before it becomes genuinely late. Walk along the shore. Sit on the pebbles. Listen to the particular sound of this particular sea. The experience costs nothing and provides, arguably, more of what you came for than any restaurant, museum, or view.</p>
+    `
+  },
+
+  'calamari': {
+    category: 'Food & Wine · Amalfi',
+    title: 'Calamari Fritti e Limone: Italy\'s Most Perfect Bar Snack',
+    lede: 'A cone of fresh-fried calamari, squeezed with the local lemon, eaten standing at a bar counter above the sea. Some pleasures do not improve with elaboration.',
+    date: 'September 2025',
+    readTime: '4 min read',
+    hero: 'images/food-amalfi-calamari.jpg',
+    photos: [],
+    body: `
+      <p>The sfusato amalfitano is a lemon of unusual character. Longer than the standard supermarket lemon, with a thick, aromatic pith and a juice of intense acidity and fragrance, it has been cultivated on the terraced cliffs above the Amalfi Coast for centuries. The UNESCO designation of this coast as a World Heritage Site acknowledged, among other things, the extraordinary cultural landscape created by these lemon groves — the dry-stone walls that support them, the trellis structures that protect the fruit from coastal winds, the agricultural knowledge required to maintain them on near-vertical terrain.</p>
+
+      <p>All of which is context for the following: when you squeeze a sfusato amalfitano over a cone of freshly fried calamari, the result is something that the word "food" barely covers. It is an argument. It is a position statement. It says: this is what this coast produces, and it does not require a Michelin star or a tablecloth or a lengthy menu to demonstrate why this place is worth the journey.</p>
+
+      <h2>The Technique</h2>
+      <p>Good calamari fritti requires three things: fresh squid (not frozen; the texture and water content are entirely different), a light dusting of flour or semolina (no eggs, no heavy batter; the coating is almost invisible), and oil at the correct temperature — approximately 180°C, hot enough that the calamari seals immediately and cooks through in 90 seconds without absorbing oil.</p>
+
+      <p>The squid must be fresh enough that it is sweet, not fishy. Cut into rings — the tentacles, also fried, are the cook's reward and are not always offered to customers. Served immediately, in a paper cone or on a piece of waxed paper, with a half-lemon and nothing else. Salt, if you feel it necessary, but sparingly.</p>
+
+      <blockquote>The worst calamari in the world — rubbery, oily, tasting of the freezer — and the best calamari in the world begin with the same animal. The distance between them is entirely a matter of freshness and technique.</blockquote>
+
+      <h2>Where to Find It</h2>
+      <p>The best informal version on the Amalfi Coast is found not at restaurants but at the small friggitorie — fry shops — that operate out of windows in the walls of coastal towns, selling to passers-by. Atrani has one; Minori has one; the port area of Amalfi has several. They open at lunchtime and again in the late afternoon, and they sell out when the product is good.</p>
+
+      <p>Order in Italian — "una porzione di calamari, per favore" — pay the minimal sum requested, take your paper cone, find a wall or a railing with a view of the water, and eat immediately. This is the correct procedure. It does not require further instruction.</p>
+
+      <div class="info-box">
+        <h4>The Lemon Question</h4>
+        <ul>
+          <li>The sfusato amalfitano is a PGI-protected product — the IGP label guarantees origin</li>
+          <li>Available from roadside stalls throughout the coast; buy a bag to take home</li>
+          <li>For limoncello, the local product uses only sfusato zest — the difference from generic limoncello is significant</li>
+          <li>The lemon granita at Minori's seafront bars is the definitive summer drink of the coast</li>
+        </ul>
+      </div>
+    `
+  }
+
+};
+
+window.BH_FERRAGOSTO_HTML = "\n\n    <!-- ─── SECTION 1: OPENING MOMENT ─────────────────────────── -->\n    <span class=\"section-label\">August 15 — Arrival</span>\n\n    <p>We pulled in around five-thirty. The water was already full of boats. Not anchored — waiting. Everything around the bay had the feeling of a crowd holding its breath before something, and we didn't yet know what that something was.</p>\n\n    <p>The hotel was halfway up the hill, exactly where the town folds over itself. You could see the church dome from the terrace. Below it, Spiaggia Grande was packed solid, the dark-grey pebbles invisible under bodies and inflatables. A boat with speakers drifted offshore, trailing something between pop music and static. It was loud and slightly absurd and completely Italian, and we stood on the terrace watching it for a long time before going inside.</p>\n\n    <figure class=\"img-full\">\n      <img src=\"images/travel-amalfi-positano-hillside.jpg\" alt=\"Positano hillside, golden hour — pastel buildings cascading to the sea\">\n      <figcaption>First evening light on the hillside.</figcaption>\n    </figure>\n\n    <p>August 15 is Ferragosto — the Feast of the Assumption, the summer's peak, the one night when Italy collectively stops. In Positano, that means the entire bay turns into a floating party, and at midnight, fireworks launched from the water light up the whole vertical face of the town. We had read about it. We had not quite imagined it.</p>\n\n    <!-- ─── SECTION 2: DINNER — NIGHT 1 ───────────────────────── -->\n    <span class=\"section-label\">La Sponda, Le Sirenuse</span>\n\n    <p>We had booked La Sponda weeks before leaving, which was the right decision. The restaurant is on a terrace cantilevered out from the Le Sirenuse hotel, lit by candles in every direction — you stop counting after a while. The view down to the bay is unobstructed. By the time our table was set, the boats below had multiplied again.</p>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-langoustines.jpg\" alt=\"Raw langoustines on ice, herb garnish — La Sponda, Positano\">\n      <figcaption>The seafood arrived clean and precise.</figcaption>\n    </figure>\n\n    <p>The langoustines came first — raw, on ice, arranged with no drama beyond the fact of themselves. They tasted like cold water and salt. We ordered the Taurasi next, a 2014 Vigna Cinque Querce from Salvatore Molettieri, which was a strange choice with seafood but the right one. It was iron and dried fruit and something further back — the kind of wine that slows a meal down, which is what a meal like that one needs.</p>\n\n    <figure class=\"img-pair\">\n      <img src=\"images/travel-amalfi-taurasi-wine.jpg\" alt=\"Taurasi Vigna Cinque Querce 2014 — bottle and glass, candlelit terrace\">\n      <img src=\"images/travel-amalfi-coupe-cocktails.jpg\" alt=\"Two golden coupe cocktails, white tablecloth, warm light\">\n    </figure>\n    <p class=\"caption\">The wine slowed everything down just enough.</p>\n\n    <!-- ─── SECTION 3: FIREWORKS ───────────────────────────────── -->\n    <span class=\"section-label\">Midnight — Ferragosto</span>\n\n    <p>We were back on the hotel terrace by eleven-thirty. The bay was completely still now, the boats arranged in a loose semicircle below, waiting. Then just after midnight — a single launch from the water, a pause, and the sky opened.</p>\n\n    <figure class=\"img-feature\">\n      <img src=\"images/travel-amalfi-fireworks-bay.jpg\" alt=\"Ferragosto fireworks over Positano bay — white bursts, boats lit in blue below\">\n      <figcaption>The whole town watched from wherever it could stand.</figcaption>\n    </figure>\n\n    <p>What surprised us was the sound. In photographs, fireworks are silent. In person, over water, with the cliff face of Positano behind you amplifying everything, each burst comes a half-second after the flash and lands in your chest. The boats sounded their horns. Someone below us on the hillside clapped. It went on for nearly twenty minutes.</p>\n\n    <!-- ─── SECTION 4: BEACH DAY ───────────────────────────────── -->\n    <span class=\"section-label\">August 16 — Spiaggia Grande</span>\n\n    <p>The morning after Ferragosto is the morning when you find out how many people were actually in Positano. The beach was at capacity by nine. We had front-row sunbeds at L'Incanto, which made everything slightly easier — you could face the water and let the crowd recede behind you.</p>\n\n    <figure class=\"img-full\">\n      <img src=\"images/travel-amalfi-spiaggia-grande.jpg\" alt=\"Spiaggia Grande packed with people — Positano cliffs behind, Ferragosto weekend\">\n      <figcaption>We hadn't expected quite this many people.</figcaption>\n    </figure>\n\n    <div class=\"personal-note\">\n      <span class=\"personal-note-label\">What we didn't expect</span>\n      <p>Ferragosto weekend is the busiest stretch of the Italian summer. We knew this in the abstract. We did not know it in the specific — which is to say: every restaurant, every lane, every beach chair is spoken for by noon. The lesson for next time is to arrive a week earlier, or a week later. The coast is still the coast.</p>\n    </div>\n\n    <p>The afternoon slowed into something easier. Lunch at L'Incanto's terrace — calamari fritti, crisp and light, the zucchini cut thin — then back up to the room during the hottest part of the day. By five, the day-trippers had largely cleared and the town felt like itself again.</p>\n\n    <figure class=\"img-pair\">\n      <img src=\"images/travel-amalfi-espresso-view.jpg\" alt=\"Espresso cup held up against Positano bay — Hotel California terrace\">\n      <img src=\"images/travel-amalfi-calamari.jpg\" alt=\"Calamari fritti e zucchine with lemon wedges — L'Incanto beach restaurant\">\n    </figure>\n    <p class=\"caption\">The morning was slow. Lunch was slower.</p>\n\n    <!-- ─── SECTION 5: AMALFI ROAD TRIP ───────────────────────── -->\n    <span class=\"section-label\">August 17 — The Drive to Amalfi</span>\n\n    <p>We left at half past eight. The SS163 in the morning is a different road than it is at noon — the light still low, the switchbacks not yet backed up with tour buses. We stopped twice before reaching Amalfi: once at a viewpoint above Praiano to look back at Positano, and once in Praiano itself, where we did not expect to stop at all.</p>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-praiano-presepe.jpg\" alt=\"Presepe di Praiano — handmade miniature village built into the cliff face\">\n      <figcaption>We didn't plan to stay.</figcaption>\n    </figure>\n\n    <p>Built into the cliff beside the road is a presepe — a nativity scene — constructed by a man named Castellano Michele over what must have been years. Not a Christmas display: a permanent, miniature recreation of Praiano itself, hundreds of tiny painted buildings stacked against the rock face, with figures and fishing boats and a working funicular. A sign explains it. We stood there longer than we meant to.</p>\n\n    <p>Amalfi town was the trade-off. Beautiful, genuinely — the cathedral earns everything written about it — but August 17 on a Sunday, with every ferry from Naples and Salerno adding to the piazza, it was difficult to find much quiet. We climbed the cathedral steps, bought coffee and a sfogliatella at Pasticceria Pansa, watched the crowd arrange itself around the fountain at the bottom of the square.</p>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-cathedral-steps.jpg\" alt=\"Amalfi Cathedral steps — hundreds of people sitting, Sunday August crowds\">\n      <figcaption>The cathedral was worth it. The piazza required patience.</figcaption>\n    </figure>\n\n    <figure class=\"img-pair\">\n      <img src=\"images/travel-amalfi-limoncello-wall.jpg\" alt=\"Wall of limoncello bottles — Amalfi shop, every size imaginable\">\n      <img src=\"images/travel-amalfi-gelato-shop.jpg\" alt=\"Il Pianeta del Gelato — homemade ice cream dal 1959, Amalfi street crowd\">\n    </figure>\n    <p class=\"caption\">The lemons are everywhere. This is not a complaint.</p>\n\n    <!-- ─── SECTION 6: RAVELLO ─────────────────────────────────── -->\n    <span class=\"section-label\">Ravello — Elevation Changes Everything</span>\n\n    <p>The road up to Ravello takes twenty minutes and adds what feels like a different season. At three hundred and sixty-five metres, the air is cooler, the light different, the crowds thinner by half. We arrived around three o'clock and went directly to Villa Rufolo.</p>\n\n    <figure class=\"img-full\">\n      <img src=\"images/travel-amalfi-ravello-terrace.jpg\" alt=\"Ravello terrace — red mandevilla flowers, lone umbrella pine, coastline far below\">\n      <figcaption>The elevation changes the color of everything.</figcaption>\n    </figure>\n\n    <p>What the guidebooks call the belvedere at Villa Rufolo is a small stone terrace with a concert stage built at its edge — a platform that appears to float above the sea. Richard Wagner came here in 1880 and wrote that it had given him the idea for the garden in Parsifal. You can see why. The flowers, the sky, the specific blue of the Tyrrhenian from that height — it's the kind of view that makes you understand the word sublime in its original sense, not as praise but as a category of experience.</p>\n\n    <figure class=\"img-full\">\n      <img src=\"images/travel-amalfi-villa-rufolo.jpg\" alt=\"Villa Rufolo stone tower — umbrella pines, Ravello rooftops, mountains behind\">\n    </figure>\n\n    <p>We walked through town — past the ceramics shops, past a wall plaque of the seven deadly sins in terracotta that we stopped to photograph — and into the grounds of Villa Cimbrone. The path in is through a grape arbor, terracotta urns on either side, dappled light. Quiet enough that you can hear your footsteps.</p>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-cimbrone-entry.jpg\" alt=\"Villa Cimbrone entrance — grape arbor, terracotta urns, path leading to gardens\">\n      <figcaption>The gardens open slowly.</figcaption>\n    </figure>\n\n    <div class=\"pull-quote\">\n      \"The terrace appeared without warning. You walk through a gate and the cliff simply drops away.\"\n    </div>\n\n    <p>The Terrazza dell'Infinito is the reason people make the walk. A row of marble busts on a stone balustrade, and beyond them, nothing — the coastline curving away in both directions, the sea an impossible shade of blue, the horizon hazy with distance. Someone had come here before D.H. Lawrence, before Greta Garbo, before the guidebooks — and decided that this was where a terrace should be. They were right.</p>\n\n    <figure class=\"img-feature\">\n      <img src=\"images/travel-amalfi-terrazza-infinito.jpg\" alt=\"Terrazza dell'Infinito — marble busts in a row, Amalfi Coast coastline beyond\">\n    </figure>\n\n    <figure class=\"img-pair\">\n      <img src=\"images/travel-amalfi-marble-bust.jpg\" alt=\"Single marble bust on Infinity Terrace — coastline and blue sea behind\">\n      <img src=\"images/travel-amalfi-cimbrone-statue.jpg\" alt=\"Classical female statue in arched alcove, Villa Cimbrone gardens\">\n    </figure>\n    <p class=\"caption\">The afternoon light at that altitude is different from anything below.</p>\n\n    <!-- ─── SECTION 7: FAMILY MOMENT ──────────────────────────── -->\n    <span class=\"section-label\">A Moment We Didn't Plan</span>\n\n    <p>Before dinner we sat on the terrace at Palazzo Avino — the pink hotel that sits at Ravello's highest point — and ordered mojitos. Four of them, it turned out. The view from there looks directly down toward Minori and the coast bending toward Salerno. Below us, 365 metres below us, boats moved across the water like punctuation.</p>\n\n    <figure class=\"img-full\">\n      <img src=\"images/travel-amalfi-mojito-toast.jpg\" alt=\"Four mojito glasses raised — family toast, Ravello coastline 365 metres below\">\n      <figcaption>Dinner stretched longer than expected.</figcaption>\n    </figure>\n\n    <p>We hadn't planned this stop. We were heading to Rossellinis, which was twenty minutes away in terms of distance and considerably longer in terms of everything else. But the sun was still up and the view was in front of us and the mojitos arrived before we had made any decision about them. We stayed for the sunset.</p>\n\n    <!-- ─── SECTION 8: DINNER ROSSELLINIS ─────────────────────── -->\n    <span class=\"section-label\">Rossellinis — Palazzo Avino</span>\n\n    <p>The seafood display at Rossellinis is the first thing you see when you're brought to your table. A marble counter, backlit, with oysters and whole lobsters and langoustines arranged on crushed ice, lemons tucked between them, sea moss at the edges. It's theatrical in the way that certain kitchens are — not showing off, exactly, but not hiding anything either. The message is: this is what we're working with tonight.</p>\n\n    <figure class=\"img-full\">\n      <img src=\"images/travel-amalfi-rossellinis-display.jpg\" alt=\"Rossellinis seafood display — backlit marble counter, lobster, langoustines, oysters on ice, shell mosaic wall\">\n    </figure>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-rossellinis-counter.jpg\" alt=\"Rossellinis kitchen counter — seafood arranged on ice, chef working behind, mosaic detail\">\n      <figcaption>Before the meal begins, there is this.</figcaption>\n    </figure>\n\n    <p>We started with the amuse-bouche — four courses of them, each one arriving on its own white plate, each one a different register of the same idea: precision with local ingredients, nothing wasted. Then the tuna tartare on a crispy base, sesame, a round of jalapeño, nasturtium leaf. Then burrata and tomato, which sounds simple and was, except that the tomatoes were at a point of ripeness where simple is actually difficult to achieve.</p>\n\n    <figure class=\"img-pair\">\n      <img src=\"images/travel-amalfi-amuse-bouche.jpg\" alt=\"Four amuse-bouche on individual white plates — fine dining table setting, Rossellinis\">\n      <img src=\"images/travel-amalfi-burrata-bruschetta.jpg\" alt=\"Burrata and tomato bruschetta on mosaic tile — Rossellinis, Ravello\">\n    </figure>\n\n    <figure class=\"img-pair\">\n      <img src=\"images/travel-amalfi-pasta-zucchini.jpg\" alt=\"Angel hair pasta with zucchini and seafood — white bowl, Rossellinis\">\n      <img src=\"images/travel-amalfi-seafood-plate.jpg\" alt=\"Mixed grilled seafood on hand-painted ceramic — sea bream, squid, prawn, Rossellinis\">\n    </figure>\n    <p class=\"caption\">The kitchen worked with what the coast offers in August.</p>\n\n    <p>We drank Vigna Grotta Piana, a white from Ravello itself — Costa d'Amalfi DOC, made by Ettore Sammarco from vines grown somewhere on the slope below us. It was mineral and cool, with something almost saline in it, which is what happens when grapes grow at altitude above the sea. It made the seafood taste more like where it came from.</p>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-grotta-piana-wine.jpg\" alt=\"Vigna Grotta Piana, Ravello Costa d'Amalfi — bottle and glass, garden terrace\">\n      <figcaption>Made from the slope below us.</figcaption>\n    </figure>\n\n    <div class=\"personal-note\">\n      <span class=\"personal-note-label\">What we would do differently</span>\n      <p>We drove back to Positano after dinner, which took over an hour on the coastal road in the dark. It was beautiful — the moon over the water, the cliffs lit below. But next time we would stay in Ravello for the night and walk back into town when it was empty. The town after ten is a different place entirely.</p>\n    </div>\n\n    <!-- ─── SECTION 9: FAREWELL MORNING ──────────────────────── -->\n    <span class=\"section-label\">August 18 — Leaving</span>\n\n    <p>The last morning was quiet in the way that last mornings always are when you've been somewhere for a few days and it has started to feel ordinary. Church bells. The smell of something baking from somewhere below. Coffee on the terrace before the sun got above the ridge.</p>\n\n    <figure class=\"img-portrait\">\n      <img src=\"images/travel-amalfi-positano-morning.jpg\" alt=\"Positano cliffside, majolica church dome — morning light, before the crowds\">\n      <figcaption>Before the boats arrive.</figcaption>\n    </figure>\n\n    <p>We checked out at eleven. Walking down, we passed the church — Santa Maria Assunta — and went inside for a few minutes. Cool marble, the Byzantine Madonna above the altar, the smell of stone and candles. A few days earlier that same icon had been carried through the town in procession, through the same streets we had walked. It's the kind of continuity that a place earns over centuries and carries without explaining itself.</p>\n\n    <p>The coast road south was still empty. We didn't look back.</p>\n\n    <!-- ─── CLOSING REFLECTION ─────────────────────────────────── -->\n    <span class=\"section-label\">What We Learned Quickly</span>\n\n    <p>Positano in Ferragosto is not Positano at its quietest, and Amalfi on a Sunday in August is genuinely difficult. We knew this and went anyway, because the fireworks are once a year and the coast is worth it at any level of crowd. The trick, we think, is to treat the crowded moments — the cathedral steps, the packed beach, the slow road — as part of the experience rather than obstacles to it. The Terrazza dell'Infinito is still the Terrazza dell'Infinito whether you share it with fifty people or five. The wine tastes the same. The view doesn't change.</p>\n\n    <p>The things that stayed with us were smaller than we expected: the miniature village in Praiano, which no one had mentioned to us. The particular color of the light in Ravello at four in the afternoon. The sound of fireworks over water at midnight. Four mojitos and no plan for the sunset.</p>\n";
