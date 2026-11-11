@@ -16,7 +16,7 @@ const tidy=s=>String(s||'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'
 const img=(src,alt='',fallback='',className='')=>`<img class="${className}" src="${tidy(src)}" alt="${tidy(alt)}" loading="lazy" decoding="async" ${fallback?`data-fallback="${tidy(fallback)}"`:''}/>`;
 const photo=(src,alt='',fallback='',extra='')=>`<div class="photo-frame ${extra}">${img(src,alt,fallback)}</div>`;
 const link=(href,label,extra='')=>`<a class="text-link ${extra}" href="${href}">${label}<span class="arrow" aria-hidden="true">→</span></a>`;
-const routeLink=id=>`#/story/${id}`;
+const routeLink=id=>id==='maldives-ithaafushi'?'/journeys/maldives-ithaafushi/':`#/story/${id}`;
 const simpleNav=[['Journeys','#/journeys'],['Food & Wine','#/food-wine'],['Culture & Design','#/culture'],['Ideas & Interests','#/ideas'],['Journal','#/journal'],['About','#/about']];
 function header(route){return `
 <header class="site-header" id="site-header"><div class="header-inner">
