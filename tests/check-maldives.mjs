@@ -8,6 +8,7 @@ const sitemap = read('sitemap.xml');
 const galleryJS = read('maldives-gallery.js');
 const css = read('maldives-feature.css');
 assert(html.includes('href="/maldives-feature.css"'), 'Feature CSS missing');
+assert(app.includes('new Set(C.destinations.map(d=>d.country).sort())'), 'Journeys country filters are not derived from destinations');
 assert(html.includes('src="/maldives-gallery.js"'), 'Gallery script missing');
 assert(css.includes('prefers-reduced-motion'), 'Reduced-motion support missing');
 assert(galleryJS.includes('ArrowRight') && galleryJS.includes('ArrowLeft'), 'Keyboard gallery navigation missing');
@@ -28,6 +29,7 @@ for (const filename of files) {
   assert.equal(buf.toString('ascii', 0, 4), 'RIFF', `Not RIFF: ${path}`);
   assert.equal(buf.toString('ascii', 8, 12), 'WEBP', `Not WebP: ${path}`);
   assert(statSync(path).size < 1800000, `Unusually large public image: ${path}`);
+  assert.equal(buf.readUInt32LE(4) + 8, buf.length, `WebP RIFF length mismatch: ${path}`);
   for (let o = 12; o + 8 <= buf.length;) {
     const chunk = buf.toString('ascii', o, o + 4);
     const size = buf.readUInt32LE(o + 4);
