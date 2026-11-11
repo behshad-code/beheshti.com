@@ -381,3 +381,11 @@ a:hover .framed-image img,a:hover .photo-frame img,button:hover .framed-image im
  .about-hero .display{font-size:clamp(50px,10.6vw,70px);margin-top:25px;line-height:.92}
  .about-emblem-wrap{width:min(82vw,350px)}
 }
+
+/* Homepage editorial spotlight. Uses existing responsive showcase grid and typography. */
+.maldives-home-spotlight{padding-top:clamp(70px,8vw,125px);padding-bottom:clamp(12px,3vw,42px)}
+.maldives-home-spotlight .showcase-lead{margin-bottom:0}
+.maldives-home-spotlight .showcase-lead>a{display:block;min-width:0}
+.maldives-home-spotlight .showcase-lead .photo-frame{height:clamp(370px,38vw,560px)}
+.maldives-home-spotlight .showcase-lead .display{font-size:clamp(52px,5.6vw,90px)}
+@media(max-width:650px){.maldives-home-spotlight{padding-top:58px;padding-bottom:18px}.maldives-home-spotlight .showcase-lead .photo-frame{height:340px}.maldives-home-spotlight .showcase-lead .display{font-size:clamp(52px,12vw,70px)}}
