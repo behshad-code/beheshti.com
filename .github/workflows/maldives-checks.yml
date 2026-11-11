@@ -1,0 +1,40 @@
+name: Maldives photo essay checks
+on:
+  push:
+    branches:
+      - feature/maldives-ithaafushi-photo-essay
+  pull_request:
+    paths:
+      - app.js
+      - content.js
+      - sitemap.xml
+      - journeys/maldives-ithaafushi/**
+      - images/maldives/**
+      - maldives-feature.css
+      - maldives-gallery.js
+      - tests/check-maldives.mjs
+      - .github/workflows/maldives-checks.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Validate Maldives story and media
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js
+          node --check content.js
+          node --check maldives-gallery.js
+          node --check tests/check-maldives.mjs
+      - name: Verify article, routing, media and privacy
+        run: node tests/check-maldives.mjs

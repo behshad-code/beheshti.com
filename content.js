@@ -5,6 +5,7 @@
 window.BEHESHTI_CONTENT = {
   version: 'November 2026',
   stories: [
+    {id:'maldives-ithaafushi', title:'Seven Nights, Never Enough', kicker:'Journeys · Maldives', category:'Journeys', country:'Maldives', type:'Photo essay', summary:'Seven nights at Waldorf Astoria Maldives Ithaafushi, where extraordinary dining, an overwater villa and a day on an empty sandbar made leaving difficult.', image:'/images/maldives/quiet-lagoon.webp', duration:'15 min', status:'existing', original:'/journeys/maldives-ithaafushi/'},
     {id:'alhambra', title:'The Poetry of Water and Stone', kicker:'Architecture · Granada', category:'Culture & Design', country:'Spain', type:'Architecture & history', summary:'Within the Court of the Lions, a quiet system of water, light, poetry and geometry reveals the imagination of Nasrid Granada.', image:'assets/alhambra-hero.webp', duration:'10 min', status:'prototype'},
     {id:'ferragosto', title:'Ferragosto on the Amalfi Coast', kicker:'Journeys · Amalfi Coast', category:'Journeys',country:'Italy', type:'Journal feature', summary:'An Italian summer tradition, and the distinct atmosphere of the coast in August.', image:'/images/travel-amalfi-positano-dusk.jpg', fallback:'assets/ferragosto.webp', duration:'8 min', status:'existing', original:'/images/travel-amalfi-ferragosto.html'},
     {id:'positano-dusk',title:'Positano After Dark: the Village That Refuses to Sleep',kicker:'Journeys · Amalfi Coast', category:'Journeys',country:'Italy',type:'Journal story',summary:'Positano in the evening, when the coast takes on an entirely different rhythm.',image:'/images/travel-amalfi-positano-dusk.jpg',fallback:'assets/positano-concept.webp',duration:'8 min',status:'existing'},
@@ -20,6 +21,7 @@ window.BEHESHTI_CONTENT = {
     {id:'calamari',title:'Calamari Fritti e Limone: Italy’s Most Perfect Bar Snack',kicker:'Food & Wine · Amalfi',category:'Food & Wine',country:'Italy',type:'Journal story',summary:'A simple coastal dish and a familiar Italian ritual.',image:'/images/food-amalfi-calamari.jpg',fallback:'assets/seafood.webp',duration:'4 min',status:'existing'}
   ],
   destinations: [
+    {id:'maldives',place:'Maldives',region:'South Malé Atoll · Maldives',country:'Maldives',count:'Photo essay',image:'/images/maldives/quiet-lagoon.webp',featured:'maldives-ithaafushi'},
     {id:'granada',place:'Granada',region:'Andalusia · Spain',country:'Spain',count:'Granada, Spain',image:'assets/alhambra-hero.webp',featured:'alhambra'},
     {id:'amalfi',place:'Amalfi Coast',region:'Campania · Italy',country:'Italy',count:'Published collection',image:'/images/travel-amalfi-positano-aerial.jpg',fallback:'assets/positano-concept.webp',featured:'ferragosto'},
     {id:'capri',place:'Capri',region:'Campania · Italy',country:'Italy',count:'Published collection',image:'/images/travel-capri-marina.jpg',fallback:'assets/amalfi-coast.webp',featured:'capri-marina'},
