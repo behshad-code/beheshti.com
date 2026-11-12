@@ -42,6 +42,9 @@ assert(!app.match(/const simpleNav=[^\n]*Ideas & Interests/),'Empty Ideas collec
 const stories=C.stories;
 const ids=stories.map(s=>s.id);
 assert.equal(new Set(ids).size,ids.length,'Duplicate story IDs');
+assert.equal(stories.find(s=>s.id==='maldives-ithaafushi').title,'Somewhere Between Sea and Sky','Maldives catalog title not updated');
+assert(home.includes('Somewhere Between <em>Sea and Sky.</em>'),'Homepage featured title not updated');
+assert(app.includes('Read Somewhere Between Sea and Sky, our Maldives story'),'Mosaic link accessible title not updated');
 const maldives=stories.find(s=>s.id==='maldives-ithaafushi');
 assert(maldives&&maldives.sections.includes('Food & Wine'),'Maldives missing Food & Wine cross-listing');
 const dining=C.discoveries.filter(d=>d.section==='Food & Wine');
