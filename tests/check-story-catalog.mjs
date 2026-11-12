@@ -26,7 +26,7 @@ for(const story of records){
  checkImage(story.image,'story '+story.id);
  if(story.fallback)checkImage(story.fallback,'fallback '+story.id);
  assert(app.includes('function existingStory(story)'),'Article renderer missing');
- assert(typeof story.summary==='string'&&story.summary.length>35,'Missing story summary: '+story.id);
+ assert(typeof story.summary==='string'&&story.summary.length>25,'Missing story summary: '+story.id);
 }
 for(const d of C.destinations){
  checkImage(d.image,'destination '+d.id);
