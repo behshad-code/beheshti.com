@@ -152,7 +152,11 @@ function updateSearch(){
   ...(C.discoveries||[]).map(d=>({title:d.title,category:d.section,summary:d.summary,kicker:d.label,searchTerms:(d.topics||[]).join(' '),href:d.href})),
   ...C.destinations.map(d=>({title:d.place,category:'Destination',summary:d.region,href:routeLink(d.featured)}))
  ];
- const found=val?all.filter(x=>[x.title,x.category,x.summary,x.kicker,x.searchTerms].join(' ').toLowerCase().includes(val)):all.slice(0,6);
+ const matches=x=>[x.title,x.category,x.country,x.summary,x.kicker,x.searchTerms].join(' ').toLowerCase().includes(val);
+ const relevance=x=>{const title=x.title.toLowerCase(),kicker=(x.kicker||'').toLowerCase(),terms=(x.searchTerms||'').toLowerCase();
+  return (title===val?1000:title.startsWith(val)?500:title.includes(val)?250:0)+(kicker.includes(val)?20:0)+(terms.includes(val)?12:0);
+ };
+ const found=val?all.filter(matches).sort((a,b)=>relevance(b)-relevance(a)):all.slice(0,6);
  output.innerHTML=found.length?found.slice(0,16).map(s=>`<a href="${tidy(s.href)}" class="search-result"><div><span>${tidy(s.category)}</span><strong>${tidy(s.title)}</strong></div><span class="arrow" aria-hidden="true">↗</span></a>`).join(''):'<p class="empty-results">No matching stories. Try a place, restaurant or subject.</p>';
 }
 function openGallery(i){closeOverlay();lastOverlayTrigger=document.activeElement;lockOverlay(true);state.lightboxIndex=i;let overlay=document.createElement('div');overlay.className='overlay gallery-overlay';overlay.id='gallery-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Image gallery');overlay.innerHTML=`<div class="overlay-header"><span class="overline">The Alhambra · Gallery</span><button class="overlay-close" data-close-overlay aria-label="Close gallery">×</button></div><div class="gallery-view"><button class="gallery-arrow" id="gallery-prev" aria-label="Previous image">‹</button><img id="gallery-photo" src="" alt=""><button class="gallery-arrow" id="gallery-next" aria-label="Next image">›</button></div><div class="gallery-caption" id="gallery-caption"></div>`;document.body.append(overlay);$('#gallery-prev').addEventListener('click',()=>stepGallery(-1));$('#gallery-next').addEventListener('click',()=>stepGallery(1));overlay.querySelector('[data-close-overlay]').addEventListener('click',closeOverlay);setGallery(i);overlay.querySelector('[data-close-overlay]').focus();}

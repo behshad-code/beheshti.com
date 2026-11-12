@@ -21,6 +21,7 @@ assert(css.includes('@media(max-width:650px)'),'Phone breakpoints missing');
 assert(css.includes('prefers-reduced-motion'),'Reduced-motion support missing');
 assert(css.includes('.bh-food-more')&&css.includes('.bh-dining-grid'),'Food discovery layout missing');
 assert(app.includes('(C.discoveries||[])'),'Chapter search index not connected');
+assert(app.includes('relevance(b)-relevance(a)'),'Chapter-level search relevance missing');
 assert(app.includes('(s.sections||[])'),'Journal cross-category filter missing');
 assert(app.includes("const simpleNav=[['Journeys'"),'Main navigation missing');
 assert(!app.match(/const simpleNav=[^\n]*Ideas & Interests/),'Empty Ideas collection advertised in navigation');
