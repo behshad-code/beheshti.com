@@ -51,7 +51,7 @@ const lightboxes = [...html.matchAll(/data-mdv-lightbox="([^"]+)"/g)].map(m => m
 assert.equal(lightboxes.length, 63, 'Expected 63 gallery photographs');
 assert.equal(new Set(lightboxes).size, lightboxes.length, 'Duplicate gallery photographs');
 assert(html.includes('<link rel="canonical" href="https://beheshti.com/journeys/maldives-ithaafushi/"'), 'Incorrect canonical URL');
-assert(html.includes('<h1 class="mdv-editorial-title">Somewhere<br>Between Sea<br><em>and Sky</em></h1>'), 'Maldives headline inconsistent with approved title');
+assert(html.includes('<h1 class="mdv-editorial-title">Somewhere <br>Between Sea <br><em>and Sky</em></h1>'), 'Maldives headline inconsistent with approved title');
 assert(html.includes('<meta property="og:title" content="Somewhere Between Sea and Sky | BEHESHTI">'), 'Open Graph headline not updated');
 assert(html.includes('<meta name="twitter:title" content="Somewhere Between Sea and Sky | BEHESHTI">'), 'Twitter headline not updated');
 assert(html.includes('<title>Somewhere Between Sea and Sky | Maldives | BEHESHTI</title>'), 'Browser page title not updated');
