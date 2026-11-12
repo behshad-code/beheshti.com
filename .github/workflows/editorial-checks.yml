@@ -1,0 +1,48 @@
+name: Editorial homepage and discovery checks
+on:
+  push:
+    branches:
+      - feature/editorial-homepage-discovery-v2
+  pull_request:
+    paths:
+      - 'app.js'
+      - 'content.js'
+      - 'index.html'
+      - 'editorial-home.css'
+      - 'maldives-feature.css'
+      - 'journeys/maldives-ithaafushi/**'
+      - 'tests/check-editorial.mjs'
+      - '.github/workflows/editorial-checks.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verify JavaScript syntax
+        run: |
+          node --check app.js
+          node --check content.js
+          node --check tests/check-editorial.mjs
+      - name: Verify editorial content and navigation
+        run: node tests/check-editorial.mjs
+      - name: Verify Maldives media and chapters
+        run: node tests/check-maldives.mjs
+      - name: Verify Alhambra content
+        run: node tests/check-alhambra.mjs
+      - name: Prepare local browser QA bundle
+        if: github.event_name == 'push'
+        run: |
+          tar -czf editorial-preview.tar.gz \
+            index.html app.js content.js styles.css editorial-home.css \
+            alhambra-feature.css alhambra-feature.js alhambra-photos.js \
+            maldives-feature.css maldives-gallery.js tracking.js \
+            assets images journeys favicon.ico favicon-32x32.png \
+            favicon-16x16.png apple-touch-icon.png site.webmanifest
+      - name: Share preview for responsive QA
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-browser-preview
+          path: editorial-preview.tar.gz
+          retention-days: 3
