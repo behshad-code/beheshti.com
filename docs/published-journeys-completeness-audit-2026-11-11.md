@@ -50,3 +50,13 @@ A structural audit cannot establish that first-person anecdotes in Italy stories
 4. Consider a later SEO/URL initiative for JavaScript/hash-routed stories. Do not change old URLs without permanent redirects and navigation tests.
 
 **No raw originals were added to public GitHub by this audit.**
+
+## Source-photo follow-up, November 11
+
+A second pass of the user's previously uploaded Library previews confirmed that original, user-supplied photographs exist for the **first-night Lebanese/Middle Eastern dinner**, including the illuminated beach dining canopy, salad, fried kibbeh, bread and a rice-and-meat dish. These photographs were **not included** in the 64-image curated Maldives collection. Other potential omissions include additional anniversary welcome items, a yacht arrival view, and resort breakfast scenes. Original source photo records are still available in the Library, contradicting the earlier assumption that the uploads were lost.
+
+**Source access remains blocked:** Attempts to materialize the original files returned `This Project file does not have an authorized raw-byte materialization path.` The originals are not publishable from previews. They must be recovered via an authorized photo ZIP or backed files before a privacy-preserving enhancement and derivative pipeline can incorporate them. Public GitHub must not receive those unprocessed originals.
+
+The linked Maldives chapter has been enriched with detail grounded in the visible user photographs, but no unpublished source photograph is falsely presented as a published image. The current engineering tests verify the existing 64-photo selection only. Therefore the source-photo reconciliation and complete editorial verification must remain **open**, regardless of the successful technical release.
+
+An expanded offline browser check of the editorial site snapshot covered 95 route/viewport combinations and found no empty article pages, script errors or horizontal overflow. This is a snapshot QA finding, not independent live-site verification.
