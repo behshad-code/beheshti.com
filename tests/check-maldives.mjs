@@ -12,7 +12,7 @@ assert(app.includes('class="bh-featured-lead"') && app.includes('href="${routeLi
 assert(app.includes('bh-table-feature') && app.includes('href="${tidy(d.href)}"'), 'Dining chapters must remain accessible from homepage');
 assert(app.indexOf('bh-featured-lead') < app.indexOf('bh-table-feature'), 'Featured Maldives story must appear before the Food & Wine chapter section');
 assert(html.includes('private-yacht transfer took about 45 minutes') && html.includes('caviar and snacks'), 'Anniversary arrival details missing');
-assert(html.includes('Lebanese and Middle Eastern food on the beach'), 'First-night beach dinner missing');
+assert(html.includes('Lebanese and Middle Eastern food to the beach'), 'First-night beach dinner missing');
 assert(app.includes('new Set(C.destinations.map(d=>d.country).sort())'), 'Journeys country filters are not derived from destinations');
 assert(html.includes('src="/maldives-gallery.js"'), 'Gallery script missing');
 assert(css.includes('prefers-reduced-motion'), 'Reduced-motion support missing');
