@@ -12,7 +12,7 @@ assert(app.includes('class="bh-featured-lead"') && app.includes('href="${routeLi
 assert(app.includes('bh-table-feature') && app.includes('href="${tidy(d.href)}"'), 'Dining chapters must remain accessible from homepage');
 assert(app.indexOf('bh-featured-lead') < app.indexOf('bh-table-feature'), 'Featured Maldives story must appear before the Food & Wine chapter section');
 assert(html.includes('private-yacht transfer took about 45 minutes') && html.includes('caviar and snacks'), 'Anniversary arrival details missing');
-assert(html.includes('Lebanese and Middle Eastern food on the beach'), 'First-night beach dinner missing');
+assert(html.includes('Lebanese and Middle Eastern food to the beach'), 'First-night beach dinner missing');
 assert(app.includes('new Set(C.destinations.map(d=>d.country).sort())'), 'Journeys country filters are not derived from destinations');
 assert(html.includes('src="/maldives-gallery.js"'), 'Gallery script missing');
 assert(css.includes('prefers-reduced-motion'), 'Reduced-motion support missing');
@@ -62,7 +62,8 @@ assert(html.includes('https://beheshti.com/images/maldives/private-island-pool.w
 assert(html.includes('visited during our stay'), 'Private island tour must not be implied to be an overnight stay');
 assert(html.includes('<a href="#beach-dinner">First Night</a>'), 'First-night dining chapter missing from navigation');
 assert(html.includes('<section class="mdv-chapter" id="beach-dinner"'), 'Lebanese dinner must be an independent chapter');
-assert(html.includes('Lebanese and Middle Eastern food on the beach'), 'Original beach dinner account missing');
+assert(html.includes('Lebanese and Middle Eastern food to the beach'), 'First-night Lebanese dinner prose missing');
+assert(html.includes('crisp fried kibbeh') && html.includes('parsley-rich salad') && html.includes('slow-cooked meat and nuts'), 'Original photograph-supported dinner details missing');
 assert(html.includes('number 702'), 'Villa 702 detail missing');
 assert(html.includes('data-mdv-lightbox="evening-pier"') && html.includes('data-mdv-lightbox="palm-and-pavilion"'), 'Unpublished atmospheric photos have not been integrated');
 assert(html.includes('data-mdv-lightbox="quiet-lagoon"'), 'Original hero photo must remain in the article');
