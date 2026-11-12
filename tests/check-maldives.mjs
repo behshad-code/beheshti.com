@@ -45,10 +45,24 @@ for (const filename of files) {
 const refs = [...html.matchAll(/\/images\/maldives\/([a-z0-9-]+\.webp)/g)].map(m => m[1]);
 assert(refs.length > 100, 'Not enough article image references');
 for (const filename of new Set(refs)) assert(existsSync(`${imageDir}/${filename}`), `Broken image: ${filename}`);
-const chapterIds = ['the-arrival','our-villa','at-the-table','island-life','private-island','villa-dinner','li-long','zuma','the-simple-things','sandbars','the-sunset','until-next-time'];
+const chapterIds = ['the-arrival','beach-dinner','our-villa','at-the-table','island-life','private-island','villa-dinner','li-long','zuma','the-simple-things','sandbars','the-sunset','until-next-time'];
 for (const id of chapterIds) assert(html.includes(`id="${id}"`), `Missing chapter: ${id}`);
 const lightboxes = [...html.matchAll(/data-mdv-lightbox="([^"]+)"/g)].map(m => m[1]);
-assert.equal(lightboxes.length, 61, 'Expected 61 gallery photographs');
+assert.equal(lightboxes.length, 63, 'Expected 63 gallery photographs');
 assert.equal(new Set(lightboxes).size, lightboxes.length, 'Duplicate gallery photographs');
 assert(html.includes('<link rel="canonical" href="https://beheshti.com/journeys/maldives-ithaafushi/"'), 'Incorrect canonical URL');
+assert(html.includes('<section class="mdv-hero" aria-label="The Maldives"><img src="/images/maldives/private-island-pool.webp"'), 'Hero must show the private island pool photograph');
+assert(html.includes('https://beheshti.com/images/maldives/private-island-pool.webp'), 'Social preview not updated');
+assert(html.includes('visited during our stay'), 'Private island tour must not be implied to be an overnight stay');
+assert(html.includes('<a href="#beach-dinner">First Night</a>'), 'First-night dining chapter missing from navigation');
+assert(html.includes('<section class="mdv-chapter" id="beach-dinner"'), 'Lebanese dinner must be an independent chapter');
+assert(html.includes('Lebanese and Middle Eastern food on the beach'), 'Original beach dinner account missing');
+assert(html.includes('number 702'), 'Villa 702 detail missing');
+assert(html.includes('data-mdv-lightbox="evening-pier"') && html.includes('data-mdv-lightbox="palm-and-pavilion"'), 'Unpublished atmospheric photos have not been integrated');
+assert(html.includes('data-mdv-lightbox="quiet-lagoon"'), 'Original hero photo must remain in the article');
+assert(!lightboxes.includes('private-island-pool'), 'Hero photo should not be repeated in the gallery');
+const allFull = files.filter(x=>!x.endsWith('-sm.webp'));
+const displayedFull = new Set([...html.matchAll(/\/images\/maldives\/([a-z0-9-]+\.webp)/g)].map(x=>x[1]).filter(x=>!x.endsWith('-sm.webp')));
+assert.deepEqual([...displayedFull].sort(), allFull, 'Every curated full-size image must be represented in the story exactly once across hero and gallery');
+
 console.log(`PASS: ${chapterIds.length} chapters, ${lightboxes.length} gallery photographs, ${files.length} metadata-free images, and integrated navigation.`);
