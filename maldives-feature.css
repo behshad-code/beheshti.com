@@ -14,3 +14,8 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mdv-figure img{transition:none}.mdv-figure a:hover img{transform:none}}
 /* Deep-linked dining vignettes remain readable below the sticky chapter navigation. */
 #beach-dinner{scroll-margin-top:95px}
+
+/* Accommodate the three-line editorial title without crowding the image on narrow devices. */
+.mdv-hero h1.mdv-editorial-title{font-size:clamp(64px,7.6vw,122px);line-height:.91;letter-spacing:-.04em;max-width:830px}
+@media(max-width:760px){.mdv-hero h1.mdv-editorial-title{font-size:clamp(50px,12vw,70px);line-height:.96;letter-spacing:-.035em}}
+@media(max-width:350px){.mdv-hero h1.mdv-editorial-title{font-size:47px}}

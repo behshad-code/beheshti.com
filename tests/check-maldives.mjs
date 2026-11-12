@@ -51,6 +51,12 @@ const lightboxes = [...html.matchAll(/data-mdv-lightbox="([^"]+)"/g)].map(m => m
 assert.equal(lightboxes.length, 63, 'Expected 63 gallery photographs');
 assert.equal(new Set(lightboxes).size, lightboxes.length, 'Duplicate gallery photographs');
 assert(html.includes('<link rel="canonical" href="https://beheshti.com/journeys/maldives-ithaafushi/"'), 'Incorrect canonical URL');
+assert(html.includes('<h1 class="mdv-editorial-title">Somewhere <br>Between Sea <br><em>and Sky</em></h1>'), 'Maldives headline inconsistent with approved title');
+assert(html.includes('<meta property="og:title" content="Somewhere Between Sea and Sky | BEHESHTI">'), 'Open Graph headline not updated');
+assert(html.includes('<meta name="twitter:title" content="Somewhere Between Sea and Sky | BEHESHTI">'), 'Twitter headline not updated');
+assert(html.includes('<title>Somewhere Between Sea and Sky | Maldives | BEHESHTI</title>'), 'Browser page title not updated');
+assert(html.includes('"headline":"Somewhere Between Sea and Sky"'), 'Structured data headline not updated');
+assert(!html.includes('Seven Nights, Never Enough'), 'Old feature title remains in public page metadata');
 assert(html.includes('<section class="mdv-hero" aria-label="The Maldives"><img src="/images/maldives/private-island-pool.webp"'), 'Hero must show the private island pool photograph');
 assert(html.includes('https://beheshti.com/images/maldives/private-island-pool.webp'), 'Social preview not updated');
 assert(html.includes('visited during our stay'), 'Private island tour must not be implied to be an overnight stay');

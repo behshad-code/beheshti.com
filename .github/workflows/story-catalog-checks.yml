@@ -1,0 +1,37 @@
+name: Published story catalog completeness checks
+on:
+  push:
+    branches:
+      - main
+      - feature/maldives-sea-and-sky-title-and-collection-audit
+  pull_request:
+    paths:
+      - 'app.js'
+      - 'content.js'
+      - 'index.html'
+      - 'journeys/maldives-ithaafushi/**'
+      - 'maldives-feature.css'
+      - 'alhambra-feature.js'
+      - 'alhambra-photos.js'
+      - 'images/travel-amalfi-ferragosto.html'
+      - 'tests/check-story-catalog.mjs'
+      - '.github/workflows/story-catalog-checks.yml'
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax
+        run: |
+          node --check content.js
+          node --check app.js
+          node --check alhambra-feature.js
+          node --check tests/check-story-catalog.mjs
+      - name: Verify catalog bodies, media references, canonical routes, headline and discovery links
+        run: node tests/check-story-catalog.mjs
+      - name: Verify Maldives story and media
+        run: node tests/check-maldives.mjs
+      - name: Verify Alhambra photography and feature
+        run: node tests/check-alhambra.mjs
+      - name: Verify editorial homepage and search
+        run: node tests/check-editorial.mjs

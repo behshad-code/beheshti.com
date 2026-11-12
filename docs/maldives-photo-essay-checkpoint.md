@@ -1,6 +1,6 @@
 # Maldives photo essay: editorial audit and release checkpoint
 
-Feature: **Seven Nights, Never Enough** | Waldorf Astoria Maldives Ithaafushi
+Feature: **Somewhere Between Sea and Sky** | Waldorf Astoria Maldives Ithaafushi
 
 ## Scope and status
 
@@ -55,3 +55,6 @@ Run:
 
 Verify article hero, contrast, small-screen crop, sticky chapter navigation, `/#/food-wine` first-night deep link, lightbox, image paths, metadata-free images, and unchanged URLs.
 No deletion of existing stories or original assets; merge only after tests pass.
+
+## Editorial title revision
+The approved public display title is **Somewhere Between Sea and Sky**, while the canonical article URL is unchanged. Preserve the personal 'seven nights' sentiment in the body and farewell, not as the headline. Title consistency checks now cover the article, SEO/Open Graph/Twitter metadata, structured Article JSON-LD, homepage featured title, accessibility label and catalog entry.
