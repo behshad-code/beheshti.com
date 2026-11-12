@@ -62,7 +62,8 @@ assert(html.includes('https://beheshti.com/images/maldives/private-island-pool.w
 assert(html.includes('visited during our stay'), 'Private island tour must not be implied to be an overnight stay');
 assert(html.includes('<a href="#beach-dinner">First Night</a>'), 'First-night dining chapter missing from navigation');
 assert(html.includes('<section class="mdv-chapter" id="beach-dinner"'), 'Lebanese dinner must be an independent chapter');
-assert(html.includes('Lebanese and Middle Eastern food on the beach'), 'Original beach dinner account missing');
+assert(html.includes('Lebanese and Middle Eastern food to the beach'), 'First-night Lebanese dinner prose missing');
+assert(html.includes('crisp fried kibbeh') && html.includes('parsley-rich salad') && html.includes('slow-cooked meat and nuts'), 'Original photograph-supported dinner details missing');
 assert(html.includes('number 702'), 'Villa 702 detail missing');
 assert(html.includes('data-mdv-lightbox="evening-pier"') && html.includes('data-mdv-lightbox="palm-and-pavilion"'), 'Unpublished atmospheric photos have not been integrated');
 assert(html.includes('data-mdv-lightbox="quiet-lagoon"'), 'Original hero photo must remain in the article');
