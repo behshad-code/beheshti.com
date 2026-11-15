@@ -1,0 +1,22 @@
+# Generated public-only preview, never the source of truth
+/dist/
+/node_modules/
+*.log
+.DS_Store
+
+# Sensitive photo originals and private source material must not enter public Git
+*.heic
+*.HEIC
+*.dng
+*.DNG
+*.cr2
+*.nef
+*.arw
+*.raw
+*.xmp
+*.zip
+*.7z
+*.pem
+*.p12
+.env
+.env.*
