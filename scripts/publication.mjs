@@ -1,6 +1,7 @@
 // BEHESHTI public deployment boundary. No dependencies, no deployment side effects.
 // This module is also exercised by the pull-request security gate.
 import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 
 const publicRoots = new Set([
@@ -19,6 +20,18 @@ const publicPages = new Set([
 const mediaExt = /\.(?:jpg|jpeg|png|webp)$/i;
 const rawOrPrivateExt = /\.(?:heic|dng|cr2|nef|arw|raw|xmp|iptc|zip|7z|pdf|docx|msg|sqlite|p12|pem|key)$/i;
 const privateNames = /(?:^|\/)(?:\.env(?:\.[^/]*)?|id_rsa|id_ed25519|\.ds_store|\.htpasswd|secrets?\.json)$/i;
+
+// The only accepted legacy EXIF blobs are two unchanged, previously reviewed
+// public JPEGs containing resolution/orientation/processing information, not
+// GPS, device identity or capture timestamps. Any replacement with EXIF fails.
+const legacySafeExifBlobs = new Map([
+  ['images/travel-amalfi-positano-aerial.jpg','19648feab57d9e38deaf81f13a9ecb8ca694d4e3'],
+  ['images/travel-amalfi-church-dusk.jpg','95aa1258269aec75ce8a31b68f31c06117fbb504']
+]);
+function blobHash(data) {
+  return createHash('sha1').update('blob ' + data.length + '\0').update(data).digest('hex');
+}
+
 
 export function isPublicPath(file) {
   if (typeof file !== 'string' || !file || file.startsWith('/') || file.includes('\\') ||
@@ -118,7 +131,7 @@ function scanJPEG(b, issues) {
     const value = b.subarray(i+2, i+size);
     if (marker === 225) {
       const text = value.toString('latin1');
-      if (text.startsWith('Exif\u0000\u0000')) inspectExif(value,issues);
+      if (text.startsWith('Exif\u0000\u0000')) { inspectExif(value,issues); issues.push('EXIF'); }
       if (/http:\/\/ns\.adobe\.com\/|<x:xmpmeta|<rdf:RDF/i.test(text)) issues.push('XMP');
     }
     if (marker === 237 && /Photoshop 3\.0|IPTC/i.test(value.toString('latin1'))) issues.push('IPTC/Photoshop');
@@ -162,7 +175,9 @@ export function mediaFindings(buffer, file) {
   if (/\.jpe?g$/i.test(file)) scanJPEG(data,issues);
   else if (/\.png$/i.test(file)) scanPNG(data,issues);
   else if (/\.webp$/i.test(file)) scanWebP(data,issues);
-  return [...new Set(issues)];
+  const found=[...new Set(issues)];
+  if (found.length===1 && found[0]==='EXIF' && legacySafeExifBlobs.get(file)===blobHash(data)) return [];
+  return found;
 }
 
 export async function auditSource(root) {
