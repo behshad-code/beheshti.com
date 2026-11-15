@@ -25,11 +25,11 @@ const privateNames = /(?:^|\/)(?:\.env(?:\.[^/]*)?|id_rsa|id_ed25519|\.ds_store|
 // public JPEGs containing resolution/orientation/processing information, not
 // GPS, device identity or capture timestamps. Any replacement with EXIF fails.
 const legacySafeExifBlobs = new Map([
-  ['images/travel-amalfi-positano-aerial.jpg','19648feab57d9e38deaf81f13a9ecb8ca694d4e3'],
-  ['images/travel-amalfi-church-dusk.jpg','95aa1258269aec75ce8a31b68f31c06117fbb504']
+  ['images/travel-amalfi-positano-aerial.jpg','a88bb62f238301a069a900ab49e66d76b4bc1ba95a0dfa4b1320a042b180afba'],
+  ['images/travel-amalfi-church-dusk.jpg','fe716c95ea57ea378785ad264915133ad3c298df876b999e709430a929aa9bf8']
 ]);
 function blobHash(data) {
-  return createHash('sha1').update('blob ' + data.length + '\0').update(data).digest('hex');
+  return createHash('sha256').update(data).digest('hex');
 }
 
 
