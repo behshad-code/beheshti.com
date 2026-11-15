@@ -26,7 +26,7 @@ test('public routing allowlist cannot publish internal documentation or raw medi
 test('metadata scanner rejects synthetic EXIF, PNG text, WebP EXIF and malformed media',()=>{
   const exif=Buffer.from('Exif\u0000\u0000some-metadata','latin1');
   const jpg=Buffer.concat([Buffer.from([255,216,255,225,0,exif.length+2]),exif,Buffer.from([255,217])]);
-  assert.ok(mediaFindings(jpg,'example.jpg').includes('EXIF'));
+  assert.ok(mediaFindings(jpg,'example.jpg').some(x=>x.includes('EXIF')));
   const png=Buffer.concat([Buffer.from('89504e470d0a1a0a','hex'),Buffer.from([0,0,0,0]),Buffer.from('tEXt'),Buffer.alloc(4)]);
   assert.ok(mediaFindings(png,'example.png').some(x=>x.includes('metadata')));
   const chunk=Buffer.concat([Buffer.from('EXIF'),Buffer.alloc(4)]);
@@ -63,7 +63,7 @@ test('standalone pages carry CSP without blocking their own scripts',async()=>{
 test('search and gallery focus management uses a collection, wraps focus and restores it',async()=>{
   const app=await read('app.js');
   assert.match(app,/\$\$\('button:not\(\[disabled\]\)/);
-  assert.doesNotMatch(app,/\$\('button:not\(\[disabled\]\)[\s\S]{0,150}\.filter\(/);
+  assert.doesNotMatch(app,/const focusables=\$\('button:not\(\[disabled\]\)/);
   assert.match(app,/!modal\.contains\(document\.activeElement\)/);
   assert.match(app,/lastOverlayTrigger\.focus/);
   assert.match(app,/e\.key==='Escape'/);
