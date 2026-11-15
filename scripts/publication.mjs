@@ -53,6 +53,54 @@ export function sourcePathFindings(files) {
   return files.filter(file => rawOrPrivateExt.test(file) || privateNames.test(file));
 }
 
+// Inspect EXIF field names and directory pointers without logging actual values.
+// A few historical public images carry non-location Apple HDR processing tags;
+// safe image-rendering tags are tolerated, while private EXIF fields are rejected.
+function inspectExif(payload, issues) {
+  if (payload.subarray(0,6).toString('latin1')!=='Exif\u0000\u0000') return;
+  const b=payload.subarray(6);
+  try {
+    const order=b.toString('ascii',0,2);
+    if (!['II','MM'].includes(order)) throw new Error('invalid byte order');
+    const little=order==='II';
+    const u16=i=>{if(i<0||i+2>b.length)throw new Error('truncated EXIF field');return little?b.readUInt16LE(i):b.readUInt16BE(i);};
+    const u32=i=>{if(i<0||i+4>b.length)throw new Error('truncated EXIF field');return little?b.readUInt32LE(i):b.readUInt32BE(i);};
+    if(u16(2)!==42)throw new Error('invalid TIFF header');
+    const sensitive=new Map([
+      [0x010f,'camera make'],[0x0110,'camera model'],[0x0132,'capture timestamp'],
+      [0x013b,'artist name'],[0x8298,'copyright attribution'],[0x9003,'capture timestamp'],
+      [0x9004,'digitized timestamp'],[0x9010,'time offset'],[0x9011,'time offset'],
+      [0x9012,'time offset'],[0x927c,'proprietary maker note'],
+      [0x9290,'subsecond timestamp'],[0x9291,'subsecond timestamp'],[0x9292,'subsecond timestamp'],
+      [0xa420,'image unique identifier'],[0xa430,'camera owner'],
+      [0xa431,'body serial number'],[0xa432,'lens specification'],
+      [0xa433,'lens make'],[0xa434,'lens model'],[0xa435,'lens serial number'],
+      [0x9c9b,'personal title'],[0x9c9c,'personal comment'],[0x9c9d,'personal author'],
+      [0x9c9e,'personal keywords'],[0x9c9f,'personal subject']
+    ]);
+    const seen=new Set(),pending=[u32(4)];
+    while(pending.length){
+      const offset=pending.pop();
+      if(!offset||seen.has(offset))continue;
+      seen.add(offset);
+      if(seen.size>12)throw new Error('excessive EXIF directories');
+      const count=u16(offset);
+      if(count>256)throw new Error('oversized EXIF directory');
+      for(let j=0;j<count;j++){
+        const entry=offset+2+j*12;
+        const tag=u16(entry);
+        if(tag===0x8825)issues.push('GPS directory');
+        if(sensitive.has(tag))issues.push('EXIF '+sensitive.get(tag));
+        if(tag===0x8769){ const next=u32(entry+8);if(next)pending.push(next); }
+      }
+      const next=u32(offset+2+count*12);
+      if(next)pending.push(next);
+    }
+  } catch {
+    issues.push('unparseable EXIF');
+  }
+}
+
 function scanJPEG(b, issues) {
   if (b.length < 4 || b[0] !== 255 || b[1] !== 216) {
     issues.push('invalid JPEG signature'); return;
@@ -69,9 +117,9 @@ function scanJPEG(b, issues) {
     if (size < 2 || i + size > b.length) { issues.push('invalid JPEG segment length'); break; }
     const value = b.subarray(i+2, i+size);
     if (marker === 225) {
-      const s = value.toString('latin1');
-      if (s.startsWith('Exif\u0000\u0000')) issues.push('EXIF');
-      if (/http:\/\/ns\.adobe\.com\/|<x:xmpmeta|<rdf:RDF/i.test(s)) issues.push('XMP');
+      const text = value.toString('latin1');
+      if (text.startsWith('Exif\u0000\u0000')) inspectExif(value,issues);
+      if (/http:\/\/ns\.adobe\.com\/|<x:xmpmeta|<rdf:RDF/i.test(text)) issues.push('XMP');
     }
     if (marker === 237 && /Photoshop 3\.0|IPTC/i.test(value.toString('latin1'))) issues.push('IPTC/Photoshop');
     if (marker === 254 && /\b(?:GPS|DateTimeOriginal|CameraModel|DeviceSerial)\b/i.test(value.toString('latin1'))) issues.push('sensitive JPEG comment');
