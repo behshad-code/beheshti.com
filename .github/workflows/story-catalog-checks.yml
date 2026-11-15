@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - feature/maldives-sea-and-sky-title-and-collection-audit
   pull_request:
     paths:
       - 'app.js'
@@ -16,11 +15,14 @@ on:
       - 'images/travel-amalfi-ferragosto.html'
       - 'tests/check-story-catalog.mjs'
       - '.github/workflows/story-catalog-checks.yml'
+permissions:
+  contents: read
+
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
       - name: Syntax
         run: |
           node --check content.js

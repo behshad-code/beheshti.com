@@ -1,0 +1,50 @@
+name: Security and publication checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    name: Security and public artifact validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the proposed changes
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - name: Validate all JavaScript syntax
+        run: find . -type f \( -name '*.js' -o -name '*.mjs' \) -not -path './dist/*' -print0 | xargs -0 -n1 node --check
+      - name: Run all existing editorial regression checks
+        run: |
+          node tests/check-alhambra.mjs
+          node tests/check-maldives.mjs
+          node tests/check-editorial.mjs
+          node tests/check-story-catalog.mjs
+      - name: Run security and privacy regression checks
+        run: node --test tests/check-security.mjs
+      - name: Build public-only preview artifact
+        run: node scripts/build-public.mjs
+      - name: Verify exact published inventory, metadata and static resources
+        run: node scripts/verify-public.mjs
+      - name: Save preview for private PR review only
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: beheshti-public-only-preview
+          path: dist/
+          if-no-files-found: error
+          retention-days: 3
+
+# This workflow neither deploys nor changes the GitHub Pages publishing source.
+# Do not add pages:write or id-token:write without a separate production approval.
