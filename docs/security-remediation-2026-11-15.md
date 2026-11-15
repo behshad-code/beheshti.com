@@ -56,11 +56,11 @@ node scripts/verify-public.mjs
 Run desktop/tablet/mobile, keyboard-only, analytics, social-preview and CSP checks in a real browser **before any production approval**. Verify exact Pages source and HTTPS/domain settings through authenticated access.
 
 ## Verified development-branch test results
-- Branch SHA tested: `a2235de718f4f5157fa958c2240e9d8eb7217b6a`.
-- GitHub Actions: five workflows succeeded, including `Security and public artifact validation` (run `43760892739`) plus Alhambra, Maldives, editorial discovery, and story catalog checks.
+- Latest fully verified code SHA: `8db601c73905e63eca15a1704da4f692ee9b59a8`.
+- GitHub Actions: five workflows succeeded, including `Security and public artifact validation` (run `43761073465`) plus Alhambra, Maldives, editorial discovery, and story catalog checks.
 - Seven new security test cases passed; all four original Node regression suites and JavaScript syntax validation passed.
 - Preview-only deployment staging generated **286 allowlisted files**. Independent artifact verification passed: no `docs/`, `tests/`, `scripts/` or `.github/` in the public preview; all checked static HTML resources resolved.
-- The archived preview was examined offline. **261 published JPG/WebP/PNG derivatives decoded successfully** using Pillow with zero image errors. Both previously published JPEG files carrying non-sensitive orientation/resolution/processing EXIF were separately verified to have no GPS directory; the screening code accepts only their original exact Git blob fingerprints and rejects new or changed EXIF-bearing images.
+- The archived preview was examined offline. **261 published JPG/WebP/PNG derivatives decoded successfully** using Pillow with zero image errors. Both previously published JPEG files carrying non-non-sensitive orientation/resolution/processing EXIF were separately verified to have no GPS directory; the screening code accepts only their original exact SHA-256 byte fingerprints and rejects new or changed EXIF-bearing images.
 - All 13 Maldives chapter anchor IDs are present exactly once. The six published HTML pages retain CSP, canonical metadata and social metadata; the legacy archive has 35 data-bound controls and no inline click attributes.
 - **Not verified:** real rendered responsiveness, actual keyboard focus trapping in a browser, screen-reader behavior, external analytics SRI/CORS and production HTTP header/CSP compatibility. The local Chromium browser returned `ERR_BLOCKED_BY_ADMINISTRATOR` for local HTTP and file navigation. Do not claim these visual and interaction checks passed.
 - No domain, DNS, Pages settings, registrar, GitHub account security, historical binary metadata, private-location correlation or historical archive/fork coverage has been newly certified.
